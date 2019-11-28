@@ -1,0 +1,51 @@
+.bg-login {
+	background-image: url('../img/gambar/lamar.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
+.bg-register {
+	background-image: url('../img/gambar/register.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
+.bg-image {
+	background-image: url('../img/gambar/bg2.png');
+	background-position: center;
+	background-size: cover;
+}
+
+.delete {
+	margin-left: 10px;
+}
+
+.bg {
+	font-family: verdana;
+	font-size: 13px;
+	font-weight: 200;
+	background-color: #2c323a;
+	color: #e1ffff;
+}
+
+.navbar-nav ul,
+.navbar-nav li {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	line-height: 30px;
+	cursor: pointer;
+}
+
+.bread {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+}
+
+.posisi {
+	float: right;
+	padding-right: 19px;
+	padding-top: 7px;
+	font-size: 12px;
+}
