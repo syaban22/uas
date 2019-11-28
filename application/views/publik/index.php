@@ -86,7 +86,7 @@
                     </div>
                     <div class="col">
                       <p class="card-text"><i class="fas fa-fw fa-user-tie mr-3"></i>Staf Senior, Supervisor</p>
-                      <p><i class="fas fa-fw fa-graduation-cap mr-3"></i>Diploma/D3, Sarjana/S1</p>
+                      <p><i class="fas fa-fw fa-graduation-cap mr-3"></i>Diploma, Sarjana/S1</p>
                     </div>
                   </div>
                   <div class="card-footer bg-transparent border-success pr-0">
