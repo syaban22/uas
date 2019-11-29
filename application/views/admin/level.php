@@ -42,9 +42,9 @@
 							<th scope="row"><?= $no; ?></th>
 							<td><?= $l['level']; ?></td>
 							<td>
-								<a href="<?= base_url('admin/levelAkses/') . $l['id']; ?>" class="badge badge-warning">Akses</a>
-								<a href="" class="badge badge-success" data-toggle="modal" data-target="#levelEdit<?= $l['id'] ?>">Edit</a>
-								<a href="<?= base_url('admin/delete/' . $l['id']) ?>" class="badge badge-danger">Delete</a>
+								<a href="<?= base_url('admin/levelAkses/') . $l['id']; ?>" class="btn btn-success btn-sm delete"><i class="fa fa-fw fa-user-check"></i> Akses</a>
+								<a href="" data-toggle="modal" data-target="#levelEdit<?= $l['id'] ?>" class="btn btn-primary btn-sm delete"><i class="fa fa-fw fa-edit"></i> Edit</a>
+								<a href="<?= base_url('admin/delete/' . $l['id']) ?>" class="btn btn-danger btn-sm delete"><i class="fa fa-fw fa-trash"></i> Delete</a>
 							</td>
 						</tr>
 						<?php $no++; ?>
