@@ -16,7 +16,7 @@
 
 			<?= $this->session->flashdata('pesan'); ?>
 
-			<a href="" class="btn btn-primary" data-toggle="modal" data-target="#perusahaanBaru">Tambah Posisi Baru</a>
+			<a href="" class="btn btn-primary" data-toggle="modal" data-target="#perusahaanBaru">Tambah Posisi</a>
 
 			<table class="table table-hover">
 				<thead>
