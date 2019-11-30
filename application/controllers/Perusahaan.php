@@ -23,7 +23,7 @@ class Perusahaan extends CI_Controller
 
 	public function posisi()
 	{
-		$data['judul'] = 'Posisi Perusahaan';
+		$data['judul'] = 'Posisi';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
 		$data['posisi'] = $this->db->get('posisi')->result_array();
