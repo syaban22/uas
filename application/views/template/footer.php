@@ -71,6 +71,7 @@
 
 <script>
   $(document).ready(function() {
+    $("#load").fadeOut(500);
     $("#perusahaan").change(function() {
       //let a = $(this).val();
       //console.log(a);
