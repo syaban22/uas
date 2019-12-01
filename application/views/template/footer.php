@@ -83,8 +83,10 @@
   function perusahaan() {
     var perusahaan = $("#perusahaan").val();
     $.ajax({
-      url: "<?= base_url('admin/index'); ?>",
+      type: 'POST',
       data: "perusahaan=" + perusahaan,
+
+      url: "<?= site_url('admin/index'); ?>",
       success: function(per) {
         $("#perus tbody").html('<tr><td colspan="12" align="center" class="alert alert-danger" role="alert">Data not found!</tr>')
         console.log(per);
