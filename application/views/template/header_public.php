@@ -24,10 +24,11 @@
   <link href="<?= base_url('asset/'); ?>css/css_public/flexslider.css" rel="stylesheet">
 
   <link href="<?= base_url('asset/'); ?>css/css_public/font-awesome/font-awesome.css" rel="stylesheet">
+  <link href="<?= base_url('asset/'); ?>css/css_public/publics.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
-
+  <div id="load">Loading . . .</div>
   <!-- Page Wrapper -->
   <div id="wrapper">

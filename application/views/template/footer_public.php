@@ -53,6 +53,11 @@
 <script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/functions.js"></script>
 <script type="text/javascript" defer src="<?= base_url('asset/'); ?>js/public_js/jquery.flexslider.js"></script>
 
+<script>
+  $(document).ready(function() {
+    $("#load").fadeOut(1000);
+  });
+</script>
 </body>
 
 </html>
