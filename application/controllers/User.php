@@ -36,6 +36,36 @@ class User extends CI_Controller
 		$this->load->view('template/footer');
 	}
 
+	public function UbahFoto($id)
+	{
+		$config['upload_path']          = './asset/img/profile/';
+		$config['allowed_types']        = 'jpg|jpeg|png';
+		$config['max_size']             = 0;
+		$config['max_width']            = 500;
+		$config['max_height']           = 500;
+		$config['overwrite'] 			= TRUE;
+
+		$this->upload->initialize($config);
+
+		$this->upload->do_upload('UbahFoto');
+		$gbr = $this->upload->data();
+		$file = $gbr['file_name'];
+		var_dump($file);
+
+		$data = [
+			'gambar' => $file,
+		];
+		if ($this->upload->do_upload('UbahFoto') == false) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Format Foto Salah</div>');
+			redirect('user');
+		} else {
+			$this->db->where('id', $id);
+			$this->db->update('user', $data);
+			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Update Foto Berhasil</div>');
+			redirect('user');
+		}
+	}
+
 	public function lamarPekerjaan()
 	{
 		$data['judul'] = 'Lamar Pekerjaan';
@@ -59,7 +89,6 @@ class User extends CI_Controller
 		// $config['max_width']            = 1024;
 		// $config['max_height']           = 768;
 
-		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
 
 

@@ -175,6 +175,30 @@
       bgColor: '#7EC857'
     });
   </script>
+<?php elseif ($this->session->flashdata('pesan') == '<div class="alert alert-danger" role="alert">Format Foto Salah</div>') : ?>
+  <script type="text/javascript">
+    $.toast({
+      heading: 'Gagal',
+      text: "Update foto tidak berhasil.",
+      showHideTransition: 'slide',
+      icon: 'error',
+      hideAfter: false,
+      position: 'bottom-right',
+      bgColor: '#dc3545'
+    });
+  </script>
+<?php elseif ($this->session->flashdata('pesan') == '<div class="alert alert-success" role="alert">Update Foto Berhasil</div>') : ?>
+  <script type="text/javascript">
+    $.toast({
+      heading: 'Berhasil',
+      text: "Update foto berhasil.",
+      showHideTransition: 'slide',
+      icon: 'success',
+      hideAfter: false,
+      position: 'bottom-right',
+      bgColor: '#7EC857'
+    });
+  </script>
 <?php endif; ?>
 </body>
 
