@@ -92,12 +92,9 @@ class User extends CI_Controller
 		$this->upload->initialize($config);
 
 
-		// $this->upload->do_upload('ktp');
-		// $gbr = $this->upload->data();
-		// $file = $gbr['file_name'];
-		// $up = $upload['file_name'];
-
-		// var_dump($up);
+		$this->upload->do_upload('ktp');
+		$gbr = $this->upload->data();
+		$file = $gbr['file_name'];
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view('template/header', $data);
