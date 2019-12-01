@@ -72,27 +72,24 @@
 <script>
   $(document).ready(function() {
     $("#load").fadeOut(500);
-    $("#perusahaan").change(function() {
-      //let a = $(this).val();
-      //console.log(a);
-      perusahaan();
-
-    });
-  });
-
-  function perusahaan() {
-    var perusahaan = $("#perusahaan").val();
-    $.ajax({
-      type: 'POST',
-      data: "perusahaan=" + perusahaan,
-
-      url: "<?= site_url('admin/index'); ?>",
-      success: function(per) {
-        $("#perus tbody").html('<tr><td colspan="12" align="center" class="alert alert-danger" role="alert">Data not found!</tr>')
-        console.log(per);
+    $('#perusahaan').on('change', function() {
+      var no = $('#perusahaan option:selected').val();
+      if (no != null) {
+        var url = "<?= base_url(); ?>admin/index";
+        var noo = $.ajax({
+          url: url,
+          data: {
+            'data': no
+          },
+          dataType: 'json'
+        });
+        noo.done(function(data) {
+          // console.log('data', data);
+          // alert(data);
+        });
       }
     });
-  }
+  });
 </script>
 
 <script>

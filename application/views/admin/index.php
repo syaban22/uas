@@ -2,7 +2,6 @@
 <div class="container-fluid">
 
 	<!-- Page Heading -->
-
 	<div>
 		<div class="row">
 
@@ -32,7 +31,7 @@
 	</div>
 	<div class="col-md-2">
 		<select class="form-control" name="" id="perusahaan">
-			<option value="0">Tampilkan Semua</option>
+			<option value="5">Tampilkan Semua</option>
 			<option value="1">PT Jaya Usaha</option>
 			<option value="4">PT Maju</option>
 			<option value="7">PT Abadi</option>

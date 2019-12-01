@@ -22,8 +22,9 @@ class Admin extends CI_Controller
 
 
 		//filter
-		$perusahaan = 0;
-		$per = $this->db->get_where('lamar_pekerjaan', ['perusahaan_id' => $perusahaan])->result();
+		$nomor = $this->input->post('data');
+		//echo $perusahaan;
+		//$per = $this->db->get_where('lamar_pekerjaan', ['perusahaan_id' => $perusahaan])->result();
 
 		//print_r($per);
 
@@ -38,6 +39,9 @@ class Admin extends CI_Controller
 		$this->db->from('lamar_pekerjaan');
 		$config['total_rows'] = $this->db->count_all_results();
 		$data['total_rows'] = $config['total_rows'];
+		// if ($perusahaan == 0) {
+		// 	$perusahaan = 5;
+		// }
 		$config['per_page'] = 5;
 		//$data['start'] = $this->uri->segment(3);
 		//var_dump($this->input->post('num_rows'));
@@ -48,7 +52,6 @@ class Admin extends CI_Controller
 		// if ($data['page'] == 0) {
 		// 	$data['page'] = 1;
 		// }
-
 
 		$this->pagination->initialize($config);
 
@@ -65,9 +68,8 @@ class Admin extends CI_Controller
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('template/topbar', $data);
 		$this->load->view('admin/index', $data);
-		$this->load->view('template/footer', $per, FALSE);
+		$this->load->view('template/footer');
 	}
-
 	public function updatePelamar($id)
 	{
 		$data = array(
