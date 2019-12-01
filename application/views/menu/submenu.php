@@ -55,8 +55,8 @@
 							<td><?= $sm['icon']; ?></td>
 							<td><?= $sm['is_active']; ?></td>
 							<td>
-								<a href="" class="badge badge-success" data-toggle="modal" data-target="#subMenuEdit<?= $sm['id'] ?>">Edit</a>
-								<a href="<?= base_url('menu/deletesm/' . $sm['id']) ?>" class="badge badge-danger">Delete</a>
+								<a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#subMenuEdit<?= $sm['id'] ?>"><i class="fa fa-fw fa-edit"></i>Edit</a>
+								<a href="<?= base_url('menu/deletesm/' . $sm['id']) ?>" class="btn btn-danger btn-sm delete"><i class="fa fa-fw fa-trash"></i>Delete</a>
 							</td>
 						</tr>
 						<?php $no++; ?>

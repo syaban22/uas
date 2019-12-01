@@ -43,8 +43,8 @@
 							<th scope="row"><?= $no; ?></th>
 							<td><?= $m['menu']; ?></td>
 							<td>
-								<a href="" class="badge badge-success" data-toggle="modal" data-target="#menuEdit<?= $m['id'] ?>">Edit</a>
-								<a href="<?= base_url('menu/delete/' . $m['id']) ?>" class="badge badge-danger">Delete</a>
+								<a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#menuEdit<?= $m['id'] ?>"><i class="fa fa-fw fa-edit"></i>Edit</a>
+								<a href="<?= base_url('menu/delete/' . $m['id']) ?>" class="btn btn-danger btn-sm delete"><i class="fa fa-fw fa-trash"></i>Delete</a>
 							</td>
 						</tr>
 						<?php $no++; ?>

@@ -26,7 +26,11 @@ class Perusahaan extends CI_Controller
 		$data['judul'] = 'Posisi';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
+		$this->load->model('Posisi_model', 'posisi');
+
+		$data['gaji'] = $this->posisi->getGaji();
 		$data['posisi'] = $this->db->get('posisi')->result_array();
+		$data['gajii'] = $this->db->get('gaji')->result_array();
 
 		$this->form_validation->set_rules('posisi', 'Posisi', 'required');
 
@@ -39,6 +43,7 @@ class Perusahaan extends CI_Controller
 		} else {
 			$data = [
 				'posisi' => $this->input->post('posisi'),
+				'id_gaji' => $this->input->post('gaji')
 			];
 
 			$this->db->insert('posisi', $data);
@@ -51,6 +56,7 @@ class Perusahaan extends CI_Controller
 	{
 		$data = array(
 			'posisi' => $this->input->post('posisiU'),
+			'id_gaji' => $this->input->post('gajiU')
 		);
 
 		$this->db->where('id', $id);

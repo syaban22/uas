@@ -23,18 +23,20 @@
 					<tr>
 						<th scope="col">No</th>
 						<th scope="col">Posisi</th>
+						<th scope="col">Gaji</th>
 						<th scope="col">Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php $no = 1; ?>
-					<?php foreach ($posisi as $p) : ?>
+					<?php foreach ($gaji as $p) : ?>
 						<tr>
 							<th scope="row"><?= $no; ?></th>
 							<td><?= $p['posisi']; ?></td>
+							<td><?= $p['ket_gaji']; ?></td>
 							<td>
-								<a href="" class="badge badge-success" data-toggle="modal" data-target="#posisiEdit<?= $p['id'] ?>">Edit</a>
-								<a href="<?= base_url('perusahaan/deletePosisi/' . $p['id']) ?>" class="badge badge-danger">Delete</a>
+								<a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#posisiEdit<?= $p['id'] ?>"><i class="fa fa-fw fa-edit"></i>Edit</a>
+								<a href="<?= base_url('perusahaan/deletePosisi/' . $p['id']) ?>" class="btn btn-danger btn-sm delete"><i class="fa fa-fw fa-trash"></i>Delete</a>
 							</td>
 						</tr>
 						<?php $no++; ?>
@@ -68,6 +70,13 @@
 					<div class="form-group">
 						<input type="text" class="form-control" name="posisi" id="posisi" placeholder="Posisi baru">
 					</div>
+					<div class="form-group">
+						<select name="gaji" id="gaji" class="form-control">
+							<?php foreach ($gajii as $g) : ?>
+								<option value="<?= $g['id']; ?>"><?= $g['ket_gaji']; ?></option>
+							<?php endforeach; ?>
+						</select>
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -97,6 +106,13 @@
 						<div class="form-group">
 							<input type="text" class="form-control" name="posisiU" id="posisiU" value="<?= $p['posisi'] ?>">
 						</div>
+						<div class="form-group">
+						<select name="gajiU" id="gajiU" class="form-control">
+							<?php foreach ($gajii as $g) : ?>
+								<option value="<?= $g['id']; ?>"><?= $g['ket_gaji']; ?></option>
+							<?php endforeach; ?>
+						</select>
+					</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
