@@ -29,7 +29,7 @@
 			</nav>
 		</div>
 	</div>
-	<div class="col-md-2">
+	<!-- <div class="col-md-2">
 		<select class="form-control" name="" id="perusahaan">
 			<option value="5">Tampilkan Semua</option>
 			<option value="1">PT Jaya Usaha</option>
@@ -39,7 +39,7 @@
 			<option value="12">PT Darma</option>
 			<option value="14">PT Sudarmono</option>
 		</select>
-	</div>
+	</div> -->
 	<br>
 	<div class="row">
 		<div class="col-lg">
@@ -79,7 +79,7 @@
 							<td><a href="<?php echo site_url('admin/get_file/' . $p['id']); ?>" class="btn btn-sm btn-info"><i class="fa fa-fw fa-download"></i> Lihat KTP</a></td>
 							<td>
 								<a href="" data-toggle="modal" data-target="#pelamarEdit<?= $p['id'] ?>" class="btn btn-success btn-sm"><i class="fa fa-fw fa-edit"></i>Edit</a>
-								<a href="" data-toggle="modal" data-target="#ModalHapus<?= $p['id']; ?>" class="btn btn-warning btn-sm delete"><i class="fa fa-fw fa-trash"></i>Delete</a>
+								<a href="" data-toggle="modal" data-target="#ModalHapus<?= $p['id']; ?>" class="btn btn-danger btn-sm delete"><i class="fa fa-fw fa-trash"></i>Delete</a>
 							</td>
 						</tr>
 					<?php endforeach; ?>
@@ -169,11 +169,6 @@
 <?php foreach ($pelamar as $i) :
 	$id = $i['id'];
 	$nama = $i['nama'];
-	$alamat = $i['alamat'];
-	$notelp = $i['no_telp'];
-	$email = $i['email'];
-	$perusahaan = $i['perusahaan'];
-	$posisi = $i['posisi'];
 	?>
 	<!--Modal Hapus Pengguna-->
 	<div class="modal fade" id="ModalHapus<?= $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -186,8 +181,6 @@
 				</div>
 				<form class="form-horizontal" action="<?= base_url() . 'admin/deletePelamar/' . $id ?>" method="post" enctype="multipart/form-data">
 					<div class="modal-body">
-						<!-- <input type="hidden" name="kode" value="<?php echo $id; ?>" />
-						<input type="hidden" name="file" value="<?php echo $file; ?>"> -->
 						<p>Apakah Anda yakin mau menghapus data <b><?php echo $nama; ?></b> ?</p>
 
 					</div>

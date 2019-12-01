@@ -163,6 +163,18 @@
       bgColor: '#dc3545'
     });
   </script>
+<?php elseif ($this->session->flashdata('pesan') == '<div class="alert alert-success" role="alert">Level berhasil dihapus</div>') : ?>
+  <script type="text/javascript">
+    $.toast({
+      heading: 'Success',
+      text: "Berhasil menghapus Level.",
+      showHideTransition: 'slide',
+      icon: 'success',
+      hideAfter: false,
+      position: 'bottom-right',
+      bgColor: '#7EC857'
+    });
+  </script>
 <?php endif; ?>
 </body>
 

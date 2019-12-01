@@ -128,6 +128,7 @@ class Admin extends CI_Controller
 	public function delete($id)
 	{
 		$this->db->delete('user_level', array('id' => $id));
+		$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Level berhasil dihapus</div>');
 		redirect('admin/level');
 	}
 
