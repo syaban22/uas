@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Perusahaan extends CI_Controller
 {
@@ -8,12 +8,12 @@ class Perusahaan extends CI_Controller
 		parent::__construct();
 		cek_login();
 	}
-	
+
 	public function index()
 	{
 		$data['judul'] = 'Detail Perusahaan';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-		
+
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('template/topbar', $data);
@@ -68,5 +68,91 @@ class Perusahaan extends CI_Controller
 	{
 		$this->db->delete('posisi', array('id' => $id));
 		redirect('perusahaan/posisi');
+	}
+
+	public function getPelamar()
+	{
+		$data['judul'] = 'List Pelamar';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$perus = $this->session->userdata('nama');
+
+		$this->load->model('Pelamar_model', 'pelamarM');
+
+		//$data['perusahaan'] = $this->pelamarM->getPerusahaan();
+		$data['posisi'] = $this->db->get('posisi')->result_array();
+		$data['perusahaan'] = $this->db->get('perusahaan')->result_array();
+
+
+		//filter
+		$nomor = $this->input->post('data');
+		//echo $perusahaan;
+		//$per = $this->db->get_where('lamar_pekerjaan', ['perusahaan_id' => $perusahaan])->result();
+
+		//print_r($per);
+
+		if ($this->input->post('submit')) {
+			$data['keyword'] = $this->input->post('keyword');
+			$this->session->set_userdata('keyword', $data['keyword']);
+		} else {
+			$data['keyword'] = $this->session->userdata('keyword');
+		}
+
+		if ($data['keyword'] == NULL) {
+			$this->db->like('perusahaan', $perus);
+			$this->db->from('lamar_pekerjaan l, perusahaan p');
+			$this->db->where('l.perusahaan_id = p.id');
+		} else {
+			$this->db->like('nama', $data['keyword']);
+			$this->db->from('lamar_pekerjaan, perusahaan');
+			$this->db->where('lamar_pekerjaan.perusahaan_id = perusahaan.id');
+			$this->db->where('perusahaan.perusahaan', $perus);
+		}
+		$config['total_rows'] = $this->db->count_all_results();
+		$config['base_url'] = 'http://localhost/uas/perusahaan/getPelamar';
+
+		$data['total_rows'] = $config['total_rows'];
+		// if ($perusahaan == 0) {
+		// 	$perusahaan = 5;
+		// }
+		$config['per_page'] = 5;
+		//$data['start'] = $this->uri->segment(3);
+		//var_dump($this->input->post('num_rows'));
+
+
+		// $data['jumlah_page'] = ceil($config['total_rows'] / $config['per_page']);
+		// $data['page'] = ceil(($this->uri->segment(3) / $data['jumlah_page']));
+		// if ($data['page'] == 0) {
+		// 	$data['page'] = 1;
+		// }
+
+		$this->pagination->initialize($config);
+
+
+		if ($this->uri->segment(3) !== null) {
+			$data['start'] = $this->uri->segment(3);
+		} else {
+			$data['start'] = 0;
+		}
+
+		$data['pelamar'] = $this->pelamarM->getPelamar2($config['per_page'], $data['start'], $data['keyword'], $perus);
+
+		$this->load->view('template/header', $data);
+		$this->load->view('template/sidebar', $data);
+		$this->load->view('template/topbar', $data);
+		$this->load->view('perusahaan/listPelamar', $data);
+		$this->load->view('template/footer');
+	}
+
+	function get_file()
+	{
+		$id = $this->uri->segment(3);
+		$get_db = $this->m_files->get_file_byid($id);
+		$q = $get_db->row_array();
+		$file = $q['file_data'];
+		var_dump($file);
+		$path = './asset/files/ktp/' . $file;
+		$data = file_get_contents($path);
+		$name = $file;
+		force_download($name, $data);
 	}
 }
