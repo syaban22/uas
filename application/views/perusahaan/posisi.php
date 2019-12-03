@@ -16,7 +16,7 @@
 
 			<?= $this->session->flashdata('pesan'); ?>
 
-			<a href="" class="btn btn-primary" data-toggle="modal" data-target="#perusahaanBaru">Tambah Posisi</a>
+			<a href="" class="btn btn-primary" data-toggle="modal" data-target="#perusahaanBaru"><i class="fas fa-fw fa-plus-square"></i> Tambah Posisi</a>
 
 			<table class="table table-hover">
 				<thead>
@@ -107,12 +107,12 @@
 							<input type="text" class="form-control" name="posisiU" id="posisiU" value="<?= $p['posisi'] ?>">
 						</div>
 						<div class="form-group">
-						<select name="gajiU" id="gajiU" class="form-control">
-							<?php foreach ($gajii as $g) : ?>
-								<option value="<?= $g['id']; ?>"><?= $g['ket_gaji']; ?></option>
-							<?php endforeach; ?>
-						</select>
-					</div>
+							<select name="gajiU" id="gajiU" class="form-control">
+								<?php foreach ($gajii as $g) : ?>
+									<option value="<?= $g['id']; ?>"><?= $g['ket_gaji']; ?></option>
+								<?php endforeach; ?>
+							</select>
+						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

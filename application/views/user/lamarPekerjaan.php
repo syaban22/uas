@@ -9,7 +9,9 @@
 			<form method="POST" action="<?= base_url('user/lamarPekerjaan'); ?>" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="nama">Nama</label>
-					<input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama">
+					<div class="inputWithIcon">
+						<input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama">
+						<i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i> </div>
 					<?= form_error('nama', '<div class="alert-danger" role="alert">', '</div>'); ?>
 				</div>
 				<div class="form-group">

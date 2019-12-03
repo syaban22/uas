@@ -26,7 +26,7 @@
 
 			<?= $this->session->flashdata('pesan'); ?>
 
-			<a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#menuBaru">Tambah Menu Baru</a>
+			<a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#menuBaru"><i class="fas fa-fw fa-plus-square"></i> Tambah Menu Baru</a>
 
 			<table class="table table-hover">
 				<thead>

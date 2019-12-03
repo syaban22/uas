@@ -30,7 +30,7 @@
 
 			<?= $this->session->flashdata('pesan'); ?>
 
-			<a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#submenuBaru">Tambah SubMenu Baru</a>
+			<a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#submenuBaru"><i class="fas fa-fw fa-plus-square"></i> Tambah SubMenu Baru</a>
 
 			<table class="table table-hover">
 				<thead>
