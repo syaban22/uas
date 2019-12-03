@@ -18,17 +18,21 @@
   <!-- Custom styles for this template-->
   <link href="<?= base_url('asset/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
 
-  <link href="<?= base_url('asset/'); ?>css/css_public/styles.css" rel="stylesheet">
+  <!-- <link href="<?= base_url('asset/'); ?>css/css_public/styles.css" rel="stylesheet">
   <link href="<?= base_url('asset/'); ?>css/css_public/bootstrap-override.css" rel="stylesheet">
   <link href="<?= base_url('asset/'); ?>css/css_public/bootstrap.css" rel="stylesheet">
   <link href="<?= base_url('asset/'); ?>css/css_public/flexslider.css" rel="stylesheet">
+  <link href="<?= base_url('asset/'); ?>css/css_public/publics.css" rel="stylesheet">  -->
 
   <link href="<?= base_url('asset/'); ?>css/css_public/font-awesome/font-awesome.css" rel="stylesheet">
-  <link href="<?= base_url('asset/'); ?>css/css_public/publics.css" rel="stylesheet">
+  <link href="<?= base_url('asset/'); ?>css/css_public/bootstrap.min.css" rel="stylesheet">
+  <link href="<?= base_url('asset/'); ?>css/css_public/font/flaticon.css" rel="stylesheet">
+  <link href="<?= base_url('asset/'); ?>css/css_public/aos.css" rel="stylesheet">
+  <link href="<?= base_url('asset/'); ?>css/css_public/style.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
-  <div id="load">Loading . . .</div>
+  <!-- <div id="load">Loading . . .</div> -->
   <!-- Page Wrapper -->
-  <div id="wrapper">
+  <!-- <div id="wrapper"> -->

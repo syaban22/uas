@@ -19,6 +19,17 @@
   <i class="fas fa-angle-up"></i>
 </a>
 
+<!-- JavaScripts -->
+<!-- <script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/jquery-1.8.3.min.js"></script> -->
+<script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/jquery-3.3.1.min.js"></script>
+<!-- <script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/functions.js"></script>
+<script type="text/javascript" defer src="<?= base_url('asset/'); ?>js/public_js/jquery.flexslider.js"></script> -->
+
+<!-- <script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/jquery.stellar.min.js"></script>
+<script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/jquery.magnific-popup.min.js"></script> -->
+<script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/aos.js"></script>
+<script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/main.js"></script>
 <!-- Bootstrap core JavaScript-->
 <script src="<?= base_url('asset/'); ?>vendor/jquery/jquery.min.js"></script>
 <script src="<?= base_url('asset/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -28,7 +39,7 @@
 
 <!-- Custom scripts for all pages-->
 <script src="<?= base_url('asset/'); ?>js/sb-admin-2.min.js"></script>
-<script>
+<!-- <script>
   $('.form-check-input').on('click', function() {
     const menuId = $(this).data('menu');
     const levelId = $(this).data('level');
@@ -45,13 +56,11 @@
       }
     });
   });
-</script>
+</script> -->
 
-<!-- JavaScripts -->
-<script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/bootstrap.min.js"></script>
-<script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/functions.js"></script>
-<script type="text/javascript" defer src="<?= base_url('asset/'); ?>js/public_js/jquery.flexslider.js"></script>
+
+
+
 
 <script>
   $(document).ready(function() {
