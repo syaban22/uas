@@ -1,8 +1,18 @@
 <!-- Sidebar -->
 <ul class="navbar-nav bg sidebar sidebar-dark accordion" id="accordionSidebar">
+  <?php  
+  $level_id = $this->session->userdata('level_id');
+  $queryLevel = "SELECT level
+                FROM user_level
+                WHERE user_level.id = $level_id
+                ";
+  $hasL = $this->db->query($queryLevel)->result_array();
+  ?>
 
   <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+  <?php foreach($hasL as $hL) : ?>
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url($hL['level']); ?>">
+  <?php endforeach; ?>
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="far fa-handshake"></i>
     </div>
