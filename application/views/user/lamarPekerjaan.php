@@ -16,17 +16,23 @@
 				</div>
 				<div class="form-group">
 					<label for="alamat">Alamat</label>
-					<input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan alamat">
+					<div class="inputWithIcon">
+						<input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan alamat">
+						<i class="fas fa-fw fa-map-marked-alt" aria-hidden="true"></i> </div>
 					<?= form_error('alamat', '<div class="alert-danger" role="alert">', '</div>'); ?>
 				</div>
 				<div class="form-group">
 					<label for="telepon">No Telepon</label>
-					<input type="text" class="form-control" id="telepon" name="telepon" placeholder="Masukkan no telp">
+					<div class="inputWithIcon">
+						<input type="text" class="form-control" id="telepon" name="telepon" placeholder="Masukkan no telp">
+						<i class="fas fa-fw fa-phone-alt" aria-hidden="true"></i> </div>
 					<?= form_error('telepon', '<div class="alert-danger" role="alert">', '</div>'); ?>
 				</div>
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="text" class="form-control" id="email" name="email" placeholder="Masukkan email">
+					<div class="inputWithIcon">
+						<input type="text" class="form-control" id="email" name="email" placeholder="Masukkan email">
+						<i class="fas fa-fw fa-envelope" aria-hidden="true"></i> </div>
 					<?= form_error('email', '<div class="alert-danger" role="alert">', '</div>'); ?>
 				</div>
 				<div class="form-group">

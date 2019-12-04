@@ -2,7 +2,9 @@
 <footer class="sticky-footer bg-white">
   <div class="container my-auto">
     <div class="copyright text-center my-auto">
-      <span>Copyright &copy; Online Job Application <?= date('Y'); ?></span>
+      <span>
+        <font color="blue">Copyright &copy; Online Job Application <?= date('Y'); ?></font>
+      </span>
     </div>
   </div>
 </footer>
