@@ -6,7 +6,7 @@
     <div class="sidebar-brand-icon rotate-n-15">
       <i class="far fa-handshake"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">Job Aplication</div>
+    <div class="sidebar-brand-text mx-3">Job Application</div>
   </a>
 
   <!-- Divider -->

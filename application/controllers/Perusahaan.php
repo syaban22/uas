@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
+require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
 class Perusahaan extends CI_Controller
 {
 	public function __construct()
@@ -162,8 +163,7 @@ class Perusahaan extends CI_Controller
 		$this->load->model('Pelamar_model', 'pelamarM');
 		$data['pelamar'] = $this->pelamarM->export($perus);
 
-		require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
-		require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
 
 		$object = new PHPExcel();
 

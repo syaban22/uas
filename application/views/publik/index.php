@@ -2,8 +2,8 @@
   <div class="site-blocks-cover overlay back" data-aos="fade" data-stellar-background-ratio="0.5">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-12" data-aos="fade">
-          <h1>Find Your Ideal Job</h1>
+        <div class="col-6" data-aos="fade">
+          <h1>Temukan Pekerjaan Idealmu</h1>
         </div>
       </div>
     </div>
@@ -13,48 +13,48 @@
   <div class="site-section">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-          <h2 class="mb-5">Lowongan Posisi dari Perusahaan Terbaik</h2>
+        <div class="col-md-8 mx-auto text-center mb-5 section-heading">
+          <h2 class="mb-5">Lowongan Posisi Pekerjaan dari Perusahaan Terbaik</h2>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="100">
-          <a href="#" class="h-90 feature-item">
+          <a href="" data-toggle="modal" data-target="#register" class="h-90 feature-item">
             <span class="d-block icon fas fa-user-tie fa-4x mb-3 text-primary"></span>
             <h2>Direktur</h2>
             <span class="counting">????</span>
           </a>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="200">
-          <a href="#" class="h-90 feature-item">
+          <a href="" data-toggle="modal" data-target="#register" class="h-90 feature-item">
             <span class="d-block icon fas fa-users fa-7x mb-3 text-primary"></span>
             <h2>Manager</h2>
             <span class="counting">????</span>
           </a>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="300">
-          <a href="#" class="h-90 feature-item">
+          <a href="" data-toggle="modal" data-target="#register" class="h-90 feature-item">
             <span class="d-block icon fas fa-user-cog mb-3 text-primary"></span>
             <h2>Management</h2>
             <span class="counting">????</span>
           </a>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="400">
-          <a href="#" class="h-90 feature-item">
+          <a href="" data-toggle="modal" data-target="#register" class="h-90 feature-item">
             <span class="d-block icon fas fa-chalkboard-teacher mb-3 text-primary"></span>
             <h2>HRD</h2>
             <span class="counting">????</span>
           </a>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="500">
-          <a href="#" class="h-90 feature-item">
+          <a href="" data-toggle="modal" data-target="#register" class="h-90 feature-item">
             <span class="d-block icon fas fa-user-friends mb-3 text-primary"></span>
             <h2>Karyawan</h2>
             <span class="counting">????</span>
           </a>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="600">
-          <a href="#" class="h-90 feature-item">
+          <a href="" data-toggle="modal" data-target="#register" class="h-90 feature-item">
             <span class="d-block icon fas fa-broom mb-3 text-primary"></span>
             <h2>Cleaning Service</h2>
             <span class="counting">????</span>
@@ -96,12 +96,12 @@
 
 
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-10">
           <h3 class="footer-heading mb-4 text-white">About</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quos rem ullam, placeat amet.</p>
-          <p><a href="#" class="btn btn-primary pill text-white px-4">Read More</a></p>
+          <p>Di Online Job Application, kami percaya adanya sebuah dunia yang terbuka dan sama untuk semua orang. Di dalamnya banyak terdapat kesempatan dan kemungkinan : Awal yang baru, Karir baru. Terbuka terhadap perubahan. Dan itu semua baru sebagian kecil dari upaya kami dalam membantu orang-orang untuk mencari yang terbaik.</p>
+          <!-- <a><a href="#" class="btn btn-primary pill text-white px-4">Read More</a></p> -->
         </div>
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
           <div class="row">
             <div class="col-md-6">
               <h3 class="footer-heading mb-4 text-white">Quick Menu</h3>
@@ -124,12 +124,12 @@
               </ul>
             </div>
           </div>
-        </div>
+        </div> -->
 
 
         <div class="col-md-2">
           <div class="col-md-12">
-            <h3 class="footer-heading mb-4 text-white">Social Icons</h3>
+            <h3 class="footer-heading mb-4 text-white">Social Media</h3>
           </div>
           <div class="col-md-12">
             <p>
