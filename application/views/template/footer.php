@@ -74,23 +74,22 @@
 <script>
   $(document).ready(function() {
     $("#load").fadeOut(500);
-    $('#perusahaan').on('change', function() {
-      var no = $('#perusahaan option:selected').val();
-      if (no != null) {
-        var url = "<?= base_url(); ?>admin/index";
-        var noo = $.ajax({
-          url: url,
-          data: {
-            'data': no
-          },
-          dataType: 'json'
-        });
-        noo.done(function(data) {
-          // console.log('data', data);
-          // alert(data);
-        });
-      }
-    });
+    // $('#perusahaan').on('change', function() {
+    //   var id_perus = $('#perusahaan').val();
+    //   if (id_perus != '') {
+    //     $.ajax({
+    //       url: "<?php echo base_url(); ?>admin/index",
+    //       method: "POST",
+    //       data: {
+    //         id_perus: id_perus
+    //       },
+    //       success: function() {
+    //         document.location.href = "<?= base_url('admin/'); ?>" + id_perus;
+    //         console.log(id_perus);
+    //       }
+    //     });
+    //   }
+    // });
   });
 </script>
 

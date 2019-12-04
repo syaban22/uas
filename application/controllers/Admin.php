@@ -22,7 +22,9 @@ class Admin extends CI_Controller
 
 
 		//filter
-		$nomor = $this->input->post('data');
+		// $no = $this->input->post('id_perus');
+		// var_dump($no);
+		//var_dump($nomor);
 		//echo $perusahaan;
 		//$per = $this->db->get_where('lamar_pekerjaan', ['perusahaan_id' => $perusahaan])->result();
 

@@ -10,28 +10,28 @@
 				<div class="form-group">
 					<label for="nama">Nama</label>
 					<div class="inputWithIcon">
-						<input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama">
+						<input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama" autocomplete="off">
 						<i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i> </div>
 					<?= form_error('nama', '<div class="alert-danger" role="alert">', '</div>'); ?>
 				</div>
 				<div class="form-group">
 					<label for="alamat">Alamat</label>
 					<div class="inputWithIcon">
-						<input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan alamat">
+						<input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan alamat" autocomplete="off">
 						<i class="fas fa-fw fa-map-marked-alt" aria-hidden="true"></i> </div>
 					<?= form_error('alamat', '<div class="alert-danger" role="alert">', '</div>'); ?>
 				</div>
 				<div class="form-group">
 					<label for="telepon">No Telepon</label>
 					<div class="inputWithIcon">
-						<input type="text" class="form-control" id="telepon" name="telepon" placeholder="Masukkan no telp">
+						<input type="text" class="form-control" id="telepon" name="telepon" placeholder="Masukkan no telp" autocomplete="off">
 						<i class="fas fa-fw fa-phone-alt" aria-hidden="true"></i> </div>
 					<?= form_error('telepon', '<div class="alert-danger" role="alert">', '</div>'); ?>
 				</div>
 				<div class="form-group">
 					<label for="email">Email</label>
 					<div class="inputWithIcon">
-						<input type="text" class="form-control" id="email" name="email" placeholder="Masukkan email">
+						<input type="text" class="form-control" id="email" name="email" placeholder="Masukkan email" autocomplete="off">
 						<i class="fas fa-fw fa-envelope" aria-hidden="true"></i> </div>
 					<?= form_error('email', '<div class="alert-danger" role="alert">', '</div>'); ?>
 				</div>

@@ -39,16 +39,13 @@
 	</div>
 	<!-- <div class="col-md-2">
 		<select class="form-control" name="" id="perusahaan">
-			<option value="5">Tampilkan Semua</option>
-			<option value="1">PT Jaya Usaha</option>
-			<option value="4">PT Maju</option>
-			<option value="7">PT Abadi</option>
-			<option value="11">PT Sentosa</option>
-			<option value="12">PT Darma</option>
-			<option value="14">PT Sudarmono</option>
+			<option value="5">5</option>
+			<option value="10">10</option>
+			<option value="15">15</option>
+			<option value="20">20</option>
 		</select>
-	</div> -->
-	<br>
+	</div>
+	<br> -->
 	<div class="row">
 		<div class="col-lg">
 			<table class="table table-hover" id="perus">

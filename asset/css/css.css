@@ -77,6 +77,11 @@ input[type="text"]:focus {
 	box-shadow: 0 0 8px 0 dodgerBlue;
 }
 
+select {
+	border-color: dodgerBlue;
+	box-shadow: 0 0 8px 0 rgb(221, 211, 73);
+}
+
 .inputWithIcon input[type="text"] {
 	padding-left: 40px;
 }

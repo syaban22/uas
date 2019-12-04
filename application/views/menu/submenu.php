@@ -48,7 +48,7 @@
 					<?php $no = 1; ?>
 					<?php foreach ($subMenu as $sm) : ?>
 						<tr>
-							<th scope="row"><?= $no; ?></th>
+							<th scope="row"><?= ++$start; ?></th>
 							<td><?= $sm['title']; ?></td>
 							<td><?= $sm['menu']; ?></td>
 							<td><?= $sm['url']; ?></td>
@@ -59,10 +59,10 @@
 								<a href="<?= base_url('menu/deletesm/' . $sm['id']) ?>" class="btn btn-danger btn-sm delete"><i class="fa fa-fw fa-trash"></i>Delete</a>
 							</td>
 						</tr>
-						<?php $no++; ?>
 					<?php endforeach; ?>
 				</tbody>
 			</table>
+			<?= $this->pagination->create_links(); ?>
 		</div>
 	</div>
 

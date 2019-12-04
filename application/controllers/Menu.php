@@ -1,14 +1,14 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Menu extends CI_Controller 
+class Menu extends CI_Controller
 {
 	public function __construct()
 	{
 		parent::__construct();
 		cek_login();
 	}
-	
+
 	public function index()
 	{
 		$data['judul'] = 'Menu Management';
@@ -24,8 +24,7 @@ class Menu extends CI_Controller
 			$this->load->view('template/topbar', $data);
 			$this->load->view('menu/index', $data);
 			$this->load->view('template/footer');
-		}
-		else{
+		} else {
 			$this->db->insert('user_menu', ['menu' => $this->input->post('menu')]);
 			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Menu baru ditambahkan</div>');
 			redirect('menu');
@@ -56,7 +55,21 @@ class Menu extends CI_Controller
 
 		$this->load->model('Menu_model', 'menu');
 
-		$data['subMenu'] = $this->menu->getSubMenu();
+		$this->db->from('user_sub_menu');
+
+		$config['total_rows'] = $this->db->count_all_results();
+		$data['total_rows'] = $config['total_rows'];
+		$config['base_url'] = 'http://localhost/uas/menu/submenu';
+		$config['per_page'] = 5;
+		$this->pagination->initialize($config);
+
+		if ($this->uri->segment(3) !== null) {
+			$data['start'] = $this->uri->segment(3);
+		} else {
+			$data['start'] = 0;
+		}
+
+		$data['subMenu'] = $this->menu->getSubMenu($config['per_page'], $data['start']);
 		$data['menu'] = $this->db->get('user_menu')->result_array();
 
 		$this->form_validation->set_rules('title', 'Title', 'required');
@@ -69,9 +82,8 @@ class Menu extends CI_Controller
 			$this->load->view('template/sidebar', $data);
 			$this->load->view('template/topbar', $data);
 			$this->load->view('menu/submenu', $data);
-			$this->load->view('template/footer');	
-		}
-		else{
+			$this->load->view('template/footer');
+		} else {
 			$data = [
 				'title' => $this->input->post('title'),
 				'menu_id' => $this->input->post('menu_id'),
@@ -104,6 +116,6 @@ class Menu extends CI_Controller
 
 		$this->db->where('id', $id);
 		$this->db->update('user_sub_menu', $data);
-		redirect('menu/submenu');		
+		redirect('menu/submenu');
 	}
 }
