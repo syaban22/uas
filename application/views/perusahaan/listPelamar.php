@@ -28,9 +28,10 @@
                     echo '<a class="navbar-brand">Hasil Pencarian : ' . $total_rows . '</a>';
                 }
                 ?>
+
                 <form class="form-inline" action="<?= base_url('perusahaan/getPelamar'); ?>" method="post">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search Name" name="keyword" autocomplete="off" autofocus>
-                    <input type="submit" class="btn btn-primary" type="submit" name="submit">
+                    <input type="submit" class="btn btn-primary" name="submit" value="Search">
                 </form>
             </nav>
         </div>
@@ -49,6 +50,7 @@
     <br>
     <div class="row">
         <div class="col-lg">
+            <a href="<?= base_url('perusahaan/Export')  ?>" class="btn btn-sm btn-success mb-3"><i class="fa fa-fw fa-file-excel"></i> Export Excel</a>
             <table class="table table-hover" id="perus">
                 <thead>
                     <tr>

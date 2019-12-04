@@ -47,8 +47,15 @@ class Pelamar_model extends CI_Model
 		return $this->db->query($query, $limit, $start, $keyword, $perus)->result_array();
 	}
 
+	public function export($perus)
+	{
+		$query = "SELECT l.id, l.nama, l.alamat, l.no_telp, l.email, pe.perusahaan, p.posisi as posisi, l.file_data FROM lamar_pekerjaan l, perusahaan pe, posisi p WHERE l.perusahaan_id = pe.id and l.posisi_id=p.id and pe.perusahaan = '$perus'";
+		return $this->db->query($query, $perus)->result();
+	}
+
 	public function countAllPelamar()
 	{
+
 		return $this->db->get('lamar_pekerjaan')->num_rows();
 	}
 

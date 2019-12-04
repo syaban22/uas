@@ -155,4 +155,58 @@ class Perusahaan extends CI_Controller
 		$name = $file;
 		force_download($name, $data);
 	}
+
+	public function Export()
+	{
+		$perus = $this->session->userdata('nama');
+		$this->load->model('Pelamar_model', 'pelamarM');
+		$data['pelamar'] = $this->pelamarM->export($perus);
+
+		require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel.php');
+		require(APPPATH . 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+		$object = new PHPExcel();
+
+		$object->getProperties()->setCreator("Online Job Application 2019");
+		$object->getProperties()->setLastModifiedBy("Online Job Application 2019");
+		$object->getProperties()->setTitle("Daftar Pelamar");
+
+		$object->setActiveSheetIndex(0);
+
+		$object->getActiveSheet()->setCellValue('A1', 'NO');
+		$object->getActiveSheet()->setCellValue('B1', 'NAMA');
+		$object->getActiveSheet()->setCellValue('C1', 'ALAMAT');
+		$object->getActiveSheet()->setCellValue('D1', 'NO TELEPON');
+		$object->getActiveSheet()->setCellValue('E1', 'EMAIL');
+		$object->getActiveSheet()->setCellValue('F1', 'PERUSAHAAN');
+		$object->getActiveSheet()->setCellValue('G1', 'POSISI');
+
+		$baris = 2;
+		$no = 1;
+
+		foreach ($data['pelamar'] as $pl) {
+			$object->getActiveSheet()->setCellValue('A' . $baris, $no++);
+			$object->getActiveSheet()->setCellValue('B' . $baris, $pl->nama);
+			$object->getActiveSheet()->setCellValue('C' . $baris, $pl->alamat);
+			$object->getActiveSheet()->setCellValue('D' . $baris, $pl->no_telp);
+			$object->getActiveSheet()->setCellValue('E' . $baris, $pl->email);
+			$object->getActiveSheet()->setCellValue('F' . $baris, $pl->perusahaan);
+			$object->getActiveSheet()->setCellValue('G' . $baris, $pl->posisi);
+
+			$baris++;
+		}
+
+		$filename = "Data_Pelamar_" . "$perus" . '.xlsx';
+
+		$object->getActiveSheet()->setTitle("Data Pelamar");
+
+		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+		header('Content-Disposition: attachment;filename="' . $filename . '"');
+		header('Cache-Control: max-age=0');
+
+		$writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
+		$writer->save('php://output');
+
+		exit;
+	}
 }

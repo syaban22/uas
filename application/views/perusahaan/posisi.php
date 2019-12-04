@@ -12,11 +12,10 @@
 
 	<div class="row">
 		<div class="col-lg">
+			<a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#perusahaanBaru"><i class="fas fa-fw fa-plus-square"></i> Tambah Posisi</a>
 			<?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
 			<?= $this->session->flashdata('pesan'); ?>
-
-			<a href="" class="btn btn-primary" data-toggle="modal" data-target="#perusahaanBaru"><i class="fas fa-fw fa-plus-square"></i> Tambah Posisi</a>
 
 			<table class="table table-hover">
 				<thead>

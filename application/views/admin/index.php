@@ -23,10 +23,8 @@
 			<nav class="navbar navbar-light bg-light">
 				<a class="navbar-brand">Hasil Pencarian : <?= $total_rows ?></a>
 				<form class="form-inline" action="<?= base_url('admin'); ?>" method="post">
-
 					<input class="form-control mr-sm-2" type="search" placeholder="Search Name" name="keyword" autocomplete="off" autofocus>
-					<input type="submit" class="btn btn-primary" type="submit" name="submit">
-
+					<input type="submit" class="btn btn-primary" name="submit" value="Search">
 				</form>
 			</nav>
 		</div>

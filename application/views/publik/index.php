@@ -22,45 +22,45 @@
           <a href="#" class="h-90 feature-item">
             <span class="d-block icon fas fa-user-tie fa-4x mb-3 text-primary"></span>
             <h2>Direktur</h2>
-            <span class="counting">10,391</span>
+            <span class="counting">????</span>
           </a>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="200">
           <a href="#" class="h-90 feature-item">
             <span class="d-block icon fas fa-users fa-7x mb-3 text-primary"></span>
             <h2>Manager</h2>
-            <span class="counting">192</span>
+            <span class="counting">????</span>
           </a>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="300">
           <a href="#" class="h-90 feature-item">
             <span class="d-block icon fas fa-user-cog mb-3 text-primary"></span>
             <h2>Management</h2>
-            <span class="counting">1,021</span>
+            <span class="counting">????</span>
           </a>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="400">
           <a href="#" class="h-90 feature-item">
-            <span class="d-block icon fas fa-user-edit mb-3 text-primary"></span>
+            <span class="d-block icon fas fa-chalkboard-teacher mb-3 text-primary"></span>
             <h2>HRD</h2>
-            <span class="counting">1,219</span>
+            <span class="counting">????</span>
           </a>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="500">
           <a href="#" class="h-90 feature-item">
-            <span class="d-block icon flaticon-stethoscope mb-3 text-primary"></span>
-            <h2>Healthcare</h2>
-            <span class="counting">482</span>
+            <span class="d-block icon fas fa-user-friends mb-3 text-primary"></span>
+            <h2>Karyawan</h2>
+            <span class="counting">????</span>
           </a>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="600">
           <a href="#" class="h-90 feature-item">
-            <span class="d-block icon flaticon-computer-graphic mb-3 text-primary"></span>
-            <h2>Design, Art &amp; Multimedia</h2>
-            <span class="counting">5,409</span>
+            <span class="d-block icon fas fa-broom mb-3 text-primary"></span>
+            <h2>Cleaning Service</h2>
+            <span class="counting">????</span>
           </a>
         </div>
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="700">
+        <!-- <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="700">
           <a href="#" class="h-90 feature-item">
             <span class="d-block icon flaticon-trolley mb-3 text-primary"></span>
             <h2>Transportation &amp; Logistics</h2>
@@ -73,7 +73,7 @@
             <h2>Restaurant / Food Service</h2>
             <span class="counting">329</span>
           </a>
-        </div>
+        </div> -->
       </div>
 
     </div>
