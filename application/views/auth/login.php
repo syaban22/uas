@@ -29,8 +29,16 @@
                     <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                   </div>
                   <div class="form-group text-center">
-                    <div> <?= $img ?>
+                    <div class="row">
+                      <div class="col-md-10 col-sm image">
+                        <?= $img ?>
+                      </div>
+                      <div class="col-md-2 mt-1 col-sm ">
+                        <a class="refresh" href="javascript:;"><img width="40px" src="<?php base_url(); ?>asset/img/load/refresh.png"> </a>
+                      </div>
                     </div>
+
+
                   </div>
                   <div class="form-group">
                     <input type="text" class="form-control form-control-user" id="password2" name="captcha" placeholder="Masukan Captcha">

@@ -69,7 +69,7 @@ class auth extends CI_Controller
 		$options = array(
 			'img_path' => './captcha/',
 			'img_url' => base_url('captcha/'),
-			'img_width' => '300',
+			'img_width' => '295',
 			'img_height' => '50',
 			'expiration' => 7200
 		);
@@ -79,6 +79,25 @@ class auth extends CI_Controller
 
 		$this->session->set_userdata('captchaword', $cap['word']);
 
+		return $image;
+	}
+
+	public function refresh_captcha()
+	{
+		$options = array(
+			'img_path' => './captcha/',
+			'img_url' => base_url('captcha/'),
+			'img_width' => '295',
+			'img_height' => '50',
+			'expiration' => 7200
+		);
+
+		$cap = create_captcha($options);
+		$image = $cap['image'];
+
+		$this->session->set_userdata('captchaword', $cap['word']);
+
+		echo $cap['image'];
 		return $image;
 	}
 

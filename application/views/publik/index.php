@@ -82,10 +82,10 @@
   <div class="site-blocks-cover overlay inner-page back2" data-aos="fade" data-stellar-background-ratio="0.5">
     <div class="container">
       <div class="row align-items-center justify-content-center">
-        <div class="col-md-6 text-center" data-aos="fade">
-          <h1 class="h3 mb-0">Your Dream Job</h1>
-          <p class="h3 text-white mb-5">Is Waiting For You</p>
-          <p><a href="<?= base_url('Auth/registration')  ?>" class="btn btn-warning py-3 px-4">Register Now and Apply For A Job</a></p>
+        <div class="col-md-8 text-center" data-aos="fade">
+          <h1 class="h3 mb-3">Pekerjaan Impianmu</h1>
+          <p class="h3 text-white mb-4">Kini Sedang Menunggumu</p>
+          <p><a href="<?= base_url('Auth/registration')  ?>" class="btn btn-warning py-3 px-4">Daftar Sekarang</a></p>
         </div>
       </div>
     </div>
@@ -97,7 +97,7 @@
 
       <div class="row">
         <div class="col-md-10">
-          <h3 class="footer-heading mb-4 text-white">About</h3>
+          <h3 class="footer-heading mb-4 text-white">Sekilas Tentang Aplikasi</h3>
           <p>Di Online Job Application, kami percaya adanya sebuah dunia yang terbuka dan sama untuk semua orang. Di dalamnya banyak terdapat kesempatan dan kemungkinan : Awal yang baru, Karir baru. Terbuka terhadap perubahan. Dan itu semua baru sebagian kecil dari upaya kami dalam membantu orang-orang untuk mencari yang terbaik.</p>
           <!-- <a><a href="#" class="btn btn-primary pill text-white px-4">Read More</a></p> -->
         </div>
@@ -129,7 +129,7 @@
 
         <div class="col-md-2">
           <div class="col-md-12">
-            <h3 class="footer-heading mb-4 text-white">Social Media</h3>
+            <h3 class="footer-heading mb-4 text-white">Media Sosial</h3>
           </div>
           <div class="col-md-12">
             <p>

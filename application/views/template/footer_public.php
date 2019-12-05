@@ -2,7 +2,7 @@
 <footer class="sticky-footer bg-white">
   <div class="container my-auto">
     <div class="copyright text-center my-auto">
-      <span>Copyright &copy; Online Job Application <?= date('Y'); ?></span>
+      <span>Copyright &copy; Online Job Application <?= date('Y'); ?> | <a href="https://colorlib.com" target="_blank">Colorlib</a></span>
     </div>
   </div>
 </footer>
@@ -74,10 +74,6 @@
     });
   });
 </script> -->
-
-
-
-
 
 <script>
   $(document).ready(function() {

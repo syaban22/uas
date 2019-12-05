@@ -206,7 +206,6 @@ class Perusahaan extends CI_Controller
 
 		$writer = PHPExcel_IOFactory::createwriter($object, 'Excel2007');
 		$writer->save('php://output');
-
 		exit;
 	}
 }
