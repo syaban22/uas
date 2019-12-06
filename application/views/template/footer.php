@@ -39,17 +39,25 @@
     </div>
   </div>
 </div>
-
 <!-- Bootstrap core JavaScript-->
 <script src="<?= base_url('asset/'); ?>vendor/jquery/jquery.min.js"></script>
 <script src="<?= base_url('asset/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
 <script src="<?= base_url('asset/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="<?= base_url('asset/'); ?>js/sweet/sweetalert2.all.min.js"></script>
+<script src="<?= base_url('asset/'); ?>js/jsscript.js"></script>
 
 <!-- Custom scripts for all pages-->
 <script src="<?= base_url('asset/'); ?>js/sb-admin-2.min.js"></script>
 <script src="<?= base_url('asset/'); ?>plugin/toast/jquery.toast.min.js"></script>
+<script>
+  const tombol = document.querySelector('#tombol');
+  tombol.addEventListener('click', function() {
+    Swal.fire('Hello World', 'Latihan Sweet', 'success');
+  });
+</script>
+
 <script>
   $('.form-check-input').on('click', function() {
     const menuId = $(this).data('menu');
@@ -107,19 +115,6 @@
     $.toast({
       heading: 'Success',
       text: "Berkas Berhasil dikirimkan.",
-      showHideTransition: 'slide',
-      icon: 'success',
-      hideAfter: false,
-      position: 'bottom-right',
-      bgColor: '#7EC857'
-    });
-  </script>
-
-<?php elseif ($this->session->flashdata('pesan') == '<div class="alert alert-success" role="alert">Akses telah diganti</div>') : ?>
-  <script type="text/javascript">
-    $.toast({
-      heading: 'Success',
-      text: "Akses berhasil diganti.",
       showHideTransition: 'slide',
       icon: 'success',
       hideAfter: false,

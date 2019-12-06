@@ -92,24 +92,27 @@ class User extends CI_Controller
 		$this->upload->initialize($config);
 
 
-		$this->upload->do_upload('ktp');
-		$gbr = $this->upload->data();
-		$file = $gbr['file_name'];
+		// $this->upload->do_upload('ktp');
+		// $gbr = $this->upload->data();
+		// $file = $gbr['file_name'];
 
 		if ($this->form_validation->run() == false) {
+			if (!$this->upload->do_upload('ktp')) {
+				$data['error'] = $this->upload->display_errors();
+			}
 			$this->load->view('template/header', $data);
 			$this->load->view('template/sidebar', $data);
 			$this->load->view('template/topbar', $data);
 			$this->load->view('user/lamarPekerjaan', $data);
 			$this->load->view('template/footer');
 		} else {
-			if ($this->upload->do_upload('ktp') == false) {
+			if (!$this->upload->do_upload('ktp')) {
+				$data['error'] = $this->upload->display_errors();
 				$this->load->view('template/header', $data);
 				$this->load->view('template/sidebar', $data);
 				$this->load->view('template/topbar', $data);
 				$this->load->view('user/lamarPekerjaan', $data);
 				$this->load->view('template/footer');
-				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Format KTP Salah</div>');
 			} else {
 				$this->upload->do_upload('ktp');
 				$gbr = $this->upload->data();
@@ -125,7 +128,7 @@ class User extends CI_Controller
 				];
 
 				$this->db->insert('lamar_pekerjaan', $data);
-				$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Lamaran pekerjaan telah terkirim</div>');
+				$this->session->set_flashdata('pesan', 'berhasil dikirim');
 				redirect('user');
 			}
 		}

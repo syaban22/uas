@@ -1,6 +1,6 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-  <?= $this->session->flashdata('pesan'); ?>
+  <div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
   <!-- Page Heading -->
   <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
 

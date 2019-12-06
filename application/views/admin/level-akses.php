@@ -1,6 +1,6 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
+	<div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
 	<!-- Page Heading -->
 	<div>
 		<div class="row">
@@ -21,10 +21,10 @@
 	</div>
 
 	<div class="row">
+
+		<!-- <?php if ($this->session->flashdata('pesan')) : ?>
+		<?php endif; ?> -->
 		<div class="col-lg-6">
-
-			<?= $this->session->flashdata('pesan'); ?>
-
 			<h5>Level : <?= $level['level']; ?></h5>
 
 			<table class="table table-hover">

@@ -169,7 +169,7 @@ class Admin extends CI_Controller
 			$this->db->delete('user_access_menu', $data);
 		}
 
-		$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Akses telah diganti</div>');
+		$this->session->set_flashdata('pesan', 'Akses telah diganti');
 	}
 
 	public function perusahaan()
