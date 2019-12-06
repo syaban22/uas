@@ -1,56 +1,37 @@
 ###################
-What is CodeIgniter
+Online Job Application
 ###################
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+Online Job Application adalah sebuah aplikasi sederhana berbasis web dibuat untuk memenuhi project akhir Matakuliah PAW. Di dalam aplikasi ini secara sederhana mengaplikasikan seluruh materi yang telah diberikan oleh dosen mulai dari login dengan autentikasi dan autorisasi, CRUD, dll. Di dalam Online Job Application ini dibagi menjadi 4 pengelola, yang pertama ada ADMIN (level tertinggi / 1), yang kedua ada Perusahaan (Level 2), yang ketiga ada User (Level 3 / user yang telah memiliki akun) dan yang keempat ada user publik (tanpa login). Dan masih ada banyak fitur lainnya.
 
 *******************
-Release Information
+Informasi Tentang Repository
 *******************
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+Repository ini dikelola oleh kelompok project yang terdiri dari 3 orang.
+1. Wahyu Priambodo (NIM 170411100038)
+2. Asri Lestari (NIM 170411100071)
+3. Sya'ban (NIM 170411100119)
 
-**************************
-Changelog and New Features
-**************************
-
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
 
 *******************
-Server Requirements
+Kebutuhan Untuk Menjalankan Aplikasi
 *******************
 
-PHP version 5.6 or newer is recommended.
-
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
+- PHP dengan version 7.0 atau yang lebih baru (sangat direkomendasikan).
+- MySQL untuk menjalankan Database.
 
 ************
-Installation
+Instalasi
 ************
 
-Please see the `installation section <https://codeigniter.com/user_guide/installation/index.html>`_
-of the CodeIgniter User Guide.
-
-*******
-License
-*******
-
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
+- Mendownload atau Cloning project dari repository ini.
+- Letakkan hasil download / cloning ke dalam folder htdoc (jika menggunakan XAMPP)
+- Export Database, file .db berada di dalam folder db.
+- Jalankan melalui browser masing - masing dengan url : localhost/uas
 
 *********
-Resources
+Referensi
 *********
 
 -  `User Guide <https://codeigniter.com/docs>`_
@@ -59,12 +40,4 @@ Resources
 -  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
 -  `Community Slack Channel <https://codeigniterchat.slack.com>`_
 
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+******************************************************************************************
