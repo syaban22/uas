@@ -50,13 +50,12 @@ class User extends CI_Controller
 		$this->upload->do_upload('UbahFoto');
 		$gbr = $this->upload->data();
 		$file = $gbr['file_name'];
-		var_dump($file);
 
 		$data = [
 			'gambar' => $file,
 		];
 		if ($this->upload->do_upload('UbahFoto') == false) {
-			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Format Foto Salah</div>');
+			$this->session->set_flashdata('pesan', 'Format Foto Salah');
 			redirect('user');
 		} else {
 			$this->db->where('id', $id);
@@ -78,27 +77,19 @@ class User extends CI_Controller
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
 		$this->form_validation->set_rules('telepon', 'Telepon', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required');
-		// if (empty($_FILES['ktp']['ktp'])) {
-		// 	$this->form_validation->set_rules('ktp', 'ktp', 'required');
-		// }
 
 		$config['upload_path']          = './asset/files/ktp/';
 		$config['allowed_types']        = 'doc|docx|pdf';
 		$config['max_size']             = 0;
 		$config['encrypt_name']			= TRUE;
-		// $config['max_width']            = 1024;
-		// $config['max_height']           = 768;
 
 		$this->upload->initialize($config);
-
-
-		// $this->upload->do_upload('ktp');
-		// $gbr = $this->upload->data();
-		// $file = $gbr['file_name'];
 
 		if ($this->form_validation->run() == false) {
 			if (!$this->upload->do_upload('ktp')) {
 				$data['error'] = $this->upload->display_errors();
+			} else {
+				$data['error'] = "Complete validation above and upload it again";
 			}
 			$this->load->view('template/header', $data);
 			$this->load->view('template/sidebar', $data);

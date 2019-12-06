@@ -41,6 +41,10 @@
               <label class="custom-file-label" for="ktp">Choose file</label>
             </div>
           </div>
+          <div class="txtprof">
+            <p>*Ekstensi yang diperbolehkan .jpeg / .jpg / .png</p>
+            <p>*Maksimal ukuran gambar 500 x 500</p>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -22,7 +22,7 @@
 </a>
 
 <!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -38,7 +38,8 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
 <!-- Bootstrap core JavaScript-->
 <script src="<?= base_url('asset/'); ?>vendor/jquery/jquery.min.js"></script>
 <script src="<?= base_url('asset/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -51,12 +52,6 @@
 <!-- Custom scripts for all pages-->
 <script src="<?= base_url('asset/'); ?>js/sb-admin-2.min.js"></script>
 <script src="<?= base_url('asset/'); ?>plugin/toast/jquery.toast.min.js"></script>
-<script>
-  const tombol = document.querySelector('#tombol');
-  tombol.addEventListener('click', function() {
-    Swal.fire('Hello World', 'Latihan Sweet', 'success');
-  });
-</script>
 
 <script>
   $('.form-check-input').on('click', function() {
@@ -169,18 +164,6 @@
       hideAfter: false,
       position: 'bottom-right',
       bgColor: '#7EC857'
-    });
-  </script>
-<?php elseif ($this->session->flashdata('pesan') == '<div class="alert alert-danger" role="alert">Format Foto Salah</div>') : ?>
-  <script type="text/javascript">
-    $.toast({
-      heading: 'Gagal',
-      text: "Update foto tidak berhasil.",
-      showHideTransition: 'slide',
-      icon: 'error',
-      hideAfter: false,
-      position: 'bottom-right',
-      bgColor: '#dc3545'
     });
   </script>
 <?php elseif ($this->session->flashdata('pesan') == '<div class="alert alert-success" role="alert">Update Foto Berhasil</div>') : ?>

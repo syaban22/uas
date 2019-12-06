@@ -76,6 +76,7 @@ class auth extends CI_Controller
 
 		$cap = create_captcha($options);
 		$image = $cap['image'];
+		var_dump($cap['word']);
 
 		$this->session->set_userdata('captchaword', $cap['word']);
 
@@ -147,7 +148,7 @@ class auth extends CI_Controller
 		$this->session->unset_userdata('keyword');
 
 
-		$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Logout berhasil</div>');
+		$this->session->set_flashdata('pesan', 'Logout berhasil');
 		redirect('auth');
 	}
 

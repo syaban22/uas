@@ -1,5 +1,5 @@
 <div class="container">
-
+  <div class="flash-data" data-flashdata="Logout berhasil"></div>
   <!-- Outer Row -->
   <div class="row justify-content-center">
 
@@ -16,9 +16,6 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Login</h1>
                 </div>
-
-                <?= $this->session->flashdata('pesan');  ?>
-
                 <form class="user" method="POST" action="<?= base_url('auth'); ?>">
                   <div class="form-group">
                     <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username" value="<?= set_value('username') ?>">
@@ -41,7 +38,7 @@
 
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-user" id="password2" name="captcha" placeholder="Masukan Captcha">
+                    <input type="text" class="form-control form-control-user" id="captcha" name="captcha" placeholder="Masukan Captcha">
                     <?= form_error('captcha', '<small class="text-danger pl-3">', '</small>'); ?>
                   </div>
                   <button type="submit" class="btn btn-secondary btn-user btn-block">Masuk</button>
