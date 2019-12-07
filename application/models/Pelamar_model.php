@@ -20,12 +20,12 @@ class Pelamar_model extends CI_Model
 		if ($keyword !== null) {
 			$query =
 				"
-			SELECT l.id, l.nama, l.alamat, l.no_telp, l.email, pe.perusahaan, p.posisi as posisi, l.file_data FROM lamar_pekerjaan l, perusahaan pe, posisi p WHERE l.perusahaan_id = pe.id and l.posisi_id=p.id and l.nama LIKE '%$keyword%' limit $start, $limit
+			SELECT l.id, l.nama, l.alamat, l.no_telp, l.email, l.posisi_id, l.perusahaan_id, pe.perusahaan, p.posisi as posisi, l.file_data FROM lamar_pekerjaan l, perusahaan pe, posisi p WHERE l.perusahaan_id = pe.id and l.posisi_id=p.id and l.nama LIKE '%$keyword%' limit $start, $limit
 		";
 		} else {
 			$query =
 				"
-			SELECT l.id, l.nama, l.alamat, l.no_telp, l.email, pe.perusahaan, p.posisi as posisi, l.file_data FROM lamar_pekerjaan l, perusahaan pe, posisi p WHERE l.perusahaan_id = pe.id and l.posisi_id=p.id limit $start, $limit
+			SELECT l.id, l.nama, l.alamat, l.no_telp, l.email, l.posisi_id, l.perusahaan_id, pe.perusahaan, p.posisi as posisi, l.file_data FROM lamar_pekerjaan l, perusahaan pe, posisi p WHERE l.perusahaan_id = pe.id and l.posisi_id=p.id limit $start, $limit
 		";
 		}
 		return $this->db->query($query, $limit, $start, $keyword)->result_array();
@@ -36,12 +36,12 @@ class Pelamar_model extends CI_Model
 		if ($keyword !== null) {
 			$query =
 				"
-			SELECT l.id, l.nama, l.alamat, l.no_telp, l.email, pe.perusahaan, p.posisi as posisi, l.file_data FROM lamar_pekerjaan l, perusahaan pe, posisi p WHERE l.perusahaan_id = pe.id and l.posisi_id=p.id and pe.perusahaan = '$perus' and l.nama LIKE '%$keyword%' limit $start, $limit
+			SELECT l.id, l.nama, l.alamat, l.no_telp, l.email, l.posisi_id, l.perusahaan_id, pe.perusahaan, p.posisi as posisi, l.file_data FROM lamar_pekerjaan l, perusahaan pe, posisi p WHERE l.perusahaan_id = pe.id and l.posisi_id=p.id and pe.perusahaan = '$perus' and l.nama LIKE '%$keyword%' limit $start, $limit
 		";
 		} else {
 			$query =
 				"
-			SELECT l.id, l.nama, l.alamat, l.no_telp, l.email, pe.perusahaan, p.posisi as posisi, l.file_data FROM lamar_pekerjaan l, perusahaan pe, posisi p WHERE l.perusahaan_id = pe.id and l.posisi_id=p.id and pe.perusahaan = '$perus' limit $start, $limit
+			SELECT l.id, l.nama, l.alamat, l.no_telp, l.email, l.posisi_id, l.perusahaan_id, pe.perusahaan, p.posisi as posisi, l.file_data FROM lamar_pekerjaan l, perusahaan pe, posisi p WHERE l.perusahaan_id = pe.id and l.posisi_id=p.id and pe.perusahaan = '$perus' limit $start, $limit
 		";
 		}
 		return $this->db->query($query, $limit, $start, $keyword, $perus)->result_array();

@@ -139,9 +139,14 @@
 						</div>
 						<div class="form-group">
 							<select name="menu_idU" id="menu_idU" class="form-control">
-								<?php foreach ($menu as $m) : ?>
-									<option value="<?= $m['id']; ?>"><?= $m['menu']; ?></option>
-								<?php endforeach; ?>
+								<?php foreach ($menu as $m) {
+										if ($sm['menu_id'] == $m['id']) {
+											echo "<option value='$m[id]' selected>$m[menu]</option>";
+										} else {
+											echo "<option value='$m[id]'>$m[menu]</option>";
+										}
+									}
+									?>
 							</select>
 						</div>
 						<div class="form-group">

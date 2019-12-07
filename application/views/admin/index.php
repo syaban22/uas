@@ -146,17 +146,28 @@
 						<div class="form-group">
 							<label for="perusahaan">Perusahaan</label>
 							<select name="perusahaan" id="perusahaan" class="form-control">
-								<?php foreach ($perusahaan as $p) : ?>
-									<option value="<?= $p['id']; ?>"><?= $p['perusahaan']; ?></option>
-								<?php endforeach; ?>
+								<?php foreach ($perusahaan as $pe) {
+										if ($p['perusahaan_id'] == $pe['id']) {
+											echo "<option value='$pe[id]' selected>$pe[perusahaan]</option>";
+										} else {
+											echo "<option value='$pe[id]'>$pe[perusahaan]</option>";
+										}
+									}
+									?>
 							</select>
 						</div>
+
 						<div class="form-group">
 							<label for="posisi">Posisi</label>
 							<select name="posisi" id="posisi" class="form-control">
-								<?php foreach ($posisi as $p) : ?>
-									<option value="<?= $p['id']; ?>"><?= $p['posisi']; ?></option>
-								<?php endforeach; ?>
+								<?php foreach ($posisi as $po) {
+										if ($p['posisi_id'] == $po['id']) {
+											echo "<option value='$po[id]' selected>$po[posisi]</option>";
+										} else {
+											echo "<option value='$po[id]'>$po[posisi]</option>";
+										}
+									}
+									?>
 							</select>
 						</div>
 					</div>

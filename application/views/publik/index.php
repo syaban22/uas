@@ -19,42 +19,42 @@
       </div>
       <div class="row">
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="100">
-          <a href="" data-toggle="modal" data-target="#register" class="h-90 feature-item">
+          <a href="#" onclick="swal.fire('Harap login terlebih dahulu','','warning')" class="h-90 feature-item">
             <span class="d-block icon fas fa-user-tie fa-4x mb-3 text-primary"></span>
             <h2>Direktur</h2>
             <span class="counting">????</span>
           </a>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="200">
-          <a href="" data-toggle="modal" data-target="#register" class="h-90 feature-item">
+          <a href="#" onclick="swal.fire('Harap login terlebih dahulu','','warning')" class="h-90 feature-item">
             <span class="d-block icon fas fa-users fa-7x mb-3 text-primary"></span>
             <h2>Manager</h2>
             <span class="counting">????</span>
           </a>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="300">
-          <a href="" data-toggle="modal" data-target="#register" class="h-90 feature-item">
+          <a href="#" onclick="swal.fire('Harap login terlebih dahulu','','warning')" class="h-90 feature-item">
             <span class="d-block icon fas fa-user-cog mb-3 text-primary"></span>
             <h2>Management</h2>
             <span class="counting">????</span>
           </a>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="400">
-          <a href="" data-toggle="modal" data-target="#register" class="h-90 feature-item">
+          <a href="#" onclick="swal.fire('Harap login terlebih dahulu','','warning')" class="h-90 feature-item">
             <span class="d-block icon fas fa-chalkboard-teacher mb-3 text-primary"></span>
             <h2>HRD</h2>
             <span class="counting">????</span>
           </a>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="500">
-          <a href="" data-toggle="modal" data-target="#register" class="h-90 feature-item">
+          <a href="#" onclick="swal.fire('Harap login terlebih dahulu','','warning')" class="h-90 feature-item">
             <span class="d-block icon fas fa-user-friends mb-3 text-primary"></span>
             <h2>Karyawan</h2>
             <span class="counting">????</span>
           </a>
         </div>
         <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="600">
-          <a href="" data-toggle="modal" data-target="#register" class="h-90 feature-item">
+          <a href="#" onclick="swal.fire('Harap login terlebih dahulu','','warning')" class="h-90 feature-item">
             <span class="d-block icon fas fa-broom mb-3 text-primary"></span>
             <h2>Cleaning Service</h2>
             <span class="counting">????</span>

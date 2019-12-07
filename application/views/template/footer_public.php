@@ -19,23 +19,6 @@
   <i class="fas fa-angle-up"></i>
 </a>
 
-<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="fas icon fa-lock fa-fw"></i> Login diperlukan</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">Silahkan lakukan login terlebih dahulu untuk melanjutkan.</div>
-      <div class="modal-footer">
-        <button class="btn" type="button" data-dismiss="modal">OK</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- JavaScripts -->
 <!-- <script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/jquery-1.8.3.min.js"></script> -->
 <script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/jquery-3.3.1.min.js"></script>
@@ -47,6 +30,7 @@
 <script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/jquery.magnific-popup.min.js"></script> -->
 <script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/aos.js"></script>
 <script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/main.js"></script>
+<script src="<?= base_url('asset/'); ?>js/sweet/sweetalert2.all.min.js"></script>
 <!-- Bootstrap core JavaScript-->
 <script src="<?= base_url('asset/'); ?>vendor/jquery/jquery.min.js"></script>
 <script src="<?= base_url('asset/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

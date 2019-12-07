@@ -65,9 +65,11 @@
 			<form action="<?= base_url('perusahaan/posisi'); ?>" method="POST">
 				<div class="modal-body">
 					<div class="form-group">
+						<label for="posisi">Posisi</label>
 						<input type="text" class="form-control" name="posisi" id="posisi" placeholder="Posisi baru">
 					</div>
 					<div class="form-group">
+						<label class="mb-3" for="posisi">Gaji</label>
 						<select name="gaji" id="gaji" class="form-control">
 							<?php foreach ($gajii as $g) : ?>
 								<option value="<?= $g['id']; ?>"><?= $g['ket_gaji']; ?></option>
@@ -104,10 +106,17 @@
 							<input type="text" class="form-control" name="posisiU" id="posisiU" value="<?= $p['posisi'] ?>">
 						</div>
 						<div class="form-group">
+
 							<select name="gajiU" id="gajiU" class="form-control">
-								<?php foreach ($gajii as $g) : ?>
-									<option value="<?= $g['id']; ?>"><?= $g['ket_gaji']; ?></option>
-								<?php endforeach; ?>
+								<?php foreach ($gajii as $ga) {
+										if ($p['id_gaji'] == $ga['id']) {
+											echo "<option value='$ga[id]' selected>$ga[ket_gaji]</option>";
+										} else {
+											echo "<option value='$ga[id]'>$ga[ket_gaji]></option>";
+										}
+									}
+									?>
+
 							</select>
 						</div>
 					</div>
