@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="flash-data" data-flashdata="Logout berhasil"></div>
+  <div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
   <!-- Outer Row -->
   <div class="row justify-content-center">
 

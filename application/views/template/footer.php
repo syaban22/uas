@@ -51,7 +51,7 @@
 
 <!-- Custom scripts for all pages-->
 <script src="<?= base_url('asset/'); ?>js/sb-admin-2.min.js"></script>
-<script src="<?= base_url('asset/'); ?>plugin/toast/jquery.toast.min.js"></script>
+<!-- script src="<?= base_url('asset/'); ?>plugin/toast/jquery.toast.min.js"></script> -->
 
 <script>
   $('.form-check-input').on('click', function() {
@@ -104,81 +104,6 @@
     $(this).next('.custom-file-label').html(fileName);
   })
 </script>
-
-<?php if ($this->session->flashdata('pesan') == '<div class="alert alert-success" role="alert">Lamaran pekerjaan telah terkirim</div>') : ?>
-  <script type="text/javascript">
-    $.toast({
-      heading: 'Success',
-      text: "Berkas Berhasil dikirimkan.",
-      showHideTransition: 'slide',
-      icon: 'success',
-      hideAfter: false,
-      position: 'bottom-right',
-      bgColor: '#7EC857'
-    });
-  </script>
-
-<?php elseif ($this->session->flashdata('pesan') == '<div class="alert alert-success" role="alert">Perusahaan baru ditambahkan</div>') : ?>
-  <script type="text/javascript">
-    $.toast({
-      heading: 'Success',
-      text: "Perusahaan baru berhasil ditambahkan.",
-      showHideTransition: 'slide',
-      icon: 'success',
-      hideAfter: false,
-      position: 'bottom-right',
-      bgColor: '#7EC857'
-    });
-  </script>
-<?php elseif ($this->session->flashdata('pesan') == '<div class="alert alert-success" role="alert">Level baru ditambahkan</div>') : ?>
-  <script type="text/javascript">
-    $.toast({
-      heading: 'Success',
-      text: "Level baru berhasil ditambahkan.",
-      showHideTransition: 'slide',
-      icon: 'success',
-      hideAfter: false,
-      position: 'bottom-right',
-      bgColor: '#7EC857'
-    });
-  </script>
-<?php elseif ($this->session->flashdata('pesan') == '<div class="alert alert-danger" role="alert">Format KTP Salah</div>') : ?>
-  <script type="text/javascript">
-    $.toast({
-      heading: 'Alert',
-      text: "Format KTP Salah.",
-      showHideTransition: 'slide',
-      icon: 'error',
-      hideAfter: false,
-      position: 'bottom-right',
-      bgColor: '#dc3545'
-    });
-  </script>
-<?php elseif ($this->session->flashdata('pesan') == '<div class="alert alert-success" role="alert">Level berhasil dihapus</div>') : ?>
-  <script type="text/javascript">
-    $.toast({
-      heading: 'Success',
-      text: "Berhasil menghapus Level.",
-      showHideTransition: 'slide',
-      icon: 'success',
-      hideAfter: false,
-      position: 'bottom-right',
-      bgColor: '#7EC857'
-    });
-  </script>
-<?php elseif ($this->session->flashdata('pesan') == '<div class="alert alert-success" role="alert">Update Foto Berhasil</div>') : ?>
-  <script type="text/javascript">
-    $.toast({
-      heading: 'Berhasil',
-      text: "Update foto berhasil.",
-      showHideTransition: 'slide',
-      icon: 'success',
-      hideAfter: false,
-      position: 'bottom-right',
-      bgColor: '#7EC857'
-    });
-  </script>
-<?php endif; ?>
 </body>
 
 </html>

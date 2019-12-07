@@ -60,7 +60,7 @@ class User extends CI_Controller
 		} else {
 			$this->db->where('id', $id);
 			$this->db->update('user', $data);
-			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Update Foto Berhasil</div>');
+			$this->session->set_flashdata('pesan', 'Update Foto Berhasil');
 			redirect('user');
 		}
 	}

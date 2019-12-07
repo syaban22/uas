@@ -26,14 +26,20 @@ class Menu extends CI_Controller
 			$this->load->view('template/footer');
 		} else {
 			$this->db->insert('user_menu', ['menu' => $this->input->post('menu')]);
-			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Menu baru ditambahkan</div>');
+			$this->session->set_flashdata('pesan', 'Menu baru berhasil ditambahkan');
 			redirect('menu');
 		}
 	}
 
 	public function delete($id)
 	{
-		$this->db->delete('user_menu', array('id' => $id));
+		if ($this->db->delete('user_menu', array('id' => $id))) {
+			$this->db->delete('user_menu', array('id' => $id));
+			$this->session->set_flashdata('pesan', 'Menu berhasil dihapus');
+		} else {
+			$this->session->set_flashdata('pesan', 'Menu gagal dihapus');
+		}
+
 		redirect('menu');
 	}
 
@@ -45,6 +51,7 @@ class Menu extends CI_Controller
 
 		$this->db->where('id', $id);
 		$this->db->update('user_menu', $data);
+		$this->session->set_flashdata('pesan', 'Edit Data Menu berhasil');
 		redirect('menu');
 	}
 
@@ -93,7 +100,7 @@ class Menu extends CI_Controller
 			];
 
 			$this->db->insert('user_sub_menu', $data);
-			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Sub Menu baru ditambahkan</div>');
+			$this->session->set_flashdata('pesan', 'Sub-Menu baru berhasil ditambahkan');
 			redirect('menu/submenu');
 		}
 	}
@@ -101,6 +108,7 @@ class Menu extends CI_Controller
 	public function deletesm($id)
 	{
 		$this->db->delete('user_sub_menu', array('id' => $id));
+		$this->session->set_flashdata('pesan', 'Sub-Menu berhasil dihapus');
 		redirect('menu/submenu');
 	}
 
@@ -116,6 +124,7 @@ class Menu extends CI_Controller
 
 		$this->db->where('id', $id);
 		$this->db->update('user_sub_menu', $data);
+		$this->session->set_flashdata('pesan', 'Edit Data Sub-Menu berhasil');
 		redirect('menu/submenu');
 	}
 }

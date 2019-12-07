@@ -1,6 +1,6 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
+	<div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
 	<!-- Page Heading -->
 	<div>
 		<div class="row">
@@ -23,8 +23,6 @@
 		<div class="col-lg-6">
 			<?= form_error('level', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
-			<?= $this->session->flashdata('pesan'); ?>
-
 			<a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#levelBaru"><i class="fas fa-fw fa-plus-square"></i> Tambah Level Baru</a>
 
 			<table class="table table-hover">
@@ -43,8 +41,8 @@
 							<td><?= $l['level']; ?></td>
 							<td>
 								<a href="<?= base_url('admin/levelAkses/') . $l['id']; ?>" class="btn btn-success btn-sm delete"><i class="fa fa-fw fa-user-check"></i> Akses</a>
-								<a href="" data-toggle="modal" data-target="#levelEdit<?= $l['id'] ?>" class="btn btn-primary btn-sm delete"><i class="fa fa-fw fa-edit"></i> Edit</a>
-								<a href="" data-toggle="modal" data-target="#ModalHapus<?= $l['id']; ?>" class="btn btn-danger btn-sm delete"><i class="fa fa-fw fa-trash"></i> Delete</a>
+								<a href="" data-toggle="modal" data-target="#levelEdit<?= $l['id'] ?>" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-edit"></i> Edit</a>
+								<a href="<?= base_url() . 'admin/delete/' . $l['id']; ?>" data-nama="<?= $l['level']; ?>" class="btn btn-danger btn-sm deleteL"><i class="fa fa-fw fa-trash"></i> Delete</a>
 							</td>
 						</tr>
 						<?php $no++; ?>
@@ -119,11 +117,12 @@
 
 <?php endforeach; ?>
 
+<!-- 
 <?php foreach ($level as $l) :
 	$id = $l['id'];
 	$nama_level = $l['level'];
 	?>
-	<!--Modal Hapus Pengguna-->
+	Modal Hapus Pengguna
 	<div class="modal fade" id="ModalHapus<?= $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<?php var_dump($id); ?>
 		<div class="modal-dialog" role="document">
@@ -145,4 +144,5 @@
 			</div>
 		</div>
 	</div>
-<?php endforeach; ?>
+<?php endforeach; ?> 
+-->

@@ -1,6 +1,6 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
+	<div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
 	<!-- Page Heading -->
 	<div>
 		<div class="row">
@@ -23,8 +23,6 @@
 		<div class="col-lg">
 			<?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
-			<?= $this->session->flashdata('pesan'); ?>
-
 			<a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#perusahaanBaru"><i class="fas fa-fw fa-plus-square"></i> Tambah Perusahaan Baru</a>
 
 			<table class="table table-hover">
@@ -43,7 +41,7 @@
 							<td><?= $p['perusahaan']; ?></td>
 							<td>
 								<a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#perusahaanEdit<?= $p['id'] ?>"><i class="fa fa-fw fa-edit"></i>Edit</a>
-								<a href="<?= base_url('admin/deleteP/' . $p['id']) ?>" class="btn btn-danger btn-sm delete"><i class="fa fa-fw fa-trash"></i>Delete</a>
+								<a href="<?= base_url('admin/deleteP/' . $p['id']) ?>" data-nama="<?= $p['perusahaan']; ?>" class="btn btn-danger btn-sm deletePe"><i class="fa fa-fw fa-trash"></i>Delete</a>
 							</td>
 						</tr>
 						<?php $no++; ?>

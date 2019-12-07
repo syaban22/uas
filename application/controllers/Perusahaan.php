@@ -48,7 +48,7 @@ class Perusahaan extends CI_Controller
 			];
 
 			$this->db->insert('posisi', $data);
-			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Posisi baru ditambahkan</div>');
+			$this->session->set_flashdata('pesan', 'Posisi baru berhasil ditambahkan');
 			redirect('perusahaan/posisi');
 		}
 	}
@@ -62,12 +62,14 @@ class Perusahaan extends CI_Controller
 
 		$this->db->where('id', $id);
 		$this->db->update('posisi', $data);
+		$this->session->set_flashdata('pesan', 'Edit Data posisi berhasil');
 		redirect('perusahaan/posisi');
 	}
 
 	public function deletePosisi($id)
 	{
 		$this->db->delete('posisi', array('id' => $id));
+		$this->session->set_flashdata('pesan', 'Posisi berhasil dihapus');
 		redirect('perusahaan/posisi');
 	}
 

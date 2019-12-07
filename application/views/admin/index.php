@@ -1,6 +1,6 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
+	<div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
 	<!-- Page Heading -->
 	<div>
 		<div class="row">
@@ -84,7 +84,7 @@
 							<td><a href="<?php echo site_url('admin/get_file/' . $p['id']); ?>" class="btn btn-sm btn-info"><i class="fa fa-fw fa-download"></i> Lihat KTP</a></td>
 							<td>
 								<a href="" data-toggle="modal" data-target="#pelamarEdit<?= $p['id'] ?>" class="btn btn-success btn-sm"><i class="fa fa-fw fa-edit"></i>Edit</a>
-								<a href="" data-toggle="modal" data-target="#ModalHapus<?= $p['id']; ?>" class="btn btn-danger btn-sm delete"><i class="fa fa-fw fa-trash"></i>Delete</a>
+								<a href="<?= base_url() . 'admin/deletePelamar/' . $p['id'] ?>" data-nama="<?= $p['nama']; ?>" class="btn btn-danger btn-sm deleteP"><i class="fa fa-fw fa-trash"></i>Delete</a>
 							</td>
 						</tr>
 					<?php endforeach; ?>
@@ -171,11 +171,11 @@
 
 <?php endforeach; ?>
 
-<?php foreach ($pelamar as $i) :
-	$id = $i['id'];
-	$nama = $i['nama'];
-	?>
-	<!--Modal Hapus Pengguna-->
+<!-- <?php foreach ($pelamar as $i) :
+			$id = $i['id'];
+			$nama = $i['nama'];
+			?>
+	Modal Hapus Pengguna
 	<div class="modal fade" id="ModalHapus<?= $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<?php var_dump($id); ?>
 		<div class="modal-dialog" role="document">
@@ -197,4 +197,4 @@
 			</div>
 		</div>
 	</div>
-<?php endforeach; ?>
+<?php endforeach; ?> -->

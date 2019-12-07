@@ -1,6 +1,6 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
+	<div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
 	<!-- Page Heading -->
 	<div>
 		<div class="row">
@@ -28,8 +28,6 @@
 				</div>
 			<?php endif; ?>
 
-			<?= $this->session->flashdata('pesan'); ?>
-
 			<a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#submenuBaru"><i class="fas fa-fw fa-plus-square"></i> Tambah SubMenu Baru</a>
 
 			<table class="table table-hover">
@@ -56,7 +54,7 @@
 							<td><?= $sm['is_active']; ?></td>
 							<td>
 								<a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#subMenuEdit<?= $sm['id'] ?>"><i class="fa fa-fw fa-edit"></i>Edit</a>
-								<a href="<?= base_url('menu/deletesm/' . $sm['id']) ?>" class="btn btn-danger btn-sm delete"><i class="fa fa-fw fa-trash"></i>Delete</a>
+								<a href="<?= base_url('menu/deletesm/' . $sm['id']) ?>" data-nama="<?= $sm['title']; ?>" class="btn btn-danger btn-sm deleteSM"><i class="fa fa-fw fa-trash"></i>Delete</a>
 							</td>
 						</tr>
 					<?php endforeach; ?>

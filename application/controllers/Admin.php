@@ -85,12 +85,14 @@ class Admin extends CI_Controller
 
 		$this->db->where('id', $id);
 		$this->db->update('lamar_pekerjaan', $data);
+		$this->session->set_flashdata('pesan', 'diubah');
 		redirect('admin');
 	}
 
 	public function deletePelamar($id)
 	{
 		$this->db->delete('lamar_pekerjaan', array('id' => $id));
+		$this->session->set_flashdata('pesan', 'dihapus');
 		redirect('admin');
 	}
 
@@ -111,7 +113,7 @@ class Admin extends CI_Controller
 			$this->load->view('template/footer');
 		} else {
 			$this->db->insert('user_level', ['level' => $this->input->post('level')]);
-			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Level baru ditambahkan</div>');
+			$this->session->set_flashdata('pesan', 'Level baru berhasil ditambahkan');
 			redirect('admin/level');
 		}
 	}
@@ -124,13 +126,14 @@ class Admin extends CI_Controller
 
 		$this->db->where('id', $id);
 		$this->db->update('user_level', $data);
+		$this->session->set_flashdata('pesan', 'Edit data Level');
 		redirect('admin/level');
 	}
 
 	public function delete($id)
 	{
 		$this->db->delete('user_level', array('id' => $id));
-		$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Level berhasil dihapus</div>');
+		$this->session->set_flashdata('pesan', 'Level berhasil dihapus');
 		redirect('admin/level');
 	}
 
@@ -193,7 +196,7 @@ class Admin extends CI_Controller
 			];
 
 			$this->db->insert('perusahaan', $data);
-			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Perusahaan baru ditambahkan</div>');
+			$this->session->set_flashdata('pesan', 'Perusahaan baru berhasil ditambahkan');
 			redirect('admin/perusahaan');
 		}
 	}
@@ -206,12 +209,14 @@ class Admin extends CI_Controller
 
 		$this->db->where('id', $id);
 		$this->db->update('perusahaan', $data);
+		$this->session->set_flashdata('pesan', 'Edit data Perusahaan berhasil');
 		redirect('admin/perusahaan');
 	}
 
 	public function deleteP($id)
 	{
 		$this->db->delete('perusahaan', array('id' => $id));
+		$this->session->set_flashdata('pesan', 'Perusahaan berhasil dihapus');
 		redirect('admin/perusahaan');
 	}
 

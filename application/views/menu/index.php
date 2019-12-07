@@ -1,6 +1,6 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
+	<div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
 	<!-- Page Heading -->
 	<div>
 		<div class="row">
@@ -24,8 +24,6 @@
 		<div class="col-lg-6">
 			<?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
-			<?= $this->session->flashdata('pesan'); ?>
-
 			<a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#menuBaru"><i class="fas fa-fw fa-plus-square"></i> Tambah Menu Baru</a>
 
 			<table class="table table-hover">
@@ -44,7 +42,7 @@
 							<td><?= $m['menu']; ?></td>
 							<td>
 								<a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#menuEdit<?= $m['id'] ?>"><i class="fa fa-fw fa-edit"></i>Edit</a>
-								<a href="<?= base_url('menu/delete/' . $m['id']) ?>" class="btn btn-danger btn-sm delete"><i class="fa fa-fw fa-trash"></i>Delete</a>
+								<a href="<?= base_url('menu/delete/' . $m['id']) ?>" data-nama="<?= $m['menu']; ?>" class="btn btn-danger btn-sm deleteM"><i class="fa fa-fw fa-trash"></i>Delete</a>
 							</td>
 						</tr>
 						<?php $no++; ?>
