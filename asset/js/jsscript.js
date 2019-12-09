@@ -74,6 +74,39 @@ if (flashdata == 'Logout berhasil') {
 	})
 }
 
+if (flashdata == 'Pendaftaran Sukses!') {
+	Swal.fire({
+		position: 'center',
+		icon: 'success',
+		title: 'Akun berhasil dibuat',
+		text: 'Silahkan lakukan Login',
+		showConfirmButton: false,
+		timer: 2500
+	})
+}
+
+if (flashdata == 'Password salah!') {
+	Swal.fire({
+		position: 'center',
+		icon: 'error',
+		title: 'Password Salah',
+		text: 'Silahkan coba lagi',
+		showConfirmButton: false,
+		timer: 2000
+	})
+}
+
+if (flashdata == 'User belum terdaftar!') {
+	Swal.fire({
+		position: 'center',
+		icon: 'error',
+		title: flashdata,
+		text: 'Silahkan buat akun terlebih dahulu',
+		showConfirmButton: false,
+		timer: 2500
+	})
+}
+
 // alert untuk CRUD Data pelamar
 if (flashdata == 'diubah') {
 	Swal.fire({

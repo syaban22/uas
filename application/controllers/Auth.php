@@ -10,6 +10,15 @@ class auth extends CI_Controller
 	}
 	public function index()
 	{
+
+		if ($this->session->userdata('level_id') == 1) {
+			redirect('admin');
+		} elseif ($this->session->userdata('level_id') == 2) {
+			redirect('perusahaan');
+		} elseif ($this->session->userdata('level_id') == 3) {
+			redirect('user');
+		}
+
 		$this->form_validation->set_rules('username', 'Username', 'required|trim');
 		$this->form_validation->set_rules('password', 'Password', 'required|trim');
 		$this->form_validation->set_rules('captcha', 'captcha', 'trim|callback_check_captcha|required');
@@ -41,10 +50,12 @@ class auth extends CI_Controller
 				$data = [
 					'username' => $user['username'],
 					'level_id' => $user['level_id'],
-					'nama' => $user['nama']
+					'nama' => $user['nama'],
 				];
 
 				$this->session->set_userdata($data);
+
+
 				if ($user['level_id'] == 1) {
 					redirect('admin');
 				} else if ($user['level_id'] == 2) {
@@ -55,11 +66,11 @@ class auth extends CI_Controller
 					redirect('publik');
 				}
 			} else {
-				$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">Password salah!</div>');
+				$this->session->set_flashdata('pesan', 'Password salah!');
 				redirect('auth');
 			}
 		} else {
-			$this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert">User belum terdaftar!</div>');
+			$this->session->set_flashdata('pesan', 'User belum terdaftar!');
 			redirect('auth');
 		}
 	}
@@ -114,6 +125,13 @@ class auth extends CI_Controller
 
 	public function registration()
 	{
+		if ($this->session->userdata('level_id') == 1) {
+			redirect('admin');
+		} elseif ($this->session->userdata('level_id') == 2) {
+			redirect('perusahaan');
+		} elseif ($this->session->userdata('level_id') == 3) {
+			redirect('user');
+		}
 
 		$this->form_validation->set_rules('username', 'Username', 'required|trim');
 		$this->form_validation->set_rules('name', 'Name', 'required|trim');
@@ -136,7 +154,7 @@ class auth extends CI_Controller
 			];
 
 			$this->db->insert('user', $data);
-			$this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Pendaftaran Sukses!</div>');
+			$this->session->set_flashdata('pesan', 'Pendaftaran Sukses!');
 			redirect('auth');
 		}
 	}
