@@ -417,3 +417,97 @@ if (flashdata == 'Edit Data Sub-Menu berhasil') {
 		timer: 2000
 	})
 }
+
+// CRUD Perusahaan
+if (flashdata == '1 Pelamar diterima') {
+	Swal.fire({
+		position: 'center',
+		icon: 'success',
+		title: flashdata,
+		showConfirmButton: false,
+		timer: 2500
+	})
+}
+
+$('.TerimaP').on('click', function (e) {
+	e.preventDefault();
+	const nama = $(this).data('nama');
+	const href = $(this).attr('href');
+	Swal.fire({
+		title: 'Terima Pelamar',
+		html: "Apakah anda yakin untuk menerima Sdr/i " + '<b>' + nama + '</b>' + " ?",
+		icon: 'question',
+		showCancelButton: true,
+		focusConfirm: false,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Ya',
+		cancelmButtonText: 'Tidak'
+	}).then((result) => {
+		if (result.value) {
+			document.location.href = href;
+		}
+	})
+});
+
+$('.TolakP').on('click', function (e) {
+	e.preventDefault();
+	const nama = $(this).data('nama');
+	const href = $(this).attr('href');
+	Swal.fire({
+		title: 'Tolak Pelamar',
+		html: "Apakah anda yakin untuk menolak Sdr/i " + '<b>' + nama + '</b>' + " ?",
+		icon: 'question',
+		showCancelButton: true,
+		focusConfirm: false,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Ya',
+		cancelmButtonText: 'Tidak'
+	}).then((result) => {
+		if (result.value) {
+			document.location.href = href;
+		}
+	})
+});
+
+if (flashdata == '1 Pelamar ditolak') {
+	Swal.fire({
+		position: 'center',
+		icon: 'success',
+		title: flashdata,
+		showConfirmButton: false,
+		timer: 2500
+	})
+}
+
+$('.cancel').on('click', function (e) {
+	e.preventDefault();
+	const nama = $(this).data('nama');
+	const href = $(this).attr('href');
+	Swal.fire({
+		title: 'Batalkan Aksi',
+		html: "Apakah anda yakin untuk membatalkan aksi ?",
+		icon: 'question',
+		showCancelButton: true,
+		focusConfirm: false,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Ya',
+		cancelmButtonText: 'Tidak'
+	}).then((result) => {
+		if (result.value) {
+			document.location.href = href;
+		}
+	})
+});
+
+if (flashdata == 'Aksi berhasil dibatalkan') {
+	Swal.fire({
+		position: 'center',
+		icon: 'success',
+		title: flashdata,
+		showConfirmButton: false,
+		timer: 2500
+	})
+}

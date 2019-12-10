@@ -58,7 +58,8 @@
 						<th scope="col">Email</th>
 						<th scope="col">Perusahaan</th>
 						<th scope="col">Posisi</th>
-						<th scope="col">File</th>
+						<!-- <th scope="col">File</th> -->
+						<th scope="col">Status</th>
 						<th scope="col">Action</th>
 					</tr>
 				</thead>
@@ -81,7 +82,14 @@
 							<td><?= $p['email']; ?></td>
 							<td><?= $p['perusahaan']; ?></td>
 							<td><?= $p['posisi']; ?></td>
-							<td><a href="<?php echo site_url('admin/get_file/' . $p['id']); ?>" class="btn btn-sm btn-info"><i class="fa fa-fw fa-download"></i> Lihat KTP</a></td>
+							<!-- <td><a href="<?php echo site_url('admin/get_file/' . $p['id']); ?>" class="btn btn-sm btn-info"><i class="fa fa-fw fa-download"></i> Lihat KTP</a></!-->
+							<?php if ($p['status'] == 'Diterima') : ?>
+								<td style="color: green"><?= $p['status']; ?></td>
+							<?php elseif ($p['status'] == 'Ditolak') :  ?>
+								<td style="color: red"><?= $p['status']; ?></td>
+							<?php elseif ($p['status'] == 'Menunggu') : ?>
+								<td style="color: orange"><?= $p['status']; ?></td>
+							<?php endif; ?>
 							<td>
 								<a href="" data-toggle="modal" data-target="#pelamarEdit<?= $p['id'] ?>" class="btn btn-success btn-sm"><i class="fa fa-fw fa-edit"></i>Edit</a>
 								<a href="<?= base_url() . 'admin/deletePelamar/' . $p['id'] ?>" data-nama="<?= $p['nama']; ?>" class="btn btn-danger btn-sm deleteP"><i class="fa fa-fw fa-trash"></i>Delete</a>
@@ -146,6 +154,7 @@
 						<div class="form-group">
 							<label for="perusahaan">Perusahaan</label>
 							<select name="perusahaan" id="perusahaan" class="form-control">
+
 								<?php foreach ($perusahaan as $pe) {
 										if ($p['perusahaan_id'] == $pe['id']) {
 											echo "<option value='$pe[id]' selected>$pe[perusahaan]</option>";

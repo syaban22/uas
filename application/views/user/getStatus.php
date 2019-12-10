@@ -23,14 +23,14 @@
             <nav class="navbar navbar-light bg-light">
                 <?php
                 if ($keyword == null) {
-                    echo '<a class="navbar-brand">Total : ' . $total_rows . '</a>';
+                    echo '<a class="navbar-brand"></a>';
                 } else {
                     echo '<a class="navbar-brand">Hasil Pencarian : ' . $total_rows . '</a>';
                 }
                 ?>
 
-                <form class="form-inline" action="<?= base_url('perusahaan/getPelamar'); ?>" method="post">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search Name" name="keyword" autocomplete="off" autofocus>
+                <form class="form-inline" action="<?= base_url('user/getStatus'); ?>" method="post">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Cari Perusahaan" name="keyword" autocomplete="off" autofocus>
                     <input type="submit" class="btn btn-primary" name="submit" value="Search">
                 </form>
             </nav>
@@ -49,21 +49,15 @@
 	</div> -->
     <br>
     <div class="row">
-        <div class="col-lg">
-            <a href="<?= base_url('perusahaan/Export')  ?>" class="btn btn-sm btn-success mb-3"><i class="fa fa-fw fa-file-excel"></i> Export Excel</a>
+        <div class="col-md">
             <table class="table table-hover" id="perus">
                 <thead>
                     <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">Alamat</th>
-                        <th scope="col">No Telepon</th>
-                        <th scope="col">Email</th>
                         <th scope="col">Perusahaan</th>
                         <th scope="col">Posisi</th>
-                        <th scope="col">File</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Notifikasi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,7 +65,7 @@
                         <tr>
                             <td colspan="12">
                                 <div class="alert alert-danger" role="alert">
-                                    Data not found!
+                                    Data masih kosong.
                                 </div>
                             </td>
                         </tr>
@@ -79,13 +73,8 @@
                     <?php foreach ($pelamar as $p) : ?>
                         <tr>
                             <th scope="row"><?= ++$start; ?></th>
-                            <td><?= $p['nama']; ?></td>
-                            <td><?= $p['alamat']; ?></td>
-                            <td><?= $p['no_telp']; ?></td>
-                            <td><?= $p['email']; ?></td>
                             <td><?= $p['perusahaan']; ?></td>
                             <td><?= $p['posisi']; ?></td>
-                            <td><a href="<?php echo site_url('perusahaan/get_file/' . $p['id']); ?>" class="btn btn-sm btn-info"><i class="fa fa-fw fa-download"></i> Lihat KTP</a></td>
                             <?php if ($p['status'] == 'Diterima') : ?>
                                 <td style="color: green"><?= $p['status']; ?></td>
                             <?php elseif ($p['status'] == 'Ditolak') :  ?>
@@ -93,18 +82,13 @@
                             <?php elseif ($p['status'] == 'Menunggu') : ?>
                                 <td style="color: orange"><?= $p['status']; ?></td>
                             <?php endif; ?>
-
-                            <?php if ($p['status'] == 'Diterima' || $p['status'] == 'Ditolak') : ?>
-                                <td>
-                                    <a href="<?= base_url() . 'perusahaan/actionCancel/' . $p['id'] ?>" data-nama="<?= $p['nama']; ?>" class="btn btn-warning btn-sm cancel"><i class="fa fa-fw fa-undo-alt"></i> Batalkan Aksi</a>
-
-                                </td>
-                            <?php elseif ($p['status'] == 'Menunggu') : ?>
-                                <td>
-                                    <a href="<?= base_url() . 'perusahaan/actionTerima/' . $p['id'] . '?email=' . $p['email'] ?>" data-nama="<?= $p['nama']; ?>" class="btn btn-success btn-sm TerimaP"><i class="fa fa-fw fa-check"></i> Terima</a>
-                                    <a href="<?= base_url() . 'perusahaan/actionTolak/' . $p['id'] . '?email=' . $p['email'] ?>" data-nama="<?= $p['nama']; ?>" class="btn btn-danger btn-sm TolakP"><i class="fa fa-fw fa-times"></i> Tolak</a>
-                                </td>
-                            <?php endif; ?>
+                            <td>
+                                <?php if ($p['status'] == 'Diterima' || $p['status'] == 'Ditolak') : ?>
+                                    <span>Harap cek email Anda untuk keterangan selengkapnya.</span>
+                                <?php elseif ($p['status'] == 'Menunggu') : ?>
+                                    <span>Harap tunggu keputusan dari perusahaan.</span>
+                                <?php endif; ?>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

@@ -1,0 +1,17 @@
+login username and passwords :
+admin :
+admin -> admin1234
+
+perusahaan :
+jayausaha -> 123456789
+ptmaju -> 123456789
+ptabadi -> 123456789
+
+pelamar :
+syaban -> 123456789
+
+**
+1. kalo kalian mau liat fungsi fasilitas emailnya uncomment $this->_sendEmail() di dalam method actionTerima/aactionTolas di controller perusahaan.
+2. jangan lupa aktifkan internet, matikan antivirus
+3. bikin dulu login akun sebagai pelamar dengan gmail kalian (asli) karena akan auto dikirim ke email itu nanti kalo status diterim/ditolak di klik dari perusahaan.
+**

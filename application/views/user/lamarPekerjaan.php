@@ -30,7 +30,7 @@
 				<div class="form-group">
 					<label for="email">Email</label>
 					<div class="inputWithIcon">
-						<input type="text" class="form-control" id="email" name="email" placeholder="Masukkan email" autocomplete="off" value="<?= set_value('email'); ?>">
+						<input type="text" class="form-control" id="email" name="email" placeholder="Masukkan email" autocomplete="off" value="<?= $user['email']; ?>" readonly>
 						<i class="fas fa-fw fa-envelope" aria-hidden="true"></i> </div>
 					<?= form_error('email', '<div class="alert-danger" role="alert">', '</div>'); ?>
 				</div>

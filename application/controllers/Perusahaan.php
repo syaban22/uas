@@ -210,4 +210,88 @@ class Perusahaan extends CI_Controller
 		$writer->save('php://output');
 		exit;
 	}
+
+	private function _sendEmail($email, $message, $PT)
+	{
+		//$this->load->library('email');
+
+		$config = array();
+		$config['protocol'] = 'smtp';
+		$config['smtp_host'] = 'ssl://smtp.googlemail.com';
+		$config['smtp_user'] = 'syaban22@gmail.com';
+		$config['smtp_pass'] = 'inipassword22';
+		$config['smtp_port'] = 465;
+		$config['mailtype'] = 'html';
+		$config['charset'] = 'utf-8';
+		$this->email->initialize($config);
+
+		$this->email->set_newline("\r\n");
+
+		// ini_set('SMTP', "smtp.gmail.com");
+		// ini_set('smtp_port', 587);
+		// ini_set('sendmail_from', "syaban22@gmail.com");
+
+		//$this->load->library('email', $config);
+
+		$this->email->from('syaban22@gmail.com', $PT);
+		$this->email->to($email);
+		$this->email->subject('Pengumuman Lamar Pekerjaan PT Jaya Usaha');
+		$this->email->message($message);
+
+		if ($this->email->send()) {
+			return true;
+		} else {
+			echo $this->email->print_debugger();
+			die;
+		}
+	}
+
+	public function actionTerima($id)
+	{
+		$email = $this->input->get('email');
+		$PT = $this->session->userdata('nama');
+		$message = "Selamat Anda diterima di perusahaan kami, silahkan segera lakukan verifikasi berkas dan wawancara, Terima kasih.";
+
+		// $this->_sendEmail($email, $message, $PT);
+
+		$data = [
+			'status' => '2'
+		];
+
+		$this->db->where('id', $id);
+		$this->db->update('lamar_pekerjaan', $data);
+		$this->session->set_flashdata('pesan', '1 Pelamar diterima');
+		redirect('perusahaan/getPelamar');
+	}
+
+	public function actionTolak($id)
+	{
+		$email = $this->input->get('email');
+
+		$PT = $this->session->userdata('nama');
+		$message = "Maaf Anda gagal untuk bergabung di perusahaan kami, demikian pesan singkat ini dari kami, Terima kasih.";
+
+		// $this->_sendEmail($email, $message, $PT);
+
+		$data = [
+			'status' => '3'
+		];
+
+		$this->db->where('id', $id);
+		$this->db->update('lamar_pekerjaan', $data);
+		$this->session->set_flashdata('pesan', '1 Pelamar ditolak');
+		redirect('perusahaan/getPelamar');
+	}
+
+	public function actionCancel($id)
+	{
+		$data = [
+			'status' => '1'
+		];
+
+		$this->db->where('id', $id);
+		$this->db->update('lamar_pekerjaan', $data);
+		$this->session->set_flashdata('pesan', 'Aksi berhasil dibatalkan');
+		redirect('perusahaan/getPelamar');
+	}
 }

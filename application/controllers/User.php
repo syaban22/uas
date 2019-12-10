@@ -124,4 +124,77 @@ class User extends CI_Controller
 			}
 		}
 	}
+
+	public function getStatus()
+	{
+		$data['judul'] = 'Status';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$usr = $this->session->userdata('email');
+
+		$this->load->model('user_model', 'UsM');
+
+		//$data['perusahaan'] = $this->pelamarM->getPerusahaan();
+		$data['posisi'] = $this->db->get('posisi')->result_array();
+		$data['perusahaan'] = $this->db->get('perusahaan')->result_array();
+
+
+		//filter
+		$nomor = $this->input->post('data');
+		//echo $perusahaan;
+		//$per = $this->db->get_where('lamar_pekerjaan', ['perusahaan_id' => $perusahaan])->result();
+
+		//print_r($per);
+
+		if ($this->input->post('submit')) {
+			$data['keyword'] = $this->input->post('keyword');
+			$this->session->set_userdata('keyword', $data['keyword']);
+		} else {
+			$data['keyword'] = $this->session->userdata('keyword');
+		}
+
+		if ($data['keyword'] == NULL) {
+			$this->db->like('email', $usr);
+			$this->db->from('lamar_pekerjaan l, perusahaan p');
+			$this->db->where('l.perusahaan_id = p.id');
+		} else {
+			$this->db->like('perusahaan', $data['keyword']);
+			$this->db->from('lamar_pekerjaan, perusahaan');
+			$this->db->where('lamar_pekerjaan.perusahaan_id = perusahaan.id');
+			$this->db->where('lamar_pekerjaan.email', $usr);
+		}
+		$config['total_rows'] = $this->db->count_all_results();
+		$config['base_url'] = 'http://localhost/uas/user/getStat';
+
+		$data['total_rows'] = $config['total_rows'];
+		// if ($perusahaan == 0) {
+		// 	$perusahaan = 5;
+		// }
+		$config['per_page'] = 5;
+		//$data['start'] = $this->uri->segment(3);
+		//var_dump($this->input->post('num_rows'));
+
+
+		// $data['jumlah_page'] = ceil($config['total_rows'] / $config['per_page']);
+		// $data['page'] = ceil(($this->uri->segment(3) / $data['jumlah_page']));
+		// if ($data['page'] == 0) {
+		// 	$data['page'] = 1;
+		// }
+
+		$this->pagination->initialize($config);
+
+
+		if ($this->uri->segment(3) !== null) {
+			$data['start'] = $this->uri->segment(3);
+		} else {
+			$data['start'] = 0;
+		}
+
+		$data['pelamar'] = $this->UsM->getStat($config['per_page'], $data['start'], $data['keyword'], $usr);
+
+		$this->load->view('template/header', $data);
+		$this->load->view('template/sidebar', $data);
+		$this->load->view('template/topbar', $data);
+		$this->load->view('user/getStatus', $data);
+		$this->load->view('template/footer');
+	}
 }
