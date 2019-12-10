@@ -255,7 +255,8 @@ class Perusahaan extends CI_Controller
 		// $this->_sendEmail($email, $message, $PT);
 
 		$data = [
-			'status' => '2'
+			'status' => '2',
+			'cek' => '1'
 		];
 
 		$this->db->where('id', $id);
@@ -274,7 +275,8 @@ class Perusahaan extends CI_Controller
 		// $this->_sendEmail($email, $message, $PT);
 
 		$data = [
-			'status' => '3'
+			'status' => '3',
+			'cek' => '1'
 		];
 
 		$this->db->where('id', $id);
@@ -286,7 +288,8 @@ class Perusahaan extends CI_Controller
 	public function actionCancel($id)
 	{
 		$data = [
-			'status' => '1'
+			'status' => '1',
+			'cek' => '1'
 		];
 
 		$this->db->where('id', $id);

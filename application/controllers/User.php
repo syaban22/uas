@@ -15,9 +15,11 @@ class User extends CI_Controller
 		$data['judul'] = 'My Profile';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
+		$data['st'] = $this->db->get_where('lamar_pekerjaan', ['email' =>  $this->session->userdata('email')])->row_array();
+
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
-		$this->load->view('template/topbar', $data);
+		$this->load->view('template/topbar_user', $data);
 		$this->load->view('user/index', $data);
 		$this->load->view('template/footer');
 	}
@@ -136,6 +138,13 @@ class User extends CI_Controller
 		//$data['perusahaan'] = $this->pelamarM->getPerusahaan();
 		$data['posisi'] = $this->db->get('posisi')->result_array();
 		$data['perusahaan'] = $this->db->get('perusahaan')->result_array();
+
+		$cek = array(
+			'cek' => $this->input->get('st'),
+		);
+
+		// $this->db->where('id', $id);
+		$this->db->update('lamar_pekerjaan', $cek);
 
 
 		//filter
