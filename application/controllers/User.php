@@ -15,7 +15,10 @@ class User extends CI_Controller
 		$data['judul'] = 'My Profile';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
-		$data['st'] = $this->db->get_where('lamar_pekerjaan', ['email' =>  $this->session->userdata('email')])->row_array();
+		$this->db->select_sum('cek');
+		$this->db->from('lamar_pekerjaan');
+		$query = $this->db->get();
+		$data['stat'] = $query->row()->cek;
 
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
@@ -117,7 +120,8 @@ class User extends CI_Controller
 					'email' => $this->input->post('email'),
 					'perusahaan_id' => $this->input->post('perusahaan'),
 					'posisi_id' => $this->input->post('posisi'),
-					'file_data' => $file
+					'file_data' => $file,
+					'status' => '1'
 				];
 
 				$this->db->insert('lamar_pekerjaan', $data);

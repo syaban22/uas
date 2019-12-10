@@ -16,9 +16,9 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item dropdown">
             <a class="nav-link" href="<?= base_url('user/getStatus') . '?st=0'; ?>" id="navbarDropdown" role="button">
-              <?php if ($st['cek'] != '0') : ?>
+              <?php if ($stat > 0) : ?>
                 <span class="badge badge-light">Cek Status !<i class="fa fa-bell fa-fw pl-1"></i></span>
-              <?php elseif ($st['cek'] == '0') : ?> <span class="badge badge-light">Tidak ada status baru<i class="fa fa-bell-slash fa-fw pl-1"></i></span>
+              <?php elseif ($stat == 0) : ?> <span class="badge badge-light">Tidak ada status baru<i class="fa fa-bell-slash fa-fw pl-1"></i></span>
               <?php endif  ?>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
