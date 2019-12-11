@@ -14,9 +14,11 @@ class User extends CI_Controller
 	{
 		$data['judul'] = 'My Profile';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$em = $this->session->userdata('email');
 
 		$this->db->select_sum('cek');
 		$this->db->from('lamar_pekerjaan');
+		$this->db->where('email', $em);
 		$query = $this->db->get();
 		$data['stat'] = $query->row()->cek;
 

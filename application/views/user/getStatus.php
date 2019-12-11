@@ -56,8 +56,8 @@
                         <th scope="col">No</th>
                         <th scope="col">Perusahaan</th>
                         <th scope="col">Posisi</th>
+                        <th scope="col">Hasil</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Notifikasi</th>
                     </tr>
                 </thead>
                 <tbody>
