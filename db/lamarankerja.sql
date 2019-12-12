@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2019 at 09:36 AM
+-- Generation Time: Dec 10, 2019 at 03:55 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `lamarankerjac`
+-- Database: `lamarankerja`
 --
 
 -- --------------------------------------------------------
@@ -60,17 +60,17 @@ CREATE TABLE `lamar_pekerjaan` (
   `perusahaan_id` int(11) NOT NULL,
   `posisi_id` int(11) NOT NULL,
   `file_data` varchar(120) DEFAULT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL,
+  `cek` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `lamar_pekerjaan`
 --
 
-INSERT INTO `lamar_pekerjaan` (`id`, `nama`, `alamat`, `no_telp`, `email`, `perusahaan_id`, `posisi_id`, `file_data`, `status`) VALUES
-(2, 'Syaban', 'Blega', '085233408998', 'syabansim@gmail.com', 1, 2, '17c69bf84ed54602014bec8d951d14a3.pdf', 3),
-(4, 'syaban baru', 'rangknangkah', '08732423423', 'syabansim@gmail.com', 1, 4, '81e478b6772e78bf86200e07755c9fa5.pdf', 2),
-(5, 'Syaban NeW', 'BLEGA', '0872342324234', 'syabansim@gmail.com', 4, 5, 'be4e439b5c4cd1333e766d58017e8582.pdf', 2);
+INSERT INTO `lamar_pekerjaan` (`id`, `nama`, `alamat`, `no_telp`, `email`, `perusahaan_id`, `posisi_id`, `file_data`, `status`, `cek`) VALUES
+(4, 'syaban baru', 'rangknangkah', '08732423423', 'syabansim@gmail.com', 1, 4, '81e478b6772e78bf86200e07755c9fa5.pdf', 2, 0),
+(5, 'Syaban NeW', 'BLEGA', '0872342324234', 'syabansim@gmail.com', 4, 5, 'be4e439b5c4cd1333e766d58017e8582.pdf', 2, 0);
 
 -- --------------------------------------------------------
 

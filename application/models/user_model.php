@@ -24,14 +24,23 @@ class user_model extends CI_Model
         if ($keyword !== null) {
             $query =
                 "
-			SELECT l.id, l.email, pe.perusahaan, p.posisi as posisi, s.ket_status as status FROM lamar_pekerjaan l, perusahaan pe, posisi p, status_user s WHERE l.perusahaan_id = pe.id and l.status = s.id and l.posisi_id=p.id and l.email = '$usr' and pe.perusahaan LIKE '%$keyword%' limit $start, $limit
+			SELECT l.id, l.email, pe.perusahaan, p.posisi as posisi, s.ket_status as status, l.cek FROM lamar_pekerjaan l, perusahaan pe, posisi p, status_user s WHERE l.perusahaan_id = pe.id and l.status = s.id and l.posisi_id=p.id and l.email = '$usr' and pe.perusahaan LIKE '%$keyword%' limit $start, $limit
 		";
         } else {
             $query =
                 "
-			SELECT l.id, l.email, pe.perusahaan, p.posisi as posisi, s.ket_status as status FROM lamar_pekerjaan l, perusahaan pe, posisi p, status_user s WHERE l.perusahaan_id = pe.id and l.status = s.id and l.posisi_id=p.id and l.email = '$usr' limit $start, $limit
+			SELECT l.id, l.email, pe.perusahaan, p.posisi as posisi, s.ket_status as status, l.cek FROM lamar_pekerjaan l, perusahaan pe, posisi p, status_user s WHERE l.perusahaan_id = pe.id and l.status = s.id and l.posisi_id=p.id and l.email = '$usr' limit $start, $limit
 		";
         }
         return $this->db->query($query, $limit, $start, $keyword, $usr)->result_array();
+    }
+
+    public function stcek($usr)
+    {
+        $query =
+            "
+        SELECT * FROM lamar_pekerjaan l WHERE l.email = '$usr'
+        ";
+        return $this->db->query($query, $usr)->num_rows();
     }
 }
