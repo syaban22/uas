@@ -14,9 +14,8 @@
           <h5 class="card-title"><?= $user['nama']; ?></h5>
           <p class="card-text">Pelamar kerja</p>
           <p class="card-text"><small class="text-muted">Member sejak <?= date('d F Y', $user['tgl_buat']); ?></small></p>
-          <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#FotoBaru">Ubah Foto Profil</a>
+          <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#FotoBaru">Ubah Foto Profil</a> <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#PassBaru">Ubah Password</a>
         </div>
-
       </div>
     </div>
   </div>
@@ -50,6 +49,53 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Upload Foto</button>
         </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="PassBaru" tabindex=" -1" role="dialog" aria-labelledby="PassBaru" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="PassBaru">Ubah Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form action="<?= base_url('user/UbahFoto/') . $user['id']; ?>" method="POST" enctype="multipart/form-data">
+        <div class="modal-body">
+          <div class="form-group">
+            <div class="form-group">
+              <label for="alamat">Masukkan Password Lama</label>
+              <div class="inputWithIcon">
+                <input type="text" class="form-control" id="alamat" name="alamat" placeholder="" autocomplete="off" value="<?= set_value('alamat'); ?>">
+                <i class=" fas fa-fw fa-unlock-alt" aria-hidden="true"></i> </div>
+              <?= form_error('alamat', '<div class="alert-danger" role="alert">', '</div>'); ?>
+            </div>
+            <div class="form-group">
+              <label for="telepon">Masukkan Password Baru</label>
+              <div class="inputWithIcon">
+                <input type="text" class="form-control" id="telepon" name="telepon" placeholder="" autocomplete="off" value="<?= set_value('telepon'); ?>">
+                <i class=" fas fa-fw fa-lock" aria-hidden="true"></i> </div>
+              <?= form_error('telepon', '<div class="alert-danger" role="alert">', '</div>'); ?>
+            </div>
+            <div class="form-group">
+              <label for="telepon">Masukkan Password Baru</label>
+              <div class="inputWithIcon">
+                <input type="text" class="form-control" id="telepon" name="telepon" placeholder="" autocomplete="off" value="<?= set_value('telepon'); ?>">
+                <i class=" fas fa-fw fa-lock" aria-hidden="true"></i> </div>
+              <?= form_error('telepon', '<div class="alert-danger" role="alert">', '</div>'); ?>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Done</button>
+          </div>
       </form>
 
     </div>

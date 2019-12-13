@@ -212,4 +212,23 @@ class User extends CI_Controller
 		$this->load->view('user/getStatus', $data);
 		$this->load->view('template/footer');
 	}
+
+	public function changePassword()
+	{
+		$data['judul'] = 'Change Password';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$em = $this->session->userdata('email');
+
+		$this->db->select_sum('cek');
+		$this->db->from('lamar_pekerjaan');
+		$this->db->where('email', $em);
+		$query = $this->db->get();
+		$data['stat'] = $query->row()->cek;
+
+		$this->load->view('template/header', $data);
+		$this->load->view('template/sidebar', $data);
+		$this->load->view('template/topbar_user', $data);
+		$this->load->view('user/changepassword', $data);
+		$this->load->view('template/footer');
+	}
 }
