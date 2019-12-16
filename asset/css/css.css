@@ -84,7 +84,8 @@ select {
 	box-shadow: 0 0 8px 0 rgb(221, 211, 73);
 }
 
-.inputWithIcon input[type="text"] {
+.inputWithIcon input[type="text"],
+.inputWithIcon input[type="password"] {
 	padding-left: 40px;
 }
 
