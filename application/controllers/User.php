@@ -12,7 +12,7 @@ class User extends CI_Controller
 
 	public function index()
 	{
-		$data['judul'] = 'My Profile';
+		$data['judul'] = 'Home';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 		$em = $this->session->userdata('email');
 
@@ -22,10 +22,53 @@ class User extends CI_Controller
 		$query = $this->db->get();
 		$data['stat'] = $query->row()->cek;
 
+		$this->load->view('template/header_UserHome', $data);
+		// $this->load->view('template/sidebar', $data);
+		$this->load->view('template/topbar_UserHome', $data);
+		$this->load->view('user/index', $data);
+		$this->load->view('template/footer');
+	}
+
+	public function Profile()
+	{
+		$data['judul'] = 'My Profile';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$em = $this->session->userdata('email');
+		$this->db->select_sum('cek');
+		$this->db->from('lamar_pekerjaan');
+		$this->db->where('email', $em);
+		$query = $this->db->get();
+		$data['stat'] = $query->row()->cek;
+
+		$this->session->set_userdata('stat', $data['stat']);
+
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('template/topbar_user', $data);
-		$this->load->view('user/index', $data);
+		$this->load->view('user/UserProfile', $data);
+		$this->load->view('template/footer');
+	}
+
+	public function JobItem()
+	{
+		$data['judul'] = 'Profile';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$data['perusahaan'] = $this->db->get('perusahaan')->result_array();
+
+		$data['stat'] = $this->session->userdata('stat');
+
+		$this->load->model('Posisi_model', 'posisi');
+		$job = $this->input->get('job');
+		$data['gaji'] = $this->posisi->Gaji($job);
+
+		$data['posisi'] = $this->db->get_where('posisi', [
+			'id' => $this->input->get('job')
+		])->result_array();
+
+		$this->load->view('template/header_UserHome', $data);
+		// $this->load->view('template/sidebar', $data);
+		$this->load->view('template/topbar_UserHome', $data);
+		$this->load->view('user/job', $data);
 		$this->load->view('template/footer');
 	}
 
@@ -47,7 +90,7 @@ class User extends CI_Controller
 	{
 		$config['upload_path']          = './asset/img/profile/';
 		$config['allowed_types']        = 'jpg|jpeg|png';
-		$config['max_size']             = 0;
+		$config['max_size']             = 2000;
 		$config['max_width']            = 500;
 		$config['max_height']           = 500;
 		$config['overwrite'] 			= TRUE;
@@ -63,12 +106,17 @@ class User extends CI_Controller
 		];
 		if ($this->upload->do_upload('UbahFoto') == false) {
 			$this->session->set_flashdata('pesan', 'Format Foto Salah');
-			redirect('user');
+			redirect('user/Profile');
 		} else {
+			$old_img = $data['user']['gambar'];
+			if ($old_img != 'default.jpg') {
+				unlink(FCPATH . '/asset/img/profile/' . $old_img);
+			}
+
 			$this->db->where('id', $id);
 			$this->db->update('user', $data);
 			$this->session->set_flashdata('pesan', 'Update Foto Berhasil');
-			redirect('user');
+			redirect('user/Profile');
 		}
 	}
 
@@ -76,9 +124,16 @@ class User extends CI_Controller
 	{
 		$data['judul'] = 'Lamar Pekerjaan';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$em = $this->session->userdata('email');
+		$this->db->select_sum('cek');
+		$this->db->from('lamar_pekerjaan');
+		$this->db->where('email', $em);
+		$query = $this->db->get();
+		$data['stat'] = $query->row()->cek;
 
 		$data['perusahaan'] = $this->db->get('perusahaan')->result_array();
 		$data['posisi'] = $this->db->get('posisi')->result_array();
+		$data['jenis'] = $this->db->get('jenkel')->result_array();
 
 		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
@@ -87,7 +142,7 @@ class User extends CI_Controller
 
 		$config['upload_path']          = './asset/files/ktp/';
 		$config['allowed_types']        = 'doc|docx|pdf';
-		$config['max_size']             = 0;
+		$config['max_size']             = 2000;
 		$config['encrypt_name']			= TRUE;
 
 		$this->upload->initialize($config);
@@ -98,16 +153,17 @@ class User extends CI_Controller
 			} else {
 				$data['error'] = "Complete validation above and upload it again";
 			}
-			$this->load->view('template/header', $data);
-			$this->load->view('template/sidebar', $data);
-			$this->load->view('template/topbar', $data);
+			$data['posisi_id'] = $this->input->post('posisi');
+			$this->load->view('template/header_Pekerjaan', $data);
+			// $this->load->view('template/sidebar', $data);
+			$this->load->view('template/topbar_UserHome', $data);
 			$this->load->view('user/lamarPekerjaan', $data);
 			$this->load->view('template/footer');
 		} else {
 			if (!$this->upload->do_upload('ktp')) {
 				$data['error'] = $this->upload->display_errors();
-				$this->load->view('template/header', $data);
-				$this->load->view('template/sidebar', $data);
+				$this->load->view('template/header_Pekerjaan', $data);
+				// $this->load->view('template/sidebar', $data);
 				$this->load->view('template/topbar', $data);
 				$this->load->view('user/lamarPekerjaan', $data);
 				$this->load->view('template/footer');
@@ -123,12 +179,13 @@ class User extends CI_Controller
 					'perusahaan_id' => $this->input->post('perusahaan'),
 					'posisi_id' => $this->input->post('posisi'),
 					'file_data' => $file,
-					'status' => '1'
+					'status' => '1',
+					'jenkel' => $this->input->post('jenkel')
 				];
 
 				$this->db->insert('lamar_pekerjaan', $data);
 				$this->session->set_flashdata('pesan', 'berhasil dikirim');
-				redirect('user');
+				redirect('user/Profile');
 			}
 		}
 	}
@@ -234,7 +291,7 @@ class User extends CI_Controller
 			$this->load->view('template/header', $data);
 			$this->load->view('template/sidebar', $data);
 			$this->load->view('template/topbar_user', $data);
-			$this->load->view('user/index', $data);
+			$this->load->view('user/UserProfile', $data);
 			$this->load->view('template/footer');
 		} else {
 			$curpass = $this->input->post('curpass');
@@ -242,12 +299,12 @@ class User extends CI_Controller
 			if (!password_verify($curpass, $data['user']['password'])) {
 				$this->session->set_flashdata('ms', '<div class="alert-danger" role="alert">Password Lama Salah!</div>');
 				$this->session->set_flashdata('pesan', 'Gagal pass');
-				redirect('user');
+				redirect('user/Profile');
 			} else {
 				if ($curpass == $newpass) {
 					$this->session->set_flashdata('msg', '<div class="alert-danger" role="alert">Password Baru tidak boleh sama dengan Password Lama!</div>');
 					$this->session->set_flashdata('pesan', 'Gagal pass');
-					redirect('user');
+					redirect('user/Profile');
 				} else {
 					$pass_hash = password_hash($newpass, PASSWORD_DEFAULT);
 
@@ -256,7 +313,7 @@ class User extends CI_Controller
 					$this->db->update('user');
 
 					$this->session->set_flashdata('pesan', 'Ubah Password Berhasil');
-					redirect('user');
+					redirect('user/Profile');
 				}
 			}
 		}

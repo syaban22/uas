@@ -1,110 +1,156 @@
-<!-- Begin Page Content -->
-<div class="container-fluid">
-  <div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
-  <?= $this->session->flashdata('mt'); ?>
-  <!-- Page Heading -->
-  <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
-
-  <div class="card mb-3" style="max-width: 540px;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img src="<?= base_url('asset/img/profile/') . $user['gambar']; ?>" class="card-img" alt="gambar">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title"><?= $user['nama']; ?></h5>
-          <p class="card-text">Pelamar kerja</p>
-          <p class="card-text"><small class="text-muted">Member sejak <?= date('d F Y', $user['tgl_buat']); ?></small></p>
-          <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#FotoBaru">Ubah Foto Profil</a> <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#PassBaru">Ubah Password</a>
+<div class="site-wrap">
+  <div class="site-blocks-cover overlay back" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-6" data-aos="fade">
+          <h1>Temukan Pekerjaan Idealmu</h1>
         </div>
       </div>
     </div>
   </div>
+  <div class="site-section" id="daftar">
+    <div class="container">
 
-</div>
-<!-- Modal -->
-<div class="modal fade" id="FotoBaru" tabindex=" -1" role="dialog" aria-labelledby="FotoBaru" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="FotoBaru">Upload Foto Profil Baru</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="row">
+        <div class="col-md-8 mx-auto text-center mb-5 section-heading">
+          <h2 class="mb-3">Lowongan Posisi Pekerjaan dari Perusahaan Terbaik</h2>
+        </div>
       </div>
-
-      <form action="<?= base_url('user/UbahFoto/') . $user['id']; ?>" method="POST" enctype="multipart/form-data">
-        <div class="modal-body">
-          <div class="form-group">
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" id="ktp" aria-describedby="inputGroupFileAddon01" name="UbahFoto" required>
-              <label class="custom-file-label" for="ktp">Choose file</label>
-            </div>
-          </div>
-          <div class="txtprof">
-            <p>*Ekstensi yang diperbolehkan .jpeg / .jpg / .png</p>
-            <p>*Maksimal ukuran gambar 500 x 500</p>
-          </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="100">
+          <a href="<?= base_url('user/JobItem/'); ?>?job=2" class="h-90 feature-item">
+            <span class="d-block icon fas fa-user-tie fa-4x mb-3 text-primary"></span>
+            <h2>Direktur</h2>
+            <span class="counting">Lihat Detail</span>
+          </a>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Upload Foto</button>
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="200">
+          <a href="<?= base_url('user/JobItem/'); ?>?job=1" class="h-90 feature-item">
+            <span class="d-block icon fas fa-users fa-7x mb-3 text-primary"></span>
+            <h2>Manager</h2>
+            <span class="counting">Lihat Detail</span>
+          </a>
         </div>
-      </form>
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="300">
+          <a href="<?= base_url('user/JobItem/'); ?>?job=5" class="h-90 feature-item">
+            <span class="d-block icon fas fa-user-cog mb-3 text-primary"></span>
+            <h2>Management</h2>
+            <span class="counting">Lihat Detail</span>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="400">
+          <a href="<?= base_url('user/JobItem/'); ?>?job=6" class="h-90 feature-item">
+            <span class="d-block icon fas fa-chalkboard-teacher mb-3 text-primary"></span>
+            <h2>HRD</h2>
+            <span class="counting">Lihat Detail</span>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="500">
+          <a href="<?= base_url('user/JobItem/'); ?>?job=3" class="h-90 feature-item">
+            <span class="d-block icon fas fa-user-friends mb-3 text-primary"></span>
+            <h2>Karyawan</h2>
+            <span class="counting">Lihat Detail</span>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="600">
+          <a href="<?= base_url('user/JobItem/'); ?>?job=4" class="h-90 feature-item">
+            <span class="d-block icon fas fa-broom mb-3 text-primary"></span>
+            <h2>Cleaning Service</h2>
+            <span class="counting">Lihat Detail</span>
+          </a>
+        </div>
+        <!-- <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="700">
+          <a href="#" class="h-90 feature-item">
+            <span class="d-block icon flaticon-trolley mb-3 text-primary"></span>
+            <h2>Transportation &amp; Logistics</h2>
+            <span class="counting">291</span>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="800">
+          <a href="#" class="h-90 feature-item">
+            <span class="d-block icon flaticon-restaurant mb-3 text-primary"></span>
+            <h2>Restaurant / Food Service</h2>
+            <span class="counting">329</span>
+          </a>
+        </div> -->
+      </div>
 
     </div>
   </div>
-</div>
 
-<!-- Modal Password-->
-<div class="modal fade" id="PassBaru" tabindex=" -1" role="dialog" aria-labelledby="PassBaru" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="PassBaru">Ubah Password</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <div class="site-blocks-cover overlay inner-page back2" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-8 text-center" data-aos="fade">
+          <h1 class="h3 mb-3">Pekerjaan Impianmu</h1>
+          <p class="h3 text-white mb-4">Kini Sedang Menunggumu</p>
+          <p><a href="#daftar" class="btn btn-warning py-3 px-4 scroll-to-top">Dapatkan Pekerjaanmu Sekarang !</a></p>
+        </div>
       </div>
-
-      <form action="<?= base_url('user/changePassword/') . $user['id']; ?>" method="POST">
-        <div class="modal-body">
-          <div class="form-group">
-            <div class="form-group">
-              <label for="curpass">Masukkan Password Lama</label>
-              <div class="inputWithIcon">
-                <input type="password" class="form-control" id="curpass" name="curpass" placeholder="Masukan Password Lama" autocomplete="off">
-                <i class=" fas fa-fw fa-unlock-alt" aria-hidden="true"></i> </div>
-              <?= form_error('curpass', '<div class="alert-danger" role="alert">', '</div>'); ?>
-              <?= $this->session->flashdata('ms'); ?>
-            </div>
-            <div class="form-group">
-              <label for="newpass">Masukkan Password Baru</label>
-              <div class="inputWithIcon">
-                <input type="password" class="form-control" id="newpass" name="newpass" placeholder="Masukan Password Baru" autocomplete="off">
-                <i class=" fas fa-fw fa-lock" aria-hidden="true"></i> </div>
-              <?= form_error('newpass', '<div class="alert-danger" role="alert">', '</div>'); ?>
-              <?= $this->session->flashdata('msg'); ?>
-            </div>
-            <div class="form-group">
-              <label for="conpass1">Ulangi Password Baru</label>
-              <div class="inputWithIcon">
-                <input type="password" class="form-control" id="conass" name="conpass" placeholder="Masukan Lagi" autocomplete="off">
-                <i class=" fas fa-fw fa-lock" aria-hidden="true"></i> </div>
-              <?= form_error('conpass', '<div class="alert-danger" role="alert">', '</div>'); ?>
-            </div>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Ubah Password</button>
-          </div>
-      </form>
-
     </div>
-  </div>
-</div>
-<!-- /.container-fluid -->
+    <!-- <footer class="site-footer">
+      <div class="container"> -->
 
+
+    <!-- <div class="row">
+        <div class="col-md-10">
+          <h3 class="footer-heading mb-4 text-white">Sekilas Tentang Aplikasi</h3>
+          <p>Di Online Job Application, kami percaya adanya sebuah dunia yang terbuka dan sama untuk semua orang. Di dalamnya banyak terdapat kesempatan dan kemungkinan : Awal yang baru, Karir baru. Terbuka terhadap perubahan. Dan itu semua baru sebagian kecil dari upaya kami dalam membantu orang-orang untuk mencari yang terbaik.</p> -->
+    <!-- <a><a href="#" class="btn btn-primary pill text-white px-4">Read More</a></p> -->
+    <!-- </div> -->
+    <!-- <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-6">
+              <h3 class="footer-heading mb-4 text-white">Quick Menu</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Approach</a></li>
+                <li><a href="#">Sustainability</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Careers</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h3 class="footer-heading mb-4 text-white">Categories</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Full Time</a></li>
+                <li><a href="#">Freelance</a></li>
+                <li><a href="#">Temporary</a></li>
+                <li><a href="#">Internship</a></li>
+              </ul>
+            </div>
+          </div>
+        </div> -->
+
+
+    <!-- <div class="col-md-2">
+          <div class="col-md-12">
+            <h3 class="footer-heading mb-4 text-white">Media Sosial</h3>
+          </div>
+          <div class="col-md-12">
+            <p>
+              <a href="#" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
+              <a href="#" class="p-2"><span class="icon-twitter"></span></a>
+              <a href="#" class="p-2"><span class="icon-instagram"></span></a>
+              <a href="#" class="p-2"><span class="icon-vimeo"></span></a>
+
+            </p>
+          </div>
+        </div>
+      </div> -->
+    <!-- <div class="row pt-5 mt-5 text-center">
+        <div class="col-md-12">
+          <p>
+            Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+            Copyright &copy; <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+            <script>
+              document.write(new Date().getFullYear());
+            </script> Onine Job Application | Reference : <a href="https://colorlib.com" target="_blank">Colorlib</a>
+          </p>
+        </div>
+
+      </div> -->
+  </div>
+  </footer>
 </div>
-<!-- End of Main Content -->
