@@ -177,11 +177,12 @@ class Perusahaan extends CI_Controller
 
 		$object->getActiveSheet()->setCellValue('A1', 'NO');
 		$object->getActiveSheet()->setCellValue('B1', 'NAMA');
-		$object->getActiveSheet()->setCellValue('C1', 'ALAMAT');
-		$object->getActiveSheet()->setCellValue('D1', 'NO TELEPON');
-		$object->getActiveSheet()->setCellValue('E1', 'EMAIL');
-		$object->getActiveSheet()->setCellValue('F1', 'PERUSAHAAN');
-		$object->getActiveSheet()->setCellValue('G1', 'POSISI');
+		$object->getActiveSheet()->setCellValue('C1', 'JENIS KELAMIN');
+		$object->getActiveSheet()->setCellValue('D1', 'ALAMAT');
+		$object->getActiveSheet()->setCellValue('E1', 'NO TELEPON');
+		$object->getActiveSheet()->setCellValue('F1', 'EMAIL');
+		$object->getActiveSheet()->setCellValue('G1', 'PERUSAHAAN');
+		$object->getActiveSheet()->setCellValue('H1', 'POSISI');
 
 		$baris = 2;
 		$no = 1;
@@ -189,11 +190,12 @@ class Perusahaan extends CI_Controller
 		foreach ($data['pelamar'] as $pl) {
 			$object->getActiveSheet()->setCellValue('A' . $baris, $no++);
 			$object->getActiveSheet()->setCellValue('B' . $baris, $pl->nama);
-			$object->getActiveSheet()->setCellValue('C' . $baris, $pl->alamat);
-			$object->getActiveSheet()->setCellValue('D' . $baris, $pl->no_telp);
-			$object->getActiveSheet()->setCellValue('E' . $baris, $pl->email);
-			$object->getActiveSheet()->setCellValue('F' . $baris, $pl->perusahaan);
-			$object->getActiveSheet()->setCellValue('G' . $baris, $pl->posisi);
+			$object->getActiveSheet()->setCellValue('C' . $baris, $pl->jenis);
+			$object->getActiveSheet()->setCellValue('D' . $baris, $pl->alamat);
+			$object->getActiveSheet()->setCellValue('E' . $baris, $pl->no_telp);
+			$object->getActiveSheet()->setCellValue('F' . $baris, $pl->email);
+			$object->getActiveSheet()->setCellValue('G' . $baris, $pl->perusahaan);
+			$object->getActiveSheet()->setCellValue('H' . $baris, $pl->posisi);
 
 			$baris++;
 		}

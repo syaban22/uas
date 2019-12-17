@@ -9,7 +9,6 @@
   </div>
 </footer>
 <!-- End of Footer -->
-
 </div>
 <!-- End of Content Wrapper -->
 
@@ -48,6 +47,11 @@
 <script src="<?= base_url('asset/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="<?= base_url('asset/'); ?>js/sweet/sweetalert2.all.min.js"></script>
 <script src="<?= base_url('asset/'); ?>js/jsscript.js"></script>
+
+<script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/aos.js"></script>
+<script type="text/javascript" src="<?= base_url('asset/'); ?>js/public_js/main.js"></script>
+
+<script type="text/javascript" src="<?= base_url('asset/'); ?>js/global.js"></script>
 
 <!-- Custom scripts for all pages-->
 <script src="<?= base_url('asset/'); ?>js/sb-admin-2.min.js"></script>

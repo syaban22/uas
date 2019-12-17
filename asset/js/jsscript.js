@@ -511,3 +511,33 @@ if (flashdata == 'Aksi berhasil dibatalkan') {
 		timer: 2500
 	})
 }
+
+if (flashdata == 'Gagal pass') {
+	Swal.fire({
+		position: 'center',
+		icon: 'error',
+		title: 'Ubah Password Gagal',
+		text: 'Harap periksa dan ulangi kembali',
+		showConfirmButton: true,
+	})
+}
+
+if (flashdata == 'kosong') {
+	Swal.fire({
+		position: 'center',
+		icon: 'error',
+		title: 'Ubah Password Gagal',
+		text: 'Field tidak boleh kosong!',
+		showConfirmButton: true,
+	})
+}
+
+if (flashdata == 'Ubah Password Berhasil') {
+	Swal.fire({
+		position: 'center',
+		icon: 'success',
+		title: flashdata,
+		showConfirmButton: false,
+		timer: 2500
+	})
+}

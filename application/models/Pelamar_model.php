@@ -20,12 +20,12 @@ class Pelamar_model extends CI_Model
 		if ($keyword !== null) {
 			$query =
 				"
-			SELECT l.id, l.nama, l.alamat, l.no_telp, l.email, pe.perusahaan, l.perusahaan_id, p.posisi as posisi, l.posisi_id, l.file_data, s.ket_status as status FROM lamar_pekerjaan l, perusahaan pe, posisi p, status_user s WHERE l.perusahaan_id = pe.id and l.posisi_id=p.id and l.status = s.id and l.nama LIKE '%$keyword%' limit $start, $limit
+			SELECT l.id, l.nama, j.jenis, l.alamat, l.no_telp, l.email, pe.perusahaan, l.perusahaan_id, p.posisi as posisi, l.posisi_id, l.file_data, s.ket_status as status FROM lamar_pekerjaan l, perusahaan pe, posisi p, status_user s, jenkel j WHERE l.perusahaan_id = pe.id and l.posisi_id=p.id and l.jenkel = j.id and l.status = s.id and l.nama LIKE '%$keyword%' limit $start, $limit
 		";
 		} else {
 			$query =
 				"
-			SELECT l.id, l.nama, l.alamat, l.no_telp, l.email, pe.perusahaan, l.perusahaan_id, p.posisi as posisi, l.posisi_id, l.file_data, s.ket_status as status FROM lamar_pekerjaan l, perusahaan pe, posisi p, status_user s WHERE l.perusahaan_id = pe.id and l.status = s.id and l.posisi_id=p.id limit $start, $limit
+			SELECT l.id, l.nama, j.jenis, l.alamat, l.no_telp, l.email, pe.perusahaan, l.perusahaan_id, p.posisi as posisi, l.posisi_id, l.file_data, s.ket_status as status FROM lamar_pekerjaan l, perusahaan pe, posisi p, status_user s, jenkel j WHERE l.perusahaan_id = pe.id and l.jenkel = j.id and l.status = s.id and l.posisi_id=p.id limit $start, $limit
 		";
 		}
 		return $this->db->query($query, $limit, $start, $keyword)->result_array();
@@ -36,12 +36,12 @@ class Pelamar_model extends CI_Model
 		if ($keyword !== null) {
 			$query =
 				"
-			SELECT l.id, l.nama, l.alamat, l.no_telp, l.email, pe.perusahaan, l.perusahaan_id, p.posisi as posisi, l.posisi_id, l.file_data, s.ket_status as status FROM lamar_pekerjaan l, perusahaan pe, posisi p, status_user s WHERE l.perusahaan_id = pe.id and l.status = s.id and l.posisi_id=p.id and pe.perusahaan = '$perus' and l.nama LIKE '%$keyword%' limit $start, $limit
+			SELECT l.id, l.nama, j.jenis, l.alamat, l.no_telp, l.email, pe.perusahaan, l.perusahaan_id, p.posisi as posisi, l.posisi_id, l.file_data, s.ket_status as status FROM lamar_pekerjaan l, perusahaan pe, posisi p, status_user s, jenkel j WHERE l.perusahaan_id = pe.id and l.jenkel = j.id and l.status = s.id and l.posisi_id=p.id and pe.perusahaan = '$perus' and l.nama LIKE '%$keyword%' limit $start, $limit
 		";
 		} else {
 			$query =
 				"
-			SELECT l.id, l.nama, l.alamat, l.no_telp, l.email, pe.perusahaan, l.perusahaan_id, p.posisi as posisi, l.posisi_id, l.file_data, s.ket_status as status FROM lamar_pekerjaan l, perusahaan pe, posisi p, status_user s WHERE l.perusahaan_id = pe.id and l.status = s.id and l.posisi_id=p.id and pe.perusahaan = '$perus' limit $start, $limit
+			SELECT l.id, l.nama, j.jenis, l.alamat, l.no_telp, l.email, pe.perusahaan, l.perusahaan_id, p.posisi as posisi, l.posisi_id, l.file_data, s.ket_status as status FROM lamar_pekerjaan l, perusahaan pe, posisi p, status_user s, jenkel j WHERE l.perusahaan_id = pe.id and l.jenkel = j.id and l.status = s.id and l.posisi_id=p.id and pe.perusahaan = '$perus' limit $start, $limit
 		";
 		}
 		return $this->db->query($query, $limit, $start, $keyword, $perus)->result_array();
@@ -49,7 +49,7 @@ class Pelamar_model extends CI_Model
 
 	public function export($perus)
 	{
-		$query = "SELECT l.id, l.nama, l.alamat, l.no_telp, l.email, pe.perusahaan, p.posisi as posisi, l.file_data FROM lamar_pekerjaan l, perusahaan pe, posisi p WHERE l.perusahaan_id = pe.id and l.posisi_id=p.id and pe.perusahaan = '$perus'";
+		$query = "SELECT l.id, l.nama, j.jenis, l.alamat, l.no_telp, l.email, pe.perusahaan, p.posisi as posisi, l.file_data FROM lamar_pekerjaan l, perusahaan pe, posisi p, jenkel j WHERE l.perusahaan_id = pe.id and l.posisi_id=p.id and l.jenkel = j.id and pe.perusahaan = '$perus'";
 		return $this->db->query($query, $perus)->result();
 	}
 

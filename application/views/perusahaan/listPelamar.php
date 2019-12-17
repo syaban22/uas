@@ -22,11 +22,11 @@
         <div class="col-md">
             <nav class="navbar navbar-light bg-light">
                 <?php
-                if ($keyword == null) {
-                    echo '<a class="navbar-brand">Total : ' . $total_rows . '</a>';
-                } else {
-                    echo '<a class="navbar-brand">Hasil Pencarian : ' . $total_rows . '</a>';
-                }
+                                                    if ($keyword == null) {
+                                                        echo '<a class="navbar-brand">Total : ' . $total_rows . '</a>';
+                                                    } else {
+                                                        echo '<a class="navbar-brand">Hasil Pencarian : ' . $total_rows . '</a>';
+                                                    }
                 ?>
 
                 <form class="form-inline" action="<?= base_url('perusahaan/getPelamar'); ?>" method="post">
@@ -56,6 +56,7 @@
                     <tr>
                         <th scope="col">No</th>
                         <th scope="col">Nama</th>
+                        <th scope="col">Jenis Kelamin</th>
                         <th scope="col">Alamat</th>
                         <th scope="col">No Telepon</th>
                         <th scope="col">Email</th>
@@ -80,12 +81,13 @@
                         <tr>
                             <th scope="row"><?= ++$start; ?></th>
                             <td><?= $p['nama']; ?></td>
+                            <td><?= $p['jenis']; ?></td>
                             <td><?= $p['alamat']; ?></td>
                             <td><?= $p['no_telp']; ?></td>
                             <td><?= $p['email']; ?></td>
                             <td><?= $p['perusahaan']; ?></td>
                             <td><?= $p['posisi']; ?></td>
-                            <td><a href="<?php echo site_url('perusahaan/get_file/' . $p['id']); ?>" class="btn btn-sm btn-info"><i class="fa fa-fw fa-download"></i> Lihat KTP</a></td>
+                            <td><a href="<?php echo site_url('perusahaan/get_file/' . $p['id']); ?>" class="btn btn-sm btn-info"><i class="fa fa-fw fa-download"></i> Lihat CV</a></td>
                             <?php if ($p['status'] == 'Diterima') : ?>
                                 <td style="color: green"><?= $p['status']; ?></td>
                             <?php elseif ($p['status'] == 'Ditolak') :  ?>

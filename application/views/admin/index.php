@@ -22,11 +22,11 @@
 		<div class="col-md">
 			<nav class="navbar navbar-light bg-light">
 				<?php
-				if ($keyword == null) {
-					echo '<a class="navbar-brand">Total : ' . $total_rows . '</a>';
-				} else {
-					echo '<a class="navbar-brand">Hasil Pencarian : ' . $total_rows . '</a>';
-				}
+													if ($keyword == null) {
+														echo '<a class="navbar-brand">Total : ' . $total_rows . '</a>';
+													} else {
+														echo '<a class="navbar-brand">Hasil Pencarian : ' . $total_rows . '</a>';
+													}
 				?>
 
 				<form class="form-inline" action="<?= base_url('admin'); ?>" method="post">
@@ -53,6 +53,7 @@
 					<tr>
 						<th scope="col">No</th>
 						<th scope="col">Nama</th>
+						<th scope="col">Jenis Kelamin</th>
 						<th scope="col">Alamat</th>
 						<th scope="col">No Telepon</th>
 						<th scope="col">Email</th>
@@ -77,6 +78,7 @@
 						<tr>
 							<th scope="row"><?= ++$start; ?></th>
 							<td><?= $p['nama']; ?></td>
+							<td><?= $p['jenis']; ?></td>
 							<td><?= $p['alamat']; ?></td>
 							<td><?= $p['no_telp']; ?></td>
 							<td><?= $p['email']; ?></td>
@@ -117,7 +119,7 @@
 <!-- End of Main Content -->
 
 <?php foreach ($pelamar as $p) :
-	?>
+?>
 
 	<!-- Modal Edit -->
 	<div class="modal fade" id="pelamarEdit<?= $p['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="pelamarEditLabel" aria-hidden="true">
@@ -156,13 +158,13 @@
 							<select name="perusahaan" id="perusahaan" class="form-control">
 
 								<?php foreach ($perusahaan as $pe) {
-										if ($p['perusahaan_id'] == $pe['id']) {
-											echo "<option value='$pe[id]' selected>$pe[perusahaan]</option>";
-										} else {
-											echo "<option value='$pe[id]'>$pe[perusahaan]</option>";
-										}
-									}
-									?>
+																												if ($p['perusahaan_id'] == $pe['id']) {
+																													echo "<option value='$pe[id]' selected>$pe[perusahaan]</option>";
+																												} else {
+																													echo "<option value='$pe[id]'>$pe[perusahaan]</option>";
+																												}
+																											}
+								?>
 							</select>
 						</div>
 
@@ -170,13 +172,13 @@
 							<label for="posisi">Posisi</label>
 							<select name="posisi" id="posisi" class="form-control">
 								<?php foreach ($posisi as $po) {
-										if ($p['posisi_id'] == $po['id']) {
-											echo "<option value='$po[id]' selected>$po[posisi]</option>";
-										} else {
-											echo "<option value='$po[id]'>$po[posisi]</option>";
-										}
-									}
-									?>
+																												if ($p['posisi_id'] == $po['id']) {
+																													echo "<option value='$po[id]' selected>$po[posisi]</option>";
+																												} else {
+																													echo "<option value='$po[id]'>$po[posisi]</option>";
+																												}
+																											}
+								?>
 							</select>
 						</div>
 					</div>
@@ -192,9 +194,9 @@
 <?php endforeach; ?>
 
 <!-- <?php foreach ($pelamar as $i) :
-			$id = $i['id'];
-			$nama = $i['nama'];
-			?>
+																											$id = $i['id'];
+																											$nama = $i['nama'];
+		?>
 	Modal Hapus Pengguna
 	<div class="modal fade" id="ModalHapus<?= $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<?php var_dump($id); ?>
