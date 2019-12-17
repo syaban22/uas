@@ -12,7 +12,7 @@ class Perusahaan extends CI_Controller
 
 	public function index()
 	{
-		$data['judul'] = 'Detail Perusahaan';
+		$data['judul'] = 'Profile Perusahaan';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 		$data['perusahaan'] = $this->db->get_where('perusahaan', ['perusahaan' => $this->session->userdata('nama')])->row_array();
 
@@ -437,7 +437,7 @@ class Perusahaan extends CI_Controller
 
 	public function changePassword()
 	{
-		$data['judul'] = 'Detail Perusahaan';
+		$data['judul'] = 'Profile Perusahaan';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 		$data['perusahaan'] = $this->db->get_where('perusahaan', ['perusahaan' => $this->session->userdata('nama')])->row_array();
 

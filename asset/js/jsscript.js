@@ -342,6 +342,7 @@ if (flashdata == 'Menu gagal dihapus') {
 		position: 'center',
 		icon: 'error',
 		title: flashdata,
+		text: 'Non-Aktifkan Menu dari setiap User!',
 		showConfirmButton: false,
 		timer: 2000
 	})

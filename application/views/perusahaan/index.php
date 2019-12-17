@@ -3,8 +3,19 @@
   <div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
   <?= $this->session->flashdata('mt'); ?>
   <!-- Page Heading -->
-  <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
-
+  <div class="row">
+    <div class="col-md">
+      <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
+    </div>
+    <div class="col-md-3">
+      <nav aria-label="breadcrumb">
+        <p>
+          <span class="posisi"><i class="fa fa-dashboard fa-md"></i> &nbsp<b>Menu Perusahaan</b>&nbsp<i class="fa fa-angle-right fa-md"></i>&nbsp<span><b>Profile Perusahaan</b>
+            </span>
+        </p>
+      </nav>
+    </div>
+  </div>
   <div class="card mb-3" style="max-width: 540px;">
     <div class="row no-gutters">
       <div class="col-md-4">
@@ -20,16 +31,22 @@
         <div class="card-body">
           <h5 class="card-title"><?= $user['nama']; ?></h5>
           <p class="card-text">Profil Perusahaan</p>
+          <?php if ($cek['about'] != NULL) : ?>
+            <p class="card-text"><small class="text-muted"><?= $cek['about']; ?></small></p>
+          <?php else : ?>
+            <p class="card-text"><small class="text-muted ">Tentang Perusahaan : - (harap untuk mengedit profil perusahaan)</small></p>
+          <?php endif ?>
           <p class="card-text"><small class="text-muted">Terdaftar sejak <?= date('d F Y', $user['tgl_buat']); ?></small></p>
           <?php if ($cek['id'] == null) : ?>
             <a></a>
           <?php else : ?>
             <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#FotoBaru">Ubah Foto Halaman Web</a>
           <?php endif ?>
-          <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#PassBaru">Ubah Password</a>
+          <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#PassBaru"><i class="fa fa-fw fa-key"></i> Ubah Password</a>
         </div>
       </div>
     </div>
+
   </div>
 
 
