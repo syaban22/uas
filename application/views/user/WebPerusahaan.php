@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
   <div class="container">
-    <a class="navbar-brand" href=""><?= $user['nama']; ?></a>
+    <a class="navbar-brand" href=""><?= $nama['perusahaan']; ?></a>
   </div>
 </nav>
 <?php if ($detail['gambar'] != NULL) : ?>
@@ -22,7 +22,7 @@
             <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">A small river named
               Duden flows by their place and supplies it with the necessary regelialia.</p>
           <?php endif ?>
-          <p><a href="#" class="btn btn-primary py-3 px-4" data-toggle="modal" data-target="#modalAppointment">Daftarkan diri Anda !</a></p>
+          <p style="text-align: center"><a href="<?= base_url('user#daftar') ?>" class="btn btn-primary ">Daftarkan diri Anda !</a></p>
         </div>
       </div>
     </div>
@@ -40,8 +40,8 @@
                       <div class="icon d-flex justify-content-center align-items-center">
                         <span class="flaticon-house"></span>
                       </div>
-                      <strong class="number" data-number="50">0</strong>
-                      <span>Years of Experienced</span>
+                      <strong class="number" data-number="20">0</strong>
+                      <span>Tahun Berdiri</span>
                     </div>
                   </div>
                 </div>
@@ -52,7 +52,7 @@
                         <span class="flaticon-handshake"></span>
                       </div>
                       <strong class="number" data-number="10000">0</strong>
-                      <span>Trusted Clients</span>
+                      <span>Banyak Klien</span>
                     </div>
                   </div>
                 </div>
@@ -62,8 +62,8 @@
                       <div class="icon d-flex justify-content-center align-items-center">
                         <span class="flaticon-lawyer"></span>
                       </div>
-                      <strong class="number" data-number="564">0</strong>
-                      <span>Qualified Lawyers</span>
+                      <strong class="number" data-number="50">0</strong>
+                      <span>Pekerja Ahli</span>
                     </div>
                   </div>
                 </div>
@@ -73,8 +73,8 @@
                       <div class="icon d-flex justify-content-center align-items-center">
                         <span class="flaticon-medal"></span>
                       </div>
-                      <strong class="number" data-number="300">0</strong>
-                      <span>Honors &amp; Awards</span>
+                      <strong class="number" data-number="40">0</strong>
+                      <span>Prestasi</span>
                     </div>
                   </div>
                 </div>

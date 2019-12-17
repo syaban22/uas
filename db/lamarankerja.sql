@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2019 at 09:41 AM
+-- Generation Time: Dec 17, 2019 at 03:17 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -142,6 +142,29 @@ INSERT INTO `posisi` (`id`, `posisi`, `id_gaji`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `profile_perusahaan`
+--
+
+CREATE TABLE `profile_perusahaan` (
+  `id` int(11) NOT NULL,
+  `id_perusahaan` int(11) NOT NULL,
+  `visi` text NOT NULL,
+  `misi` text NOT NULL,
+  `gambar` varchar(125) NOT NULL,
+  `quotes` text NOT NULL,
+  `about` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `profile_perusahaan`
+--
+
+INSERT INTO `profile_perusahaan` (`id`, `id_perusahaan`, `visi`, `misi`, `gambar`, `quotes`, `about`) VALUES
+(1, 1, 'Menjadi perusahaan terbaik dalam pengolahan Data se-Asia hingga Dunia.', 'Menjadi perusahaan yang menjadi panutan dalam pengolahan Data bagi perusahaan lain.', 'bg_3.jpg', 'Menjaga Integritas dan Kemanan Data Anda', 'PT Jaya Usaha merupakan perusahaan yang bergerak dibidang pengolahan Data dan Statistik untuk keperluan pengambilan keputusan baik bagi perusahaan besar maupun kecil.');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `status_user`
 --
 
@@ -185,7 +208,8 @@ INSERT INTO `user` (`id`, `nama`, `email`, `gambar`, `username`, `password`, `le
 (7, 'PT Jaya Usaha', '', 'default.jpg', 'jayausaha', '$2y$10$xZnX6OZFEwD/1e4JlCBwSOtyKFHZMsET8YuUNGQ2hUyeCXiTaAO/i', 2, 1575338076),
 (8, 'PT Maju', '', 'default.jpg', 'ptmaju', '$2y$10$5UMoQtR9qxfiR/e76B0tfOTEdrylKrwDPW6cDA42QSlmjPGLti1Pu', 2, 1575349999),
 (9, 'PT Abadi', '', 'default.jpg', 'ptabadi', '$2y$10$6N7ArMO4l6T3DwYi9f0dZei8kMzoePT4pIBzoFEO2kG5vbdB9JIrW', 2, 1575350169),
-(10, 'Admin', '', 'default.jpg', 'admin', '$2y$10$767Bljk87AuX8FfgmOqQueZM//HrCJFj6YT/2zayHftCRga9kx9Ym', 1, 1575713148);
+(10, 'Admin', '', 'default.jpg', 'admin', '$2y$10$767Bljk87AuX8FfgmOqQueZM//HrCJFj6YT/2zayHftCRga9kx9Ym', 1, 1575713148),
+(15, 'syaban', 'syabansim@ymail.com', 'default.jpg', 'syaban22', '$2y$10$04rrgTssAoWvPB1r3YQOKOdLnmzLaN3kJxL2I2wLQi7UEETu/UWYS', 3, 1576580641);
 
 -- --------------------------------------------------------
 
@@ -208,8 +232,8 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (4, 2, 2),
 (5, 3, 3),
 (25, 1, 4),
-(40, 1, 2),
-(42, 1, 3);
+(42, 1, 3),
+(45, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -285,7 +309,9 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (13, 2, 'Posisi', 'perusahaan/posisi', 'fas fa-fw fa-address-book', 1),
 (14, 2, 'List Pelamar', 'perusahaan/getPelamar', 'fas fa-fw fa-clipboard-list', 1),
 (19, 1, 'User Lists', 'admin/getUserlist', 'fas fa-fw fa-user', 0),
-(22, 3, 'Status', 'user/getStatus', 'fa fa-user fa-fw', 1);
+(22, 3, 'Status', 'user/getStatus', 'fa fa-user fa-fw', 1),
+(23, 2, 'Edit Profile', 'perusahaan/EditProfile', 'fa fa-user fa-fw', 1),
+(24, 2, 'Preview Web', 'perusahaan/PreView', 'fa fa-fw fa-home', 1);
 
 --
 -- Indexes for dumped tables
@@ -325,6 +351,13 @@ ALTER TABLE `perusahaan`
 ALTER TABLE `posisi`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_gaji` (`id_gaji`);
+
+--
+-- Indexes for table `profile_perusahaan`
+--
+ALTER TABLE `profile_perusahaan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_perusahaan` (`id_perusahaan`);
 
 --
 -- Indexes for table `status_user`
@@ -401,6 +434,12 @@ ALTER TABLE `posisi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
+-- AUTO_INCREMENT for table `profile_perusahaan`
+--
+ALTER TABLE `profile_perusahaan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `status_user`
 --
 ALTER TABLE `status_user`
@@ -410,13 +449,13 @@ ALTER TABLE `status_user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `user_level`
@@ -434,7 +473,7 @@ ALTER TABLE `user_menu`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Constraints for dumped tables
@@ -454,6 +493,12 @@ ALTER TABLE `lamar_pekerjaan`
 --
 ALTER TABLE `posisi`
   ADD CONSTRAINT `posisi_ibfk_1` FOREIGN KEY (`id_gaji`) REFERENCES `gaji` (`id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `profile_perusahaan`
+--
+ALTER TABLE `profile_perusahaan`
+  ADD CONSTRAINT `profile_perusahaan_ibfk_1` FOREIGN KEY (`id_perusahaan`) REFERENCES `perusahaan` (`id`);
 
 --
 -- Constraints for table `user`

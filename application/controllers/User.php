@@ -86,6 +86,22 @@ class User extends CI_Controller
 		$this->load->view('template/footer');
 	}
 
+	public function DetailPerusahaan()
+	{
+		$data['judul'] = 'Daftar Perusahaan';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+
+		$data['detail'] = $this->db->get_where('profile_perusahaan', ['id_perusahaan' => $this->input->get('perusahaan')])->row_array();
+		$data['nama'] = $this->db->get_where('perusahaan', ['id' => $this->input->get('perusahaan')])->row_array();
+
+
+		$this->load->view('template/header_perusahaan', $data);
+		// $this->load->view('template/sidebar', $data);
+		$this->load->view('template/topbar', $data);
+		$this->load->view('user/WebPerusahaan', $data);
+		$this->load->view('template/footer_perusahaan');
+	}
+
 	public function UbahFoto($id)
 	{
 		$config['upload_path']          = './asset/img/profile/';
