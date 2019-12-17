@@ -134,8 +134,13 @@ class auth extends CI_Controller
 			redirect('user');
 		}
 
-		$this->form_validation->set_rules('username', 'Username', 'required|trim');
+		$this->form_validation->set_rules('username', 'Username', 'required|trim|is_unique[user.username]', [
+			'is_unique' => 'Username ini sudah yang menggunakan!'
+		]);
 		$this->form_validation->set_rules('name', 'Name', 'required|trim');
+		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', [
+			'is_unique' => 'Email ini sudah pernah registrasi!'
+		]);
 		$this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[8]|matches[password2]', ['matches' => 'password tidak sama!', 'min_length' => 'password terlalu pendek']);
 		$this->form_validation->set_rules('password2', 'Password', 'required|trim|min_length[8]|matches[password1]');
 
@@ -147,6 +152,7 @@ class auth extends CI_Controller
 		} else {
 			$data = [
 				'nama' => htmlspecialchars($this->input->post('name', true)),
+				'email' => htmlspecialchars($this->input->post('email', true)),
 				'gambar' => 'default.jpg',
 				'username' => htmlspecialchars($this->input->post('username', true)),
 				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
