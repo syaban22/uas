@@ -541,3 +541,23 @@ if (flashdata == 'Ubah Password Berhasil') {
 		timer: 2500
 	})
 }
+
+if (flashdata == 'Update Profil Perusahaan Berhasil') {
+	Swal.fire({
+		position: 'center',
+		icon: 'success',
+		title: flashdata,
+		showConfirmButton: false,
+		timer: 2500
+	})
+}
+
+if (flashdata == 'Detail Profil Perusahaan Berhasil Ditambahkan') {
+	Swal.fire({
+		position: 'center',
+		icon: 'success',
+		title: flashdata,
+		showConfirmButton: false,
+		timer: 2500
+	})
+}

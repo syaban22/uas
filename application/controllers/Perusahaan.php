@@ -38,6 +38,12 @@ class Perusahaan extends CI_Controller
 		$this->form_validation->set_rules('quotes', 'Quotes', 'required');
 		$this->form_validation->set_rules('about', 'About', 'required');
 
+		if ($data['cek'] == NULL) {
+			$gambar = "bg_3.jpg";
+		} else {
+			$gambar = "";
+		}
+
 		if ($this->form_validation->run() == false) {
 			$this->load->view('template/header_Pekerjaan', $data);
 			// $this->load->view('template/sidebar', $data);
@@ -49,13 +55,13 @@ class Perusahaan extends CI_Controller
 				'id_perusahaan' => $data['perusahaan']['id'],
 				'visi' => $this->input->post('visi'),
 				'misi' => $this->input->post('misi'),
-				'gambar' => "bg_3.jpg",
+				'gambar' => $gambar,
 				'quotes' => $this->input->post('quotes'),
 				'about' => $this->input->post('about')
 			];
 
 			$this->db->insert('profile_perusahaan', $data);
-			$this->session->set_flashdata('pesan', 'berhasil dikirim');
+			$this->session->set_flashdata('pesan', 'Detail Profil Perusahaan Berhasil Ditambahkan');
 			redirect('perusahaan');
 		}
 	}
@@ -93,7 +99,7 @@ class Perusahaan extends CI_Controller
 			$this->db->where('id', $id);
 			$this->db->update('profile_perusahaan', $data);
 
-			$this->session->set_flashdata('pesan', 'berhasil dikirim');
+			$this->session->set_flashdata('pesan', 'Update Profil Perusahaan Berhasil');
 			redirect('perusahaan');
 		}
 	}

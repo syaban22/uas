@@ -7,14 +7,25 @@
   <div class="card mb-3" style="max-width: 540px;">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <img src="<?= base_url('asset/img/perusahaan_pic/') . $cek['gambar']; ?>" class="card-img" alt="gambar">
+        <?php if ($cek == NULL) : ?>
+          <img src="<?= base_url('asset/img/profile/') . $user['gambar']; ?>" class="card-img" alt="gambar">
+        <?php elseif ($cek['gambar'] == 'bg_3.jpg') : ?>
+          <img src="<?= base_url('asset/img/perusahaan_pic/') . $cek['gambar']; ?>" class="card-img" alt="gambar">
+        <?php elseif ($cek != NULL) : ?>
+          <img src="<?= base_url('asset/img/perusahaan_pic/') . $cek['gambar']; ?>" class="card-img" alt="gambar">
+        <?php endif ?>
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title"><?= $user['nama']; ?></h5>
           <p class="card-text">Profil Perusahaan</p>
           <p class="card-text"><small class="text-muted">Terdaftar sejak <?= date('d F Y', $user['tgl_buat']); ?></small></p>
-          <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#FotoBaru">Ubah Foto Halaman Web</a> <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#PassBaru">Ubah Password</a>
+          <?php if ($cek['id'] == null) : ?>
+            <a></a>
+          <?php else : ?>
+            <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#FotoBaru">Ubah Foto Halaman Web</a>
+          <?php endif ?>
+          <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#PassBaru">Ubah Password</a>
         </div>
       </div>
     </div>
