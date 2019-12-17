@@ -16,6 +16,7 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Login</h1>
                 </div>
+                <!-- Form Login -->
                 <form class="user" method="POST" action="<?= base_url('auth'); ?>">
                   <div class="form-group">
                     <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username" value="<?= set_value('username') ?>">

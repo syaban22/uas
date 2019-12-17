@@ -179,6 +179,8 @@ class auth extends CI_Controller
 
 	public function block()
 	{
-		$this->load->view('auth/block');
+		$leveluser = $this->session->userdata('level_id');
+		$data['level'] = $this->db->get_where('user_level', ['id' => $leveluser])->row_array();
+		$this->load->view('auth/block', $data);
 	}
 }
