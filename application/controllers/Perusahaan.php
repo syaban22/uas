@@ -14,6 +14,9 @@ class Perusahaan extends CI_Controller
 	{
 		$data['judul'] = 'Detail Perusahaan';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$data['perusahaan'] = $this->db->get_where('perusahaan', ['perusahaan' => $this->session->userdata('nama')])->row_array();
+
+		$data['cek'] = $this->db->get_where('profile_perusahaan', ['id_perusahaan' => $data['perusahaan']['id']])->row_array();
 
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
@@ -110,6 +113,43 @@ class Perusahaan extends CI_Controller
 		$this->load->view('perusahaan/PerusahaanWeb', $data);
 		$this->load->view('template/footer_perusahaan');
 	}
+
+	public function UbahFoto($id)
+	{
+		$config['upload_path']          = './asset/img/perusahaan_pic/';
+		$config['allowed_types']        = 'jpg|jpeg|png';
+		$config['max_size']             = 5000;
+		$config['max_width']            = 0;
+		$config['max_height']           = 0;
+		$config['min_width']           = 0;
+		$config['min_height']           = 0;
+		$config['overwrite'] 			= TRUE;
+		//$config['file_ext_tolower'] 	= TRUE;
+
+
+		$this->upload->initialize($config);
+
+		$this->upload->do_upload('UbahFoto');
+		$gbr = $this->upload->data();
+		$file = $gbr['file_name'];
+
+		$data = [
+			'gambar' => $file,
+		];
+
+
+		if ($this->upload->do_upload('UbahFoto')) {
+			$this->db->where('id', $id);
+			$this->db->update('profile_perusahaan', $data);
+			$this->session->set_flashdata('pesan', 'Update Foto Berhasil');
+			redirect('perusahaan');
+		} else {
+			//echo $this->upload->display_errors();
+			$this->session->set_flashdata('pesan', 'Format Foto Salah');
+			redirect('perusahaan');
+		}
+	}
+
 
 	public function posisi()
 	{

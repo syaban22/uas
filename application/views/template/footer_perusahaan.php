@@ -43,6 +43,11 @@
 <!-- Bootstrap core JavaScript-->
 <!-- <script src="<?= base_url('asset/'); ?>vendor/jquery/jquery.min.js"></script> -->
 
+<!-- Core plugin JavaScript-->
+<!-- <script src="<?= base_url('asset/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script> -->
+<script src="<?= base_url('asset/'); ?>js/sweet/sweetalert2.all.min.js"></script>
+<script src="<?= base_url('asset/'); ?>js/jsscript.js"></script>
+
 <script src="<?= base_url('asset/'); ?>js/perusahaan_js/jquery.min.js"></script>
 <script src="<?= base_url('asset/'); ?>js/perusahaan_js/jquery-migrate-3.0.1.min.js"></script>
 <script src="<?= base_url('asset/'); ?>js/perusahaan_js/bootstrap.min.js"></script>
