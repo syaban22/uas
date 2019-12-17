@@ -78,17 +78,16 @@
 							<div class="input-group">
 								<select name="posisi" id="posisi" class="input--style-6">
 									<?php foreach ($posisi as $p) {
-																									if (isset($posisi_id)) {
-																										if ($posisi_id == $p['id']) {
-																											echo "<option value='$p[id]' selected>$p[posisi]</option>";
-																										}
-																									} else {
-																										if ($this->input->get('job') == $p['id']) {
-																											echo "<option value='$p[id]' selected>$p[posisi]</option>";
-																										}
-																									}
-																								}
-
+											if (isset($posisi_id)) {
+												if ($posisi_id == $p['id']) {
+													echo "<option value='$p[id]' selected>$p[posisi]</option>";
+												}
+											} else {
+												if ($this->input->get('job') == $p['id']) {
+													echo "<option value='$p[id]' selected>$p[posisi]</option>";
+												}
+											}
+										}
 									?>
 								</select>
 							</div>
