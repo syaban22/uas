@@ -434,4 +434,49 @@ class Perusahaan extends CI_Controller
 		$this->session->set_flashdata('pesan', 'Aksi berhasil dibatalkan');
 		redirect('perusahaan/getPelamar');
 	}
+
+	public function changePassword()
+	{
+		$data['judul'] = 'Detail Perusahaan';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$data['perusahaan'] = $this->db->get_where('perusahaan', ['perusahaan' => $this->session->userdata('nama')])->row_array();
+
+		$data['cek'] = $this->db->get_where('profile_perusahaan', ['id_perusahaan' => $data['perusahaan']['id']])->row_array();
+
+		$this->form_validation->set_rules('curpass', 'Password Lama', 'required|trim');
+		$this->form_validation->set_rules('newpass', 'Password Baru', 'required|trim|min_length[8]|matches[conpass]');
+		$this->form_validation->set_rules('conpass', 'Konfirmasi Password', 'required|trim|min_length[8]|matches[newpass]');
+
+		if ($this->form_validation->run() == false) {
+			$this->session->set_flashdata('mt', '<div class="alert alert-danger" role="alert">Update Password Gagal, harap periksa kembali.</div>');
+			$this->load->view('template/header', $data);
+			$this->load->view('template/sidebar', $data);
+			$this->load->view('template/topbar', $data);
+			$this->load->view('perusahaan/index', $data);
+			$this->load->view('template/footer');
+		} else {
+			$curpass = $this->input->post('curpass');
+			$newpass = $this->input->post('newpass');
+			if (!password_verify($curpass, $data['user']['password'])) {
+				$this->session->set_flashdata('ms', '<div class="alert-danger" role="alert">Password Lama Salah!</div>');
+				$this->session->set_flashdata('pesan', 'Gagal pass');
+				redirect('perusahaan');
+			} else {
+				if ($curpass == $newpass) {
+					$this->session->set_flashdata('msg', '<div class="alert-danger" role="alert">Password Baru tidak boleh sama dengan Password Lama!</div>');
+					$this->session->set_flashdata('pesan', 'Gagal pass');
+					redirect('perusahaan');
+				} else {
+					$pass_hash = password_hash($newpass, PASSWORD_DEFAULT);
+
+					$this->db->set('password', $pass_hash);
+					$this->db->where('nama', $this->session->userdata('nama'));
+					$this->db->update('user');
+
+					$this->session->set_flashdata('pesan', 'Ubah Password Berhasil');
+					redirect('perusahaan');
+				}
+			}
+		}
+	}
 }

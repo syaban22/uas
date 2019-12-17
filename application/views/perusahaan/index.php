@@ -1,6 +1,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
   <div class="flash-data" data-flashdata="<?= $this->session->flashdata('pesan'); ?>"></div>
+  <?= $this->session->flashdata('mt'); ?>
   <!-- Page Heading -->
   <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
 
@@ -66,6 +67,56 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal Password-->
+  <div class="modal fade" id="PassBaru" tabindex=" -1" role="dialog" aria-labelledby="PassBaru" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="PassBaru">Ubah Password</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <form action="<?= base_url('perusahaan/changePassword/') . $user['id']; ?>" method="POST">
+          <div class="modal-body">
+            <div class="form-group">
+              <div class="form-group">
+                <label for="curpass">Masukkan Password Lama</label>
+                <div class="inputWithIcon">
+                  <input type="password" class="form-control" id="curpass" name="curpass" placeholder="Masukan Password Lama" autocomplete="off">
+                  <i class=" fas fa-fw fa-unlock-alt" aria-hidden="true"></i> </div>
+                <?= form_error('curpass', '<div class="alert-danger" role="alert">', '</div>'); ?>
+                <?= $this->session->flashdata('ms'); ?>
+              </div>
+              <div class="form-group">
+                <label for="newpass">Masukkan Password Baru</label>
+                <div class="inputWithIcon">
+                  <input type="password" class="form-control" id="newpass" name="newpass" placeholder="Masukan Password Baru" autocomplete="off">
+                  <i class=" fas fa-fw fa-lock" aria-hidden="true"></i> </div>
+                <?= form_error('newpass', '<div class="alert-danger" role="alert">', '</div>'); ?>
+                <?= $this->session->flashdata('msg'); ?>
+              </div>
+              <div class="form-group">
+                <label for="conpass1">Ulangi Password Baru</label>
+                <div class="inputWithIcon">
+                  <input type="password" class="form-control" id="conass" name="conpass" placeholder="Masukan Lagi" autocomplete="off">
+                  <i class=" fas fa-fw fa-lock" aria-hidden="true"></i> </div>
+                <?= form_error('conpass', '<div class="alert-danger" role="alert">', '</div>'); ?>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Ubah Password</button>
+            </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 <!-- /.container-fluid -->
