@@ -24,7 +24,7 @@ class Perusahaan extends CI_Controller
 
 	public function EditProfile()
 	{
-		$data['judul'] = 'Edit Profile Perusahaan';
+		$data['judul'] = 'Edit Profile';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 		$data['perusahaan'] = $this->db->get_where('perusahaan', ['perusahaan' => $this->session->userdata('nama')])->row_array();
 
@@ -46,7 +46,7 @@ class Perusahaan extends CI_Controller
 				'id_perusahaan' => $data['perusahaan']['id'],
 				'visi' => $this->input->post('visi'),
 				'misi' => $this->input->post('misi'),
-				'gambar' => "bg_1.jpg",
+				'gambar' => "bg_3.jpg",
 				'quotes' => $this->input->post('quotes'),
 				'about' => $this->input->post('about')
 			];
@@ -55,6 +55,60 @@ class Perusahaan extends CI_Controller
 			$this->session->set_flashdata('pesan', 'berhasil dikirim');
 			redirect('perusahaan');
 		}
+	}
+
+	public function UpdateProfile()
+	{
+		$data['judul'] = 'Update Profile Perusahaan';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+		$data['perusahaan'] = $this->db->get_where('perusahaan', ['perusahaan' => $this->session->userdata('nama')])->row_array();
+
+		$data['cek'] = $this->db->get_where('profile_perusahaan', ['id_perusahaan' => $data['perusahaan']['id']])->row_array();
+		$id = $data['cek']['id'];
+
+		$this->form_validation->set_rules('visi', 'Visi', 'required');
+		$this->form_validation->set_rules('misi', 'Misi', 'required');
+		$this->form_validation->set_rules('quotes', 'Quotes', 'required');
+		$this->form_validation->set_rules('about', 'About', 'required');
+
+		if ($this->form_validation->run() == false) {
+			$this->load->view('template/header_Pekerjaan', $data);
+			// $this->load->view('template/sidebar', $data);
+			$this->load->view('template/topbar_perusahaan', $data);
+			$this->load->view('perusahaan/Profile_Perusahaan', $data);
+			$this->load->view('template/footer_perusahaan');
+		} else {
+			$data = [
+				'id_perusahaan' => $data['perusahaan']['id'],
+				'visi' => $this->input->post('visi'),
+				'misi' => $this->input->post('misi'),
+				// 'gambar' => "bg_1.jpg",
+				'quotes' => $this->input->post('quotes'),
+				'about' => $this->input->post('about')
+			];
+
+			$this->db->where('id', $id);
+			$this->db->update('profile_perusahaan', $data);
+
+			$this->session->set_flashdata('pesan', 'berhasil dikirim');
+			redirect('perusahaan');
+		}
+	}
+
+	public function PreView()
+	{
+		$data['judul'] = 'Detail Perusahaan';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+
+		$data['perusahaan'] = $this->db->get_where('perusahaan', ['perusahaan' => $this->session->userdata('nama')])->row_array();
+
+		$data['detail'] = $this->db->get_where('profile_perusahaan', ['id_perusahaan' => $data['perusahaan']['id']])->row_array();
+
+		$this->load->view('template/header_perusahaan', $data);
+		// $this->load->view('template/sidebar', $data);
+		$this->load->view('template/topbar_perusahaan', $data);
+		$this->load->view('perusahaan/PerusahaanWeb', $data);
+		$this->load->view('template/footer_perusahaan');
 	}
 
 	public function posisi()
