@@ -82,7 +82,7 @@
                                 <li><?= $p['perusahaan']; ?></li>
                             <?php endforeach ?>
                         </ul>
-                        <!-- <p><a href="#" class="btn btn-primary  py-2 px-4">Apply Job</a></p> -->
+                        <p><a href="<?= base_url('user/perusahaan'); ?>" class="btn btn-primary  py-2 px-4">Lihat Detail Perusahaan</a></p>
                     </div>
                 </div>
             </div>

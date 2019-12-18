@@ -14,8 +14,9 @@
         <div class="card-body">
           <h5 class="card-title"><?= $user['nama']; ?></h5>
           <p class="card-text">Pelamar kerja</p>
+          <p class="card-text"><small class="text-muted">Email : <?= $user['email']; ?></small></p>
           <p class="card-text"><small class="text-muted">Member sejak <?= date('d F Y', $user['tgl_buat']); ?></small></p>
-          <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#FotoBaru">Ubah Foto Profil</a> <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#PassBaru">Ubah Password</a>
+          <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#FotoBaru"><i class="fa fa-fw fa-user"></i> Ubah Foto</a> <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#PassBaru"><i class="fa fa-fw fa-key"></i> Ubah Password</a>
         </div>
       </div>
     </div>

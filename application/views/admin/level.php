@@ -23,7 +23,7 @@
 		<div class="col-lg-6">
 			<?= form_error('level', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
-			<a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#levelBaru"><i class="fas fa-fw fa-plus-square"></i> Tambah Level Baru</a>
+			<a href="" class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#levelBaru"><i class="fas fa-fw fa-plus-square"></i> Tambah Level Baru</a>
 
 			<table class="table table-hover">
 				<thead>
@@ -119,9 +119,9 @@
 
 <!-- 
 <?php foreach ($level as $l) :
-	$id = $l['id'];
-	$nama_level = $l['level'];
-	?>
+																										$id = $l['id'];
+																										$nama_level = $l['level'];
+?>
 	Modal Hapus Pengguna
 	<div class="modal fade" id="ModalHapus<?= $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<?php var_dump($id); ?>

@@ -8,11 +8,11 @@
             <div class="col-md">
                 <h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <nav aria-label="breadcrumb">
                     <p>
-                        <span class="posisi"><i class="fa fa-dashboard fa-md"></i> &nbsp<b>Dashboard</b>
-                        </span>
+                        <span class="posisi"><i class="fa fa-dashboard fa-md"></i> &nbsp<b>Menu Perusahaan</b>&nbsp<i class="fa fa-angle-right fa-md"></i>&nbsp<span><b>List Pelamar</b>
+                            </span>
                     </p>
                 </nav>
             </div>
@@ -30,7 +30,7 @@
                 ?>
 
                 <form class="form-inline" action="<?= base_url('perusahaan/getPelamar'); ?>" method="post">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search Name" name="keyword" autocomplete="off" autofocus>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Cari Nama" name="keyword" autocomplete="off" autofocus>
                     <input type="submit" class="btn btn-primary" name="submit" value="Search">
                 </form>
             </nav>

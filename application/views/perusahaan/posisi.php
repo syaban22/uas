@@ -7,6 +7,14 @@
 			<div class="col-md">
 				<h1 class="h3 mb-4 text-gray-800"><?= $judul; ?></h1>
 			</div>
+			<div class="col-md-2">
+				<nav aria-label="breadcrumb">
+					<p>
+						<span class="posisi"><i class="fa fa-dashboard fa-md"></i> &nbsp<b>Menu Perusahaan</b>&nbsp<i class="fa fa-angle-right fa-md"></i>&nbsp<span><b>Posisi</b>
+							</span>
+					</p>
+				</nav>
+			</div>
 		</div>
 	</div>
 
@@ -32,8 +40,8 @@
 							<td><?= $p['posisi']; ?></td>
 							<td><?= $p['ket_gaji']; ?></td>
 							<td>
-								<a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#posisiEdit<?= $p['id'] ?>"><i class="fa fa-fw fa-edit"></i>Edit</a>
-								<a href="<?= base_url('perusahaan/deletePosisi/' . $p['id']) ?>" data-nama="<?= $p['posisi']; ?>" class="btn btn-danger btn-sm deletePo"><i class="fa fa-fw fa-trash"></i>Delete</a>
+								<a href="" class="btn btn-success btn-sm" data-toggle="modal" data-target="#posisiEdit<?= $p['id'] ?>"><i class="fa fa-fw fa-edit"></i> Edit</a>
+								<a href="<?= base_url('perusahaan/deletePosisi/' . $p['id']) ?>" data-nama="<?= $p['posisi']; ?>" class="btn btn-danger btn-sm deletePo"><i class="fa fa-fw fa-trash"></i> Delete</a>
 							</td>
 						</tr>
 						<?php $no++; ?>
@@ -109,13 +117,13 @@
 
 							<select name="gajiU" id="gajiU" class="form-control">
 								<?php foreach ($gajii as $ga) {
-										if ($p['id_gaji'] == $ga['id']) {
-											echo "<option value='$ga[id]' selected>$ga[ket_gaji]</option>";
-										} else {
-											echo "<option value='$ga[id]'>$ga[ket_gaji]></option>";
-										}
-									}
-									?>
+																															if ($p['id_gaji'] == $ga['id']) {
+																																echo "<option value='$ga[id]' selected>$ga[ket_gaji]</option>";
+																															} else {
+																																echo "<option value='$ga[id]'>$ga[ket_gaji]></option>";
+																															}
+																														}
+								?>
 
 							</select>
 						</div>

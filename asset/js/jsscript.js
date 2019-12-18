@@ -342,6 +342,7 @@ if (flashdata == 'Menu gagal dihapus') {
 		position: 'center',
 		icon: 'error',
 		title: flashdata,
+		text: 'Non-Aktifkan Menu dari setiap User!',
 		showConfirmButton: false,
 		timer: 2000
 	})
@@ -533,6 +534,26 @@ if (flashdata == 'kosong') {
 }
 
 if (flashdata == 'Ubah Password Berhasil') {
+	Swal.fire({
+		position: 'center',
+		icon: 'success',
+		title: flashdata,
+		showConfirmButton: false,
+		timer: 2500
+	})
+}
+
+if (flashdata == 'Update Profil Perusahaan Berhasil') {
+	Swal.fire({
+		position: 'center',
+		icon: 'success',
+		title: flashdata,
+		showConfirmButton: false,
+		timer: 2500
+	})
+}
+
+if (flashdata == 'Detail Profil Perusahaan Berhasil Ditambahkan') {
 	Swal.fire({
 		position: 'center',
 		icon: 'success',

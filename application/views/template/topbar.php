@@ -1,3 +1,11 @@
+<?php
+$level_id = $this->session->userdata('level_id');
+$queryLevel = "SELECT level
+                FROM user_level
+                WHERE user_level.id = $level_id
+                ";
+$hasL = $this->db->query($queryLevel)->result_array();
+?>
 <!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column">
 
@@ -25,15 +33,17 @@
           </a>
           <!-- Dropdown - User Information -->
           <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#">
+            <?php foreach ($hasL as $hL) : ?>
+              <a class="dropdown-item" href="<?= base_url($hL['level']); ?>">
+              <?php endforeach; ?>
               <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-              Profil Saya
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item out" href="<?= base_url('auth/logout'); ?>">
-              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-              Keluar
-            </a>
+              Beranda
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item out" href="<?= base_url('auth/logout'); ?>">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                Keluar
+              </a>
           </div>
         </li>
 

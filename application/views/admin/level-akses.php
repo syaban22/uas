@@ -25,7 +25,9 @@
 		<!-- <?php if ($this->session->flashdata('pesan')) : ?>
 		<?php endif; ?> -->
 		<div class="col-lg-6">
-			<h5>Level : <?= $level['level']; ?></h5>
+			<div class="alert alert-success" role="alert">
+				Level : <?= $level['level']; ?>
+			</div>
 
 			<table class="table table-hover">
 				<thead>

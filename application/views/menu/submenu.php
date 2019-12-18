@@ -28,7 +28,7 @@
 				</div>
 			<?php endif; ?>
 
-			<a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#submenuBaru"><i class="fas fa-fw fa-plus-square"></i> Tambah SubMenu Baru</a>
+			<a href="" class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#submenuBaru"><i class="fas fa-fw fa-plus-square"></i> Tambah SubMenu Baru</a>
 
 			<table class="table table-hover">
 				<thead>
@@ -140,13 +140,13 @@
 						<div class="form-group">
 							<select name="menu_idU" id="menu_idU" class="form-control">
 								<?php foreach ($menu as $m) {
-										if ($sm['menu_id'] == $m['id']) {
-											echo "<option value='$m[id]' selected>$m[menu]</option>";
-										} else {
-											echo "<option value='$m[id]'>$m[menu]</option>";
-										}
-									}
-									?>
+																																		if ($sm['menu_id'] == $m['id']) {
+																																			echo "<option value='$m[id]' selected>$m[menu]</option>";
+																																		} else {
+																																			echo "<option value='$m[id]'>$m[menu]</option>";
+																																		}
+																																	}
+								?>
 							</select>
 						</div>
 						<div class="form-group">

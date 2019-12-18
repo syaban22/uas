@@ -23,7 +23,7 @@
 		<div class="col-lg">
 			<?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
-			<a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#perusahaanBaru"><i class="fas fa-fw fa-plus-square"></i> Tambah Perusahaan Baru</a>
+			<a href="" class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#perusahaanBaru"><i class="fas fa-fw fa-plus-square"></i> Tambah Perusahaan Baru</a>
 
 			<table class="table table-hover">
 				<thead>
