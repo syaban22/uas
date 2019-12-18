@@ -22,11 +22,11 @@
 		<div class="col-md">
 			<nav class="navbar navbar-light bg-light">
 				<?php
-													if ($keyword == null) {
-														echo '<a class="navbar-brand">Total : ' . $total_rows . '</a>';
-													} else {
-														echo '<a class="navbar-brand">Hasil Pencarian : ' . $total_rows . '</a>';
-													}
+					if ($keyword == null) {
+						echo '<a class="navbar-brand">Total : ' . $total_rows . '</a>';
+					} else {
+						echo '<a class="navbar-brand">Hasil Pencarian : ' . $total_rows . '</a>';
+					}
 				?>
 
 				<form class="form-inline" action="<?= base_url('admin'); ?>" method="post">
@@ -158,13 +158,13 @@
 							<select name="perusahaan" id="perusahaan" class="form-control">
 
 								<?php foreach ($perusahaan as $pe) {
-																												if ($p['perusahaan_id'] == $pe['id']) {
-																													echo "<option value='$pe[id]' selected>$pe[perusahaan]</option>";
-																												} else {
-																													echo "<option value='$pe[id]'>$pe[perusahaan]</option>";
-																												}
-																											}
-								?>
+									if ($p['perusahaan_id'] == $pe['id']) {
+										echo "<option value='$pe[id]' selected>$pe[perusahaan]</option>";
+									} else {
+										echo "<option value='$pe[id]'>$pe[perusahaan]</option>";
+									}
+								}
+?>
 							</select>
 						</div>
 
@@ -172,12 +172,12 @@
 							<label for="posisi">Posisi</label>
 							<select name="posisi" id="posisi" class="form-control">
 								<?php foreach ($posisi as $po) {
-																												if ($p['posisi_id'] == $po['id']) {
-																													echo "<option value='$po[id]' selected>$po[posisi]</option>";
-																												} else {
-																													echo "<option value='$po[id]'>$po[posisi]</option>";
-																												}
-																											}
+									if ($p['posisi_id'] == $po['id']) {
+										echo "<option value='$po[id]' selected>$po[posisi]</option>";
+									} else {
+										echo "<option value='$po[id]'>$po[posisi]</option>";
+									}
+								}
 								?>
 							</select>
 						</div>
@@ -194,8 +194,8 @@
 <?php endforeach; ?>
 
 <!-- <?php foreach ($pelamar as $i) :
-																											$id = $i['id'];
-																											$nama = $i['nama'];
+			$id = $i['id'];
+			$nama = $i['nama'];
 		?>
 	Modal Hapus Pengguna
 	<div class="modal fade" id="ModalHapus<?= $id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

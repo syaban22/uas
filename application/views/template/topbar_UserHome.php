@@ -28,15 +28,15 @@
         </button> -->
         <!-- Query menu -->
         <?php
-                                                                                      $level_id = $this->session->userdata('level_id');
-                                                                                      $queryMenu = "SELECT user_menu.id, menu
-                      FROM user_menu JOIN user_access_menu
-                      ON user_menu.id = user_access_menu.menu_id
-                      WHERE user_access_menu.role_id = $level_id
-                      ORDER BY user_access_menu.menu_id ASC
-                      ";
+          $level_id = $this->session->userdata('level_id');
+          $queryMenu = "SELECT user_menu.id, menu
+          FROM user_menu JOIN user_access_menu
+          ON user_menu.id = user_access_menu.menu_id
+          WHERE user_access_menu.role_id = $level_id
+          ORDER BY user_access_menu.menu_id ASC
+          ";
 
-                                                                                      $menu = $this->db->query($queryMenu)->result_array();
+          $menu = $this->db->query($queryMenu)->result_array();
         ?>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">

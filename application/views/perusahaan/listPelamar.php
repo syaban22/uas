@@ -22,11 +22,11 @@
         <div class="col-md">
             <nav class="navbar navbar-light bg-light">
                 <?php
-                                                    if ($keyword == null) {
-                                                        echo '<a class="navbar-brand">Total : ' . $total_rows . '</a>';
-                                                    } else {
-                                                        echo '<a class="navbar-brand">Hasil Pencarian : ' . $total_rows . '</a>';
-                                                    }
+                    if ($keyword == null) {
+                        echo '<a class="navbar-brand">Total : ' . $total_rows . '</a>';
+                    } else {
+                        echo '<a class="navbar-brand">Hasil Pencarian : ' . $total_rows . '</a>';
+                    }
                 ?>
 
                 <form class="form-inline" action="<?= base_url('perusahaan/getPelamar'); ?>" method="post">
