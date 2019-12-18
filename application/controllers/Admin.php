@@ -232,4 +232,67 @@ class Admin extends CI_Controller
 		$name = $file;
 		force_download($name, $data);
 	}
+
+	function getUserlist()
+	{
+		$data['judul'] = 'User Lists';
+		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+
+		$this->load->model('user_model', 'userM');
+		$data['level'] = $this->db->get('user_level')->result_array();
+		//$data['user'] = $this->db->from('user');
+
+		if ($this->input->post('submit')) {
+			$data['keyword'] = $this->input->post('keyword');
+			$this->session->set_userdata('keyword', $data['keyword']);
+		} else {
+			$data['keyword'] = $this->session->userdata('keyword');
+		}
+
+		$this->db->like('username', $data['keyword']);
+		$this->db->from('user');
+		$config['total_rows'] = $this->db->count_all_results();
+		$data['total_rows'] = $config['total_rows'];
+		$config['base_url'] = 'http://localhost/uas1/admin/getUserlist';
+
+		$config['per_page'] = 5;
+
+		$this->pagination->initialize($config);
+
+		if ($this->uri->segment(3) !== null) {
+			$data['start'] = $this->uri->segment(3);
+		} else {
+			$data['start'] = 0;
+		}
+
+		$data['users'] = $this->userM->getUsers($config['per_page'], $data['start'], $data['keyword']);
+
+		$this->load->view('template/header', $data);
+		$this->load->view('template/sidebar', $data);
+		$this->load->view('template/topbar', $data);
+		$this->load->view('admin/ListUser', $data);
+		$this->load->view('template/footer');
+	}
+
+	public function deleteU($id)
+	{
+		$this->db->delete('user', array('id' => $id));
+		$this->session->set_flashdata('pesan', 'User berhasil dihapus');
+		redirect('admin/getUserlist');
+	}
+
+	public function updateU($id)
+	{
+		var_dump($this->input->post('level'));
+		$data = array(
+			'nama' => $this->input->post('nama'),
+			'username' => $this->input->post('username'),
+			'level_id' => $this->input->post('level'),
+		);
+
+		$this->db->where('id', $id);
+		$this->db->update('user', $data);
+		$this->session->set_flashdata('pesan', 'Edit Data User berhasil');
+		redirect('admin/getUserlist');
+	}
 }
