@@ -562,3 +562,24 @@ if (flashdata == 'Detail Profil Perusahaan Berhasil Ditambahkan') {
 		timer: 2500
 	})
 }
+
+// CRUD user (admin)
+if (flashdata == 'User berhasil dihapus') {
+	Swal.fire({
+		position: 'center',
+		icon: 'success',
+		title: flashdata,
+		showConfirmButton: false,
+		timer: 2000
+	})
+}
+
+if (flashdata == 'Edit Data User berhasil') {
+	Swal.fire({
+		position: 'center',
+		icon: 'success',
+		title: flashdata,
+		showConfirmButton: false,
+		timer: 2000
+	})
+}
