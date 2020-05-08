@@ -101,7 +101,7 @@
 <!-- End of Main Content -->
 
 <?php foreach ($users as $u) :
-    ?>
+?>
 
     <!-- Modal Edit -->
     <div class="modal fade" id="pelamarEdit<?= $u['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="pelamarEditLabel" aria-hidden="true">
@@ -130,13 +130,13 @@
                             <select name="level" id="level" class="form-control">
 
                                 <?php foreach ($level as $l) {
-                                        if ($p['level_id'] == $l['id']) {
-                                            echo "<option value='$l[id]' selected>$l[level]</option>";
-                                        } else {
-                                            echo "<option value='$l[id]'>$l[level]</option>";
-                                        }
+                                    if ($p['level_id'] == $l['id']) {
+                                        echo "<option value='$l[id]' selected>$l[level]</option>";
+                                    } else {
+                                        echo "<option value='$l[id]'>$l[level]</option>";
                                     }
-                                    ?>
+                                }
+                                ?>
 
                             </select>
                         </div>

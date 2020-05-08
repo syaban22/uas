@@ -19,12 +19,12 @@
   <!-- Custom styles for this template-->
   <link href="<?= base_url('asset/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
   <!-- <link href="<?= base_url('asset/'); ?>css/css.css" rel="stylesheet"> -->
-  <!-- <link href="<?= base_url('asset/'); ?>css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="<?= base_url('asset/'); ?>css/bootstrap.min.css" rel="stylesheet">
   <link href="<?= base_url('asset/'); ?>css/search.css" rel="stylesheet">
   <link href="<?= base_url('asset/'); ?>plugin/toast/jquery.toast.min.css" rel="stylesheet">
 
   <link href="<?= base_url('asset/'); ?>css/css_public/font-awesome/font-awesome.css" rel="stylesheet">
-  <link href="<?= base_url('asset/'); ?>css/css_publkic/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="<?= base_url('asset/'); ?>css/css_public/bootstrap.min.css" rel="stylesheet"> -->
   <link href="<?= base_url('asset/'); ?>css/css_public/font/flaticon.css" rel="stylesheet">
   <link href="<?= base_url('asset/'); ?>css/css_public/aos.css" rel="stylesheet">
 

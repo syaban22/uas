@@ -6,7 +6,7 @@
 				<?php foreach ($posisi as $p) {
 					if (isset($posisi_id)) {
 						if ($posisi_id == $p['id']) {
-							echo "<h2 class='title'>Apply job for $p[posisi]</h2>";
+							echo "<h2 class='title'>Apply job for $p[posisi] - $per</h2>";
 						}
 					} else {
 						if ($this->input->get('job') == $p['id']) {
@@ -30,7 +30,8 @@
 						<div class="name">Jenis Kelamin</div>
 						<div class="value">
 							<div class="input-group">
-								<select class="input--style-6" name="jenkel" id="jenkel">
+								<select class="input--style-6" name="jenkel" id="jenkel" required>
+									<option value="">- Pilih Jenis Kelamin -</option>
 									<?php foreach ($jenis as $j) : ?>
 										<option value="<?= $j['id']; ?>"><?= $j['jenis']; ?></option>
 									<?php endforeach; ?>
@@ -48,7 +49,7 @@
 					<div class="form-row">
 						<div class="name">No Telepon</div>
 						<div class="value">
-							<input class="input--style-6" type="text" name="telepon" value="<?= set_value('telepon'); ?>">
+							<input class="input--style-6" type="number" name="telepon" value="<?= set_value('telepon'); ?>">
 							<?= form_error('telepon', '<div class="alert-danger mt-2" role="alert">', '</div>'); ?>
 						</div>
 					</div>
@@ -60,7 +61,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-row">
+					<!-- <div class="form-row">
 						<div class="name">Perusahaan</div>
 						<div class="value">
 							<div class="input-group">
@@ -71,6 +72,27 @@
 								</select>
 							</div>
 						</div>
+					</div> -->
+					<div class="form-row">
+						<div class="name">Perusahaan</div>
+						<div class="value">
+							<div class="input-group">
+								<select name="perusahaan" id="perusahaan" class="input--style-6">
+									<?php foreach ($perusahaan as $p) {
+										if (isset($perusahaan_id)) {
+											if ($perusahaan_id == $p['id']) {
+												echo "<option value='$p[id]' selected>$p[perusahaan]</option>";
+											}
+										} else {
+											if ($this->session->userdata('perusahaan') == $p['id']) {
+												echo "<option value='$p[id]' selected>$p[perusahaan]</option>";
+											}
+										}
+									}
+									?>
+								</select>
+							</div>
+						</div>
 					</div>
 					<div class="form-row">
 						<div class="name">Posisi</div>
@@ -78,16 +100,16 @@
 							<div class="input-group">
 								<select name="posisi" id="posisi" class="input--style-6">
 									<?php foreach ($posisi as $p) {
-											if (isset($posisi_id)) {
-												if ($posisi_id == $p['id']) {
-													echo "<option value='$p[id]' selected>$p[posisi]</option>";
-												}
-											} else {
-												if ($this->input->get('job') == $p['id']) {
-													echo "<option value='$p[id]' selected>$p[posisi]</option>";
-												}
+										if (isset($posisi_id)) {
+											if ($posisi_id == $p['id']) {
+												echo "<option value='$p[id]' selected>$p[posisi]</option>";
+											}
+										} else {
+											if ($this->input->get('job') == $p['id']) {
+												echo "<option value='$p[id]' selected>$p[posisi]</option>";
 											}
 										}
+									}
 									?>
 								</select>
 							</div>

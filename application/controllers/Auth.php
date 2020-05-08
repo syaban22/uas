@@ -63,8 +63,8 @@ class auth extends CI_Controller
 					redirect('perusahaan');
 				} else if ($user['level_id'] == 3) {
 					redirect('user');
-				} else if ($user['level_id'] == 4) {
-					redirect('publik');
+				} else if ($user['level_id'] == 8) {
+					redirect('test');
 				}
 			} else {
 				$this->session->set_flashdata('pesan', 'Password salah!');

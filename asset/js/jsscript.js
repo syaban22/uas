@@ -107,6 +107,16 @@ if (flashdata == 'User belum terdaftar!') {
 	})
 }
 
+if (flashdata == 'perhatikan') {
+	Swal.fire({
+		position: 'center',
+		icon: 'error',
+		title: 'Melamar pekerjaan gagal dikirimkan',
+		text: 'Silahkan isi form/upload dengan memperhatikan ketentuan yang telah ditetapkan',
+		showConfirmButton: true
+	})
+}
+
 // alert untuk CRUD Data pelamar
 if (flashdata == 'diubah') {
 	Swal.fire({

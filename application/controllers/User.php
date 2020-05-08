@@ -22,6 +22,7 @@ class User extends CI_Controller
 		$query = $this->db->get();
 		$data['stat'] = $query->row()->cek;
 
+
 		$this->load->view('template/header_UserHome', $data);
 		// $this->load->view('template/sidebar', $data);
 		$this->load->view('template/topbar_UserHome', $data);
@@ -40,6 +41,9 @@ class User extends CI_Controller
 		$query = $this->db->get();
 		$data['stat'] = $query->row()->cek;
 
+		$this->session->unset_userdata('kerja');
+		$this->session->unset_userdata('perusahaan');
+
 		$this->session->set_userdata('stat', $data['stat']);
 
 		$this->load->view('template/header', $data);
@@ -56,6 +60,8 @@ class User extends CI_Controller
 		$data['perusahaan'] = $this->db->get('perusahaan')->result_array();
 
 		$data['stat'] = $this->session->userdata('stat');
+
+		$this->session->set_userdata('kerja', $this->input->get('job'));
 
 		$this->load->model('Posisi_model', 'posisi');
 		$job = $this->input->get('job');
@@ -94,6 +100,7 @@ class User extends CI_Controller
 		$data['detail'] = $this->db->get_where('profile_perusahaan', ['id_perusahaan' => $this->input->get('perusahaan')])->row_array();
 		$data['nama'] = $this->db->get_where('perusahaan', ['id' => $this->input->get('perusahaan')])->row_array();
 
+		$this->session->set_userdata('perusahaan', $this->input->get('perusahaan'));
 
 		$this->load->view('template/header_perusahaan', $data);
 		// $this->load->view('template/sidebar', $data);
@@ -151,10 +158,38 @@ class User extends CI_Controller
 		$data['posisi'] = $this->db->get('posisi')->result_array();
 		$data['jenis'] = $this->db->get('jenkel')->result_array();
 
-		$this->form_validation->set_rules('nama', 'Nama', 'required');
-		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
-		$this->form_validation->set_rules('telepon', 'Telepon', 'required');
+		$data['perr'] = $this->db->get_where('perusahaan', ['id' => $this->session->userdata('perusahaan')])->row_array();
+		$data['per'] = $data['perr']['perusahaan'];
+
+		$this->form_validation->set_rules(
+			'nama',
+			'Nama',
+			'required|min_length[2]',
+			array(
+				'required' => 'Nama tidak boleh kosong',
+				'min_length' => 'Nama setidaknya lebih dari 1 karakter'
+			)
+		);
+		$this->form_validation->set_rules(
+			'alamat',
+			'Alamat',
+			'required|min_length[2]',
+			array(
+				'required' => 'Alamat tidak boleh kosong',
+				'min_length' => 'Alamat setidaknya lebih dari 1 karakter'
+			)
+		);
+		$this->form_validation->set_rules(
+			'telepon',
+			'Telepon',
+			'required|min_length[8]',
+			array(
+				'required' => 'No Telepon tidak boleh kosong',
+				'min_length' => 'Nomor telepon tidak valid'
+			)
+		);
 		$this->form_validation->set_rules('email', 'Email', 'required');
+		$this->form_validation->set_rules('jenkel', 'Jenkel', 'required');
 
 		$config['upload_path']          = './asset/files/ktp/';
 		$config['allowed_types']        = 'doc|docx|pdf';
@@ -168,8 +203,10 @@ class User extends CI_Controller
 				$data['error'] = $this->upload->display_errors();
 			} else {
 				$data['error'] = "Complete validation above and upload it again";
+				$this->session->set_flashdata('pesan', 'perhatikan');
 			}
-			$data['posisi_id'] = $this->input->post('posisi');
+			$data['posisi_id'] = $this->session->userdata('kerja');
+			$data['perusahaan_id'] = $this->session->userdata('perusahaan');
 			$this->load->view('template/header_Pekerjaan', $data);
 			// $this->load->view('template/sidebar', $data);
 			$this->load->view('template/topbar_UserHome', $data);
@@ -177,7 +214,10 @@ class User extends CI_Controller
 			$this->load->view('template/footer');
 		} else {
 			if (!$this->upload->do_upload('ktp')) {
+				$this->session->set_flashdata('pesan', 'perhatikan');
 				$data['error'] = $this->upload->display_errors();
+				$data['posisi_id'] = $this->session->userdata('kerja');
+				$data['perusahaan_id'] = $this->session->userdata('perusahaan');
 				$this->load->view('template/header_Pekerjaan', $data);
 				// $this->load->view('template/sidebar', $data);
 				$this->load->view('template/topbar', $data);
