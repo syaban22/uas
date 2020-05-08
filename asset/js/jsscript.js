@@ -128,6 +128,38 @@ if (flashdata == 'diubah') {
 	})
 }
 
+// alert untuk CRUD USER
+if (flashdata == '1 User baru berhasil ditambahkan') {
+	Swal.fire({
+		position: 'center',
+		icon: 'success',
+		title: flashdata,
+		showConfirmButton: false,
+		timer: 2000
+	})
+}
+
+// alert untuk CRUD USER
+if (flashdata == 'Username ini sudah terpakai') {
+	Swal.fire({
+		position: 'center',
+		icon: 'error',
+		title: flashdata,
+		showConfirmButton: true,
+	})
+}
+
+// alert untuk CRUD USER
+if (flashdata == 'Menambahkan User Baru gagal') {
+	Swal.fire({
+		position: 'center',
+		icon: 'error',
+		title: flashdata,
+		text: 'Harap periksa kembali kesalahan di dalam form',
+		showConfirmButton: true,
+	})
+}
+
 $('.deleteP').on('click', function (e) {
 	e.preventDefault();
 	const nama = $(this).data('nama');

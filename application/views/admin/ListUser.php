@@ -37,6 +37,8 @@
             </nav>
         </div>
     </div>
+    <a href="" class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#userBaru"><i class="fas fa-fw fa-plus-square"></i> Tambah User</a>
+
     <!-- <div class="col-md-2">
 		<select class="form-control" name="" id="perusahaan">
 			<option value="5">5</option>
@@ -151,3 +153,56 @@
     </div>
 
 <?php endforeach; ?>
+
+<!-- Modal Tambah User -->
+<div class="modal fade" id="userBaru" tabindex="-1" role="dialog" aria-labelledby="userBaruLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userBaruLabel">Tambah User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <form action="<?= base_url('admin/getUserlist'); ?>" method="POST" class="needs-validation" novalidate>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama" required>
+                        <?= form_error('nama', '<div class="alert-danger" role="alert">', '</div>'); ?>
+                        <div class="invalid-feedback">
+                            Masukan Nama User
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="email" id="email" placeholder="Email User" required>
+                        <?= form_error('email', '<div class="alert-danger" role="alert">', '</div>'); ?>
+                        <div class="invalid-feedback">
+                            Masukan Email Valid
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control cekkarakter1 req1" name="username" id="username" placeholder="Username Akun" required>
+                        <?= form_error('username', '<div class="alert-danger" role="alert">', '</div>'); ?>
+                        <div class="invalid-feedback">
+                            Masukan Username
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select name="level" id="level" class="form-control" required>
+                            <option>- Pilih Level -</option>
+                            <?php foreach ($level as $l) : ?>
+                                <option value="<?= $l['id']; ?>"><?= $l['level']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Tambah</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

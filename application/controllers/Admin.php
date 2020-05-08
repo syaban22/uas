@@ -235,7 +235,7 @@ class Admin extends CI_Controller
 
 	function getUserlist()
 	{
-		$data['judul'] = 'User Lists';
+		$data['judul'] = 'User Management';
 		$data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
 		$this->load->model('user_model', 'userM');
@@ -267,11 +267,40 @@ class Admin extends CI_Controller
 
 		$data['users'] = $this->userM->getUsers($config['per_page'], $data['start'], $data['keyword']);
 
-		$this->load->view('template/header', $data);
-		$this->load->view('template/sidebar', $data);
-		$this->load->view('template/topbar', $data);
-		$this->load->view('admin/ListUser', $data);
-		$this->load->view('template/footer');
+		$this->form_validation->set_rules('nama', 'nama', 'required|trim');
+		$this->form_validation->set_rules('username', 'username', 'required|trim|is_unique[user.username]', [
+			'is_unique' => 'Username ini sudah pernah registrasi!'
+		]);
+		$this->form_validation->set_rules('email', 'email', 'required|trim|valid_email|is_unique[user.email]', [
+			'is_unique' => 'Email ini sudah pernah registrasi!'
+		]);
+		$this->form_validation->set_rules('level', 'level', 'required');
+
+		if ($this->form_validation->run() == false) {
+			$this->load->view('template/header', $data);
+			$this->load->view('template/sidebar', $data);
+			$this->load->view('template/topbar', $data);
+			$this->load->view('admin/ListUser', $data);
+			$this->load->view('template/footer');
+		} else {
+			if ($this->db->get_where('user', ['username' => $this->input->post('username')])->row_array() == null) {
+				$data = [
+					'nama' => htmlspecialchars($this->input->post('nama')),
+					'email' => htmlspecialchars($this->input->post('email')),
+					'gambar' => 'default.jpg',
+					'username' => htmlspecialchars($this->input->post('username')),
+					'password' => password_hash(123456789, PASSWORD_DEFAULT),
+					'level_id' => $this->input->post('level'),
+					'tgl_buat' => time()
+				];
+				$this->db->insert('user', $data);
+				$this->session->set_flashdata('pesan', '1 User baru berhasil ditambahkan');
+			} else {
+				// gagal menambahkan, username sudah terpakai
+				$this->session->set_flashdata('pesan', 'Username ini sudah terpakai');
+			}
+			redirect('admin/getUserlist');
+		}
 	}
 
 	public function deleteU($id)
