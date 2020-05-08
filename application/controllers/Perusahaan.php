@@ -444,11 +444,28 @@ class Perusahaan extends CI_Controller
 		$data['cek'] = $this->db->get_where('profile_perusahaan', ['id_perusahaan' => $data['perusahaan']['id']])->row_array();
 
 		$this->form_validation->set_rules('curpass', 'Password Lama', 'required|trim');
-		$this->form_validation->set_rules('newpass', 'Password Baru', 'required|trim|min_length[8]|matches[conpass]');
-		$this->form_validation->set_rules('conpass', 'Konfirmasi Password', 'required|trim|min_length[8]|matches[newpass]');
+		$this->form_validation->set_rules(
+			'newpass',
+			'Password Baru',
+			'required|trim|min_length[8]|matches[conpass]',
+			array(
+				'matches' => 'Password Baru dan Konfirmasi Password Baru tidak sama',
+				'min_length' => 'Password setidaknya 8 karakter'
+			)
+		);
+		$this->form_validation->set_rules(
+			'conpass',
+			'Konfirmasi Password',
+			'required|trim|min_length[8]|matches[newpass]',
+			array(
+				'matches' => 'Password Baru dan Konfirmasi Password Baru tidak sama',
+				'min_length' => 'Konfirmasi Password dan Password Baru harus memiliki jumlah karakter yang sama'
+			)
+		);
 
 		if ($this->form_validation->run() == false) {
-			$this->session->set_flashdata('mt', '<div class="alert alert-danger" role="alert">Update Password Gagal, harap periksa kembali.</div>');
+			// $this->session->set_flashdata('mt', '<div class="alert alert-danger" role="alert">Update Password Gagal, harap periksa kembali.</div>');
+			$this->session->set_flashdata('pesan', 'Gagal pass');
 			$this->load->view('template/header', $data);
 			$this->load->view('template/sidebar', $data);
 			$this->load->view('template/topbar', $data);
